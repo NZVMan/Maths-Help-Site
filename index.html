@@ -1,1 +1,357 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Revision Hub</title>
+    <!-- Load Tailwind CSS for beautiful styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load MathJax for rendering mathematical formulas -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <style>
+        /* Custom styles for smooth transitions */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
 
+    <!-- Navigation Bar -->
+    <nav class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tight cursor-pointer flex items-center gap-2" onclick="goHome()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                Maths Revision Hub
+            </div>
+            <div id="breadcrumbs" class="hidden sm:flex text-sm text-indigo-200 gap-2 items-center">
+                <!-- Breadcrumbs injected by JS -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Breadcrumbs -->
+    <div id="mobile-breadcrumbs" class="sm:hidden bg-indigo-50 px-4 py-3 text-sm text-indigo-800 font-medium shadow-inner flex flex-wrap gap-1 items-center">
+        <!-- Mobile Breadcrumbs injected by JS -->
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="app-content" class="flex-grow max-w-6xl mx-auto w-full px-4 py-8 fade-in">
+        <!-- Dynamic content will be injected here by Javascript -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center text-sm">
+        <p>© 2026 Maths Revision Hub. Created for NZ & CIE Curricula.</p>
+    </footer>
+
+    <!-- Interactive Javascript Logic -->
+    <script>
+        // --- 1. THE DATABASE (Curriculum Content) ---
+        // This object holds all your courses, topics, subtopics, and actual math content.
+        // You can easily expand this by copy-pasting and changing the text!
+        const curriculumData = {
+            "NCEA Level 1": {
+                "Algebra (MCAT)": {
+                    "Expanding and Factorising": "<h3>Expanding Brackets</h3><p>To expand brackets, multiply the term outside by every term inside.</p><p>$x(x + 4) = x^2 + 4x$</p><br><h3>Factorising Quadratics</h3><p>Find two numbers that multiply to the constant and add to the middle coefficient.</p><p>$x^2 + 5x + 6 = (x + 2)(x + 3)$</p>",
+                    "Solving Equations": "<p>When solving equations, whatever you do to one side, you must do to the other.</p><p>Solve for x: $3x + 5 = 20$</p><p>$3x = 15$</p><p>$x = 5$</p>"
+                },
+                "Tables, Equations & Graphs": {
+                    "Linear Graphs": "<p>The equation of a straight line is $y = mx + c$, where $m$ is the gradient and $c$ is the y-intercept.</p>",
+                    "Parabolas": "<p>The standard equation of a parabola is $y = ax^2 + bx + c$. The vertex is the highest or lowest point.</p>"
+                }
+            },
+            "NCEA Level 2": {
+                "Calculus": {
+                    "Differentiation": "<p>The power rule: If $y = ax^n$, then $\\frac{dy}{dx} = anx^{n-1}$</p><p>Example: $y = 3x^4 \\rightarrow \\frac{dy}{dx} = 12x^3$</p>"
+                }
+            },
+            "NCEA Level 3": {
+                "Complex Numbers": {
+                    "Imaginary Numbers": "<p>The imaginary unit is defined as $i = \\sqrt{-1}$, so $i^2 = -1$.</p>"
+                }
+            },
+            "CIE IGCSE": {
+                "Number": {
+                    "Percentages": "<p>To find a percentage of an amount, turn the percentage into a decimal and multiply.</p><p>Example: 15% of $80 = 0.15 \\times 80 = 12$</p>"
+                },
+                "Algebra": {
+                    "The Quadratic Formula": "<p>For any quadratic equation $ax^2 + bx + c = 0$, the roots can be found using the formula:</p><br><p class='text-xl text-center'>$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$</p>"
+                }
+            },
+            "CIE AS Level": {
+                "Pure Mathematics 1": {
+                    "Coordinate Geometry": "<p>The distance between two points $(x_1, y_1)$ and $(x_2, y_2)$ is:</p><p>$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$</p>"
+                }
+            },
+            "CIE A Level": {
+                "Further Mechanics": {
+                    "Kinematics": "<p>Using calculus for motion: $v = \\frac{ds}{dt}$ and $a = \\frac{dv}{dt}$</p>"
+                }
+            }
+        };
+
+        // --- 2. STATE MANAGEMENT ---
+        // Keeps track of where the user is in the navigation
+        let currentPath = []; // e.g., [] (home), ['NCEA Level 1'], ['NCEA Level 1', 'Algebra']
+
+        // --- 3. RENDERING FUNCTIONS ---
+        const contentDiv = document.getElementById('app-content');
+        const breadcrumbsDiv = document.getElementById('breadcrumbs');
+        const mobileBreadcrumbsDiv = document.getElementById('mobile-breadcrumbs');
+
+        function render() {
+            // Update Breadcrumbs
+            renderBreadcrumbs();
+
+            // Clear current content and trigger animation
+            contentDiv.innerHTML = '';
+            contentDiv.classList.remove('fade-in');
+            void contentDiv.offsetWidth; // Trigger reflow for animation restart
+            contentDiv.classList.add('fade-in');
+
+            // Determine what to show based on the path depth
+            if (currentPath.length === 0) {
+                renderHome();
+            } else if (currentPath.length === 1) {
+                renderTopics(currentPath[0]);
+            } else if (currentPath.length === 2) {
+                renderSubtopics(currentPath[0], currentPath[1]);
+            } else if (currentPath.length === 3) {
+                renderContent(currentPath[0], currentPath[1], currentPath[2]);
+            }
+
+            // Tell MathJax to re-render any new math symbols on the page
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function renderBreadcrumbs() {
+            if (currentPath.length === 0) {
+                breadcrumbsDiv.innerHTML = '';
+                mobileBreadcrumbsDiv.innerHTML = '';
+                mobileBreadcrumbsDiv.classList.add('hidden');
+                return;
+            }
+
+            mobileBreadcrumbsDiv.classList.remove('hidden');
+            let html = `<span class="cursor-pointer hover:text-white transition" onclick="goHome()">Home</span>`;
+            let mobileHtml = `<span class="cursor-pointer hover:text-indigo-900 transition" onclick="goHome()">Home</span>`;
+            
+            let tempPath = [];
+            for (let i = 0; i < currentPath.length; i++) {
+                tempPath.push(currentPath[i]);
+                const isLast = i === currentPath.length - 1;
+                const pathString = JSON.stringify(tempPath);
+                
+                html += `<span class="mx-2 opacity-50">/</span>`;
+                mobileHtml += `<span class="mx-1 text-indigo-300">/</span>`;
+                
+                if (isLast) {
+                    html += `<span class="font-semibold text-white">${currentPath[i]}</span>`;
+                    mobileHtml += `<span class="font-semibold text-indigo-900">${currentPath[i]}</span>`;
+                } else {
+                    html += `<span class="cursor-pointer hover:text-white transition" onclick='goToPath(${pathString})'>${currentPath[i]}</span>`;
+                    mobileHtml += `<span class="cursor-pointer hover:text-indigo-900 transition" onclick='goToPath(${pathString})'>${currentPath[i]}</span>`;
+                }
+            }
+            breadcrumbsDiv.innerHTML = html;
+            mobileBreadcrumbsDiv.innerHTML = mobileHtml;
+        }
+
+        // View 1: Homepage (Select Course)
+        function renderHome() {
+            let html = `
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Welcome to your Maths Revision</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">Select your curriculum and course below to access notes, formulas, and revision materials.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            `;
+
+            for (const course in curriculumData) {
+                // Determine styling based on NZ vs CIE
+                const isNCEA = course.includes("NCEA");
+                const colorClass = isNCEA ? "bg-blue-600 hover:bg-blue-700" : "bg-emerald-600 hover:bg-emerald-700";
+                const badgeText = isNCEA ? "NZ Curriculum" : "Cambridge Int.";
+
+                html += `
+                    <div onclick="navigate('${course}')" class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 cursor-pointer hover:shadow-lg transition transform hover:-translate-y-1 group">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">${badgeText}</div>
+                        <h2 class="text-2xl font-bold text-slate-800 group-hover:text-indigo-600 transition">${course}</h2>
+                        <div class="mt-4 flex items-center text-sm font-medium ${isNCEA ? 'text-blue-600' : 'text-emerald-600'}">
+                            View Topics 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                `;
+            }
+            html += `</div>`;
+            contentDiv.innerHTML = html;
+        }
+
+        // View 2: Topics (Select Main Topic)
+        function renderTopics(course) {
+            const topics = curriculumData[course];
+            let html = `
+                <div class="mb-8">
+                    <button onclick="navigateBack()" class="mb-4 flex items-center text-indigo-600 hover:text-indigo-800 font-medium transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Back to Courses
+                    </button>
+                    <h1 class="text-3xl font-bold text-slate-900">${course} Modules</h1>
+                    <p class="text-slate-600 mt-2">Select a main topic to continue.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            `;
+
+            for (const topic in topics) {
+                html += `
+                    <div onclick="navigate('${topic}')" class="bg-white rounded-lg p-5 shadow-sm border border-slate-200 cursor-pointer hover:border-indigo-400 hover:shadow-md transition flex items-center justify-between group">
+                        <h3 class="text-lg font-semibold text-slate-800 group-hover:text-indigo-600">${topic}</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400 group-hover:text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                `;
+            }
+            html += `</div>`;
+            contentDiv.innerHTML = html;
+        }
+
+        // View 3: Subtopics
+        function renderSubtopics(course, topic) {
+            const subtopics = curriculumData[course][topic];
+            let html = `
+                <div class="mb-8">
+                    <button onclick="navigateBack()" class="mb-4 flex items-center text-indigo-600 hover:text-indigo-800 font-medium transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Back to ${course}
+                    </button>
+                    <h1 class="text-3xl font-bold text-slate-900">${topic}</h1>
+                    <p class="text-slate-600 mt-2">Choose a specific subtopic to start revising.</p>
+                </div>
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                    <ul class="divide-y divide-slate-100">
+            `;
+
+            for (const subtopic in subtopics) {
+                html += `
+                    <li onclick="navigate('${subtopic}')" class="p-4 hover:bg-slate-50 cursor-pointer flex items-center justify-between transition">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-indigo-100 text-indigo-600 p-2 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                            <span class="text-lg font-medium text-slate-700">${subtopic}</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </li>
+                `;
+            }
+            html += `</ul></div>`;
+            contentDiv.innerHTML = html;
+        }
+
+        // View 4: Actual Content
+        function renderContent(course, topic, subtopic) {
+            const content = curriculumData[course][topic][subtopic];
+            let html = `
+                <div class="max-w-3xl mx-auto">
+                    <button onclick="navigateBack()" class="mb-6 flex items-center text-indigo-600 hover:text-indigo-800 font-medium transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Back to ${topic}
+                    </button>
+                    
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+                        <div class="border-b border-slate-100 pb-4 mb-6">
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-indigo-500 mb-1">${course} - ${topic}</h2>
+                            <h1 class="text-3xl font-extrabold text-slate-900">${subtopic}</h1>
+                        </div>
+                        
+                        <div class="prose prose-slate prose-lg max-w-none math-content">
+                            <!-- This is where the mathematical HTML is injected -->
+                            ${content}
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center flex justify-between">
+                        <button onclick="navigateBack()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 px-6 rounded-lg font-medium transition">Previous Page</button>
+                    </div>
+                </div>
+            `;
+            
+            // Basic styles for the injected prose content
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .math-content h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #1e293b; }
+                .math-content p { margin-bottom: 1rem; color: #475569; line-height: 1.7; }
+            `;
+            contentDiv.appendChild(style);
+            contentDiv.innerHTML += html;
+        }
+
+        // --- 4. NAVIGATION LOGIC ---
+        function navigate(selection) {
+            currentPath.push(selection);
+            render();
+            window.scrollTo(0, 0);
+        }
+
+        function navigateBack() {
+            currentPath.pop();
+            render();
+            window.scrollTo(0, 0);
+        }
+
+        function goHome() {
+            currentPath = [];
+            render();
+            window.scrollTo(0, 0);
+        }
+
+        function goToPath(pathArray) {
+            currentPath = pathArray;
+            render();
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize the app on first load
+        render();
+
+    </script>
+</body>
+</html>
+
+```
