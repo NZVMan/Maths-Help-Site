@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css">
-<script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js"></script>
 <link rel="stylesheet" href="../../../assets/css/site.css">
 <script defer src="../../../assets/js/site.js"></script>
 </head>
@@ -39,42 +37,179 @@
   </header>
   <article class="notes">
 <!-- vmanz:content:start -->
-<!-- vmanz:placeholder -->
-<!-- Delete the placeholder line above once real notes are in, then run: python3 tools/build.py
-     Building blocks (see guide/index.html): .note  .rule  .warn  .example + details.solution  table.mtable  figure.diagram  .jxgbox
-     Maths: inline \( ... \)   display \[ ... \]   (never single $) -->
 <section class="block intentions">
   <h2>What you'll learn</h2>
-  <!-- 2–4 "I can …" statements -->
   <ul>
-    <li class="todo">Learning goals for Expanding two brackets are coming soon.</li>
+    <li>I can expand two brackets such as \((x + 3)(x + 5)\) using a grid.</li>
+    <li>I can expand brackets that contain subtraction, such as \((x - 4)(x + 2)\).</li>
+    <li>I can simplify my answer by collecting like terms.</li>
+    <li>I can expand a squared bracket such as \((x + 4)^2\).</li>
   </ul>
 </section>
 
 <section class="block">
   <h2>Key ideas</h2>
-  <!-- Short explanation, key vocabulary, and the rule or formula in a .rule box -->
-  <p class="todo">Notes coming soon.</p>
+  <div class="note">
+    <span class="box-label">Key idea</span>
+    <p><strong>Expanding</strong> means multiplying out the brackets. Every term in the first bracket multiplies every term in the second bracket.</p>
+    <p>Two terms times two terms gives <strong>four</strong> products. Then you collect any like terms.</p>
+  </div>
+
+  <h3>Why it works: the area model</h3>
+  <p>Think of \((x + 3)(x + 5)\) as the area of a rectangle that is \(x + 3\) tall and \(x + 5\) wide. Split it into four smaller rectangles and add up their areas.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 270" role="img" aria-label="A rectangle with width x plus 5 and height x plus 3, split into four parts with areas x squared, 5x, 3x and 15">
+      <rect class="dg-fill" x="60" y="40" width="170" height="130"/>
+      <rect class="dg-soft" x="230" y="40" width="90" height="130"/>
+      <rect class="dg-soft" x="60" y="170" width="170" height="70"/>
+      <rect class="dg-soft" x="230" y="170" width="90" height="70"/>
+      <text class="dg-label dg-var" x="145" y="28" text-anchor="middle">x</text>
+      <text class="dg-label" x="275" y="28" text-anchor="middle">5</text>
+      <text class="dg-label dg-var" x="40" y="110" text-anchor="middle">x</text>
+      <text class="dg-label" x="40" y="210" text-anchor="middle">3</text>
+      <text class="dg-label dg-var" x="145" y="111" text-anchor="middle">x²</text>
+      <text class="dg-label" x="275" y="111" text-anchor="middle">5<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="145" y="211" text-anchor="middle">3<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="275" y="211" text-anchor="middle">15</text>
+    </svg>
+    <figcaption>Total area: \(x^2 + 5x + 3x + 15 = x^2 + 8x + 15\)</figcaption>
+  </figure>
+
+  <h3>The grid method</h3>
+  <p>The same idea as a table. Put one bracket across the top and the other down the side, then multiply to fill each box.</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <caption>\((x + 3)(x + 5)\)</caption>
+      <thead><tr><th>\(\times\)</th><th>\(x\)</th><th>\(+5\)</th></tr></thead>
+      <tbody>
+        <tr><th>\(x\)</th><td>\(x^2\)</td><td>\(+5x\)</td></tr>
+        <tr><th>\(+3\)</th><td>\(+3x\)</td><td>\(+15\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Add the four boxes and collect the like terms \(5x\) and \(3x\):</p>
+  \[ (x + 3)(x + 5) = x^2 + 8x + 15 \]
+  <p>Keep the sign with each term. In \((x - 4)\) the second term is \(-4\), not \(4\).</p>
+
+  <div class="rule">
+    <span class="box-label">Rule</span>
+    \[ (a + b)(c + d) = ac + ad + bc + bd \]
+  </div>
+
+  <div class="note">
+    <span class="box-label">Squared brackets</span>
+    <p>A squared bracket means the bracket times itself: \((x + 4)^2 = (x + 4)(x + 4)\). Write it out as two brackets, then expand as normal.</p>
+  </div>
 </section>
 
 <section class="block">
   <h2>Worked examples</h2>
-  <!-- Two or three .example blocks, easiest first, each with a details.solution -->
-  <p class="todo">Worked examples coming soon.</p>
+
+  <div class="example">
+    <h3>Both terms adding</h3>
+    <p>Expand and simplify \((x + 2)(x + 6)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Multiply every term by every term: \(x \times x = x^2\), \(x \times 6 = 6x\), \(2 \times x = 2x\), \(2 \times 6 = 12\).</li>
+        <li>Write them out: \(x^2 + 6x + 2x + 12\).</li>
+        <li>Collect like terms: \(6x + 2x = 8x\).</li>
+      </ol>
+      <p class="answer">\((x + 2)(x + 6) = x^2 + 8x + 12\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>One negative term</h3>
+    <p>Expand and simplify \((x + 5)(x - 3)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <div class="table-scroll">
+        <table class="mtable">
+          <thead><tr><th>\(\times\)</th><th>\(x\)</th><th>\(-3\)</th></tr></thead>
+          <tbody>
+            <tr><th>\(x\)</th><td>\(x^2\)</td><td>\(-3x\)</td></tr>
+            <tr><th>\(+5\)</th><td>\(+5x\)</td><td>\(-15\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="steps">
+        <li>Add the boxes: \(x^2 - 3x + 5x - 15\).</li>
+        <li>Collect like terms: \(-3x + 5x = 2x\).</li>
+      </ol>
+      <p class="answer">\((x + 5)(x - 3) = x^2 + 2x - 15\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Two negative terms</h3>
+    <p>Expand and simplify \((x - 4)(x - 7)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Multiply every term by every term: \(x \times x = x^2\), \(x \times (-7) = -7x\), \((-4) \times x = -4x\), \((-4) \times (-7) = +28\).</li>
+        <li>Write them out: \(x^2 - 7x - 4x + 28\).</li>
+        <li>Collect like terms: \(-7x - 4x = -11x\).</li>
+      </ol>
+      <p class="answer">\((x - 4)(x - 7) = x^2 - 11x + 28\)</p>
+      <p>A negative times a negative is positive, so the number at the end is \(+28\).</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>A squared bracket</h3>
+    <p>Expand and simplify \((x + 3)^2\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Write it as two brackets: \((x + 3)(x + 3)\).</li>
+        <li>Multiply every term by every term: \(x^2 + 3x + 3x + 9\).</li>
+        <li>Collect like terms: \(3x + 3x = 6x\).</li>
+      </ol>
+      <p class="answer">\((x + 3)^2 = x^2 + 6x + 9\)</p>
+    </details>
+  </div>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
-  <!-- One or two .warn boxes -->
-  <p class="todo">Coming soon.</p>
+  <div class="warn">
+    <span class="box-label">Common mistake</span>
+    <p>\((x + 3)^2\) is <strong>not</strong> \(x^2 + 9\). Squaring the bracket means \((x + 3)(x + 3)\), which has a middle term: \(x^2 + 6x + 9\).</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Common mistake</span>
+    <p>Losing a negative sign. In \((x - 4)(x - 7)\), the last product is \((-4) \times (-7) = +28\), not \(-28\). Write each sign in the grid before you multiply.</p>
+  </div>
 </section>
 
 <section class="block">
   <h2>Try these</h2>
-  <!-- 4–8 questions, answers in a details.solution at the end -->
-  <p class="todo">Practice questions coming soon.</p>
+  <p>Expand and simplify.</p>
+  <ol>
+    <li>\((x + 1)(x + 4)\)</li>
+    <li>\((x + 3)(x + 7)\)</li>
+    <li>\((x + 6)(x - 2)\)</li>
+    <li>\((x - 5)(x + 1)\)</li>
+    <li>\((x - 3)(x - 8)\)</li>
+    <li>\((x + 5)^2\)</li>
+    <li>\((x - 6)^2\)</li>
+    <li><strong>Challenge:</strong> \((y + 9)(y - 9)\). What happens to the middle term? Why?</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol>
+      <li>\(x^2 + 5x + 4\)</li>
+      <li>\(x^2 + 10x + 21\)</li>
+      <li>\(x^2 + 4x - 12\)</li>
+      <li>\(x^2 - 4x - 5\)</li>
+      <li>\(x^2 - 11x + 24\)</li>
+      <li>\(x^2 + 10x + 25\)</li>
+      <li>\(x^2 - 12x + 36\)</li>
+      <li>\(y^2 - 81\). The middle terms are \(-9y\) and \(+9y\), which cancel to zero. This is called the <strong>difference of two squares</strong>.</li>
+    </ol>
+  </details>
 </section>
-
 <!-- vmanz:content:end -->
   </article>
   <nav class="pager" aria-label="Previous and next"><a class="pager-prev" href="../../algebra/expanding-single-brackets/index.html"><span class="pager-dir">Previous</span><span>Expanding single brackets</span></a><a class="pager-next" href="../../algebra/factorising/index.html"><span class="pager-dir">Next</span><span>Factorising</span></a></nav>

@@ -119,27 +119,42 @@ unreadable to screen readers.
 
 Classes: `dg-line` (main lines), `dg-thin` (right-angle marks, ticks),
 `dg-grid`, `dg-accent` (the thing to notice), `dg-fill` (shaded shape),
-`dg-dot`, `dg-label` (+ `muted` / `accent`). Never hard-code colours, so
-diagrams stay readable in dark mode. Always include `aria-label`.
+`dg-dot`, `dg-label` (+ `muted` / `accent`), `dg-soft` (plain shape, paper
+fill), `dg-var` (add to a label for an italic maths letter like *x*).
+Never hard-code colours, so diagrams stay readable in dark mode. Always
+include `aria-label`. Worked examples: `year-9/measurement/pythagoras-theorem/`.
 
 ### JSXGraph
 
 Any page containing a `jxgbox` loads JSXGraph automatically on the next build.
+Always use `VMANZ.graph(id, options, draw)`. It also works for graphs inside a
+closed "Show solution", which would otherwise draw at zero size.
 
 ```html
-<div id="graph-1" class="jxgbox"></div>
+<div id="graph-1" class="jxgbox" role="img" aria-label="Describe the graph in words"></div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  var b = VMANZ.board("graph-1", { x: [-5, 5], y: [-5, 5] }), c = VMANZ.colours();
-  b.create("functiongraph", [function (x) { return 2 * x - 1; }], { strokeColor: c.accent, strokeWidth: 3 });
-  b.create("point", [1, 1], { name: "(1, 1)", fixed: true, color: c.ink });
+  VMANZ.graph("graph-1", { x: [-5, 5], y: [-5, 5] }, function (b) {
+    VMANZ.vline(b, 1);                                        // dashed line x = 1
+    VMANZ.plot(b, function (x) { return x * x - 2 * x - 3; }); // the curve
+    VMANZ.point(b, [3, 0], "(3, 0)");                          // labelled point
+    VMANZ.point(b, [-1, 0], "(−1, 0)", { label: { offset: [-52, 14] } }); // label moved left
+  });
 });
 </script>
 ```
 
-Each graph on a page needs its own `id`. Options for `VMANZ.board`: `x`, `y`
-(ranges), `step` (tick spacing), `square: true` (equal scales, for geometry),
-`zoom: true` (pan and zoom buttons).
+| Helper | Does |
+|---|---|
+| `VMANZ.plot(b, fn)` | draws \(y = f(x)\) in the site green |
+| `VMANZ.point(b, [x, y], "label", opts)` | fixed, labelled point; `opts.label.offset` moves the label (pixels) |
+| `VMANZ.vline(b, k)` | dashed vertical line \(x = k\) (axis of symmetry, asymptote) |
+| `VMANZ.slider(b, "a", [min, start, max], row, step)` | slider in the top-left; read it with `a.Value()` |
+
+Each graph on a page needs its own `id`. Options: `x`, `y` (ranges), `step`
+(tick spacing), `square: true` (equal scales, for geometry), `zoom: true`
+(pan and zoom buttons). Worked examples, including a slider explorer:
+`year-10/algebra/quadratic-graphs/`.
 
 ## House style
 

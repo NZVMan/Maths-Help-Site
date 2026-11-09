@@ -136,9 +136,10 @@ x &= 5
 <div id="graph-demo" class="jxgbox"></div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  var b = VMANZ.board("graph-demo", { x: [-5, 5], y: [-5, 5] }), c = VMANZ.colours();
-  var a = b.create("slider", [[-4, 4], [0, 4], [-2, 1, 2]], { name: "a", snapWidth: 0.5, strokeColor: c.accent, fillColor: c.accent, label: { strokeColor: c.ink } });
-  b.create("functiongraph", [function (x) { return a.Value() * x * x - 2; }], { strokeColor: c.accent, strokeWidth: 3 });
+  VMANZ.graph("graph-demo", { x: [-5, 5], y: [-5, 5] }, function (b) {
+    var a = VMANZ.slider(b, "a", [-2, 1, 2], 0, 0.5);
+    VMANZ.plot(b, function (x) { return a.Value() * x * x - 2; });
+  });
 });
 </script>
 <!-- vmanz:content:end -->

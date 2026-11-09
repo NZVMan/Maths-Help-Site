@@ -39,42 +39,207 @@
   </header>
   <article class="notes">
 <!-- vmanz:content:start -->
-<!-- vmanz:placeholder -->
-<!-- Delete the placeholder line above once real notes are in, then run: python3 tools/build.py
-     Building blocks (see guide/index.html): .note  .rule  .warn  .example + details.solution  table.mtable  figure.diagram  .jxgbox
-     Maths: inline \( ... \)   display \[ ... \]   (never single $) -->
 <section class="block intentions">
   <h2>What you'll learn</h2>
-  <!-- 2–4 "I can …" statements -->
   <ul>
-    <li class="todo">Learning goals for Quadratic graphs are coming soon.</li>
+    <li>I can name the key features of a parabola: turning point, axis of symmetry, \(x\)-intercepts and \(y\)-intercept.</li>
+    <li>I can sketch a parabola from factorised form, \(y = (x - p)(x - q)\).</li>
+    <li>I can sketch a parabola from turning-point form, \(y = a(x - h)^2 + k\).</li>
+    <li>I can write the equation of a parabola from its graph.</li>
   </ul>
 </section>
 
 <section class="block">
   <h2>Key ideas</h2>
-  <!-- Short explanation, key vocabulary, and the rule or formula in a .rule box -->
-  <p class="todo">Notes coming soon.</p>
+  <div class="note">
+    <span class="box-label">Key idea</span>
+    <p>The graph of a quadratic, such as \(y = x^2 - 2x - 3\), is a symmetrical U-shaped curve called a <strong>parabola</strong>.</p>
+  </div>
+
+  <h3>Features of a parabola</h3>
+  <p>This is the graph of \(y = x^2 - 2x - 3\).</p>
+  <div id="qg-features" class="jxgbox" role="img" aria-label="Graph of y equals x squared minus 2x minus 3. It crosses the x-axis at minus 1 and 3, crosses the y-axis at minus 3, and has its turning point at 1, minus 4. The axis of symmetry is the line x equals 1."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("qg-features", { x: [-4, 6], y: [-6, 6] }, function (b) {
+      VMANZ.vline(b, 1);
+      VMANZ.plot(b, function (x) { return x * x - 2 * x - 3; });
+      VMANZ.point(b, [-1, 0], "(−1, 0)", { label: { offset: [-52, 14] } });
+      VMANZ.point(b, [3, 0], "(3, 0)");
+      VMANZ.point(b, [0, -3], "(0, −3)", { label: { offset: [-58, 0] } });
+      VMANZ.point(b, [1, -4], "(1, −4)", { label: { offset: [10, -12] } });
+      b.create("text", [1.15, 4.6, "x = 1"], { strokeColor: VMANZ.colours().muted, fontSize: 14, fixed: true });
+    });
+  });
+  </script>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Feature</th><th>What it is</th><th>On this graph</th></tr></thead>
+      <tbody>
+        <tr><td>\(x\)-intercepts (roots)</td><td>where the curve crosses the \(x\)-axis (\(y = 0\))</td><td>\(x = -1\) and \(x = 3\)</td></tr>
+        <tr><td>\(y\)-intercept</td><td>where the curve crosses the \(y\)-axis (\(x = 0\))</td><td>\(y = -3\)</td></tr>
+        <tr><td>Turning point (vertex)</td><td>the lowest (or highest) point</td><td>\((1, -4)\)</td></tr>
+        <tr><td>Axis of symmetry</td><td>the vertical mirror line through the turning point</td><td>\(x = 1\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The axis of symmetry is always exactly halfway between the two \(x\)-intercepts: \(\dfrac{-1 + 3}{2} = 1\).</p>
+
+  <h3>Three ways to write the same quadratic</h3>
+  <p>Each form shows you a different feature straight away. All three of these describe the graph above.</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Form</th><th>Example</th><th>Read off</th></tr></thead>
+      <tbody>
+        <tr><td>Expanded</td><td>\(y = x^2 - 2x - 3\)</td><td>\(y\)-intercept: the number on the end, \(-3\)</td></tr>
+        <tr><td>Factorised</td><td>\(y = (x + 1)(x - 3)\)</td><td>\(x\)-intercepts: \(x = -1\) and \(x = 3\)</td></tr>
+        <tr><td>Turning point</td><td>\(y = (x - 1)^2 - 4\)</td><td>turning point: \((1, -4)\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rule">
+    <span class="box-label">Turning-point form</span>
+    \[ y = a(x - h)^2 + k \quad\text{has its turning point at } (h, k) \]
+    <p style="font-size:1rem">If \(a\) is positive the parabola opens upwards (∪). If \(a\) is negative it opens downwards (∩).</p>
+  </div>
+
+  <h3>Explore</h3>
+  <p>Drag the sliders to change \(a\), \(h\) and \(k\) in \(y = a(x - h)^2 + k\). Watch where the turning point goes, and what happens when \(a\) is negative or close to zero.</p>
+  <div id="qg-explore" class="jxgbox" role="img" aria-label="Interactive graph of y equals a times x minus h all squared plus k, with sliders for a, h and k."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("qg-explore", { x: [-7, 7], y: [-7, 7], step: 2 }, function (b) {
+      var a = VMANZ.slider(b, "a", [-3, 1, 3], 0, 0.5);
+      var h = VMANZ.slider(b, "h", [-4, 0, 4], 1, 1);
+      var k = VMANZ.slider(b, "k", [-5, 0, 5], 2, 1);
+      var f = function (n) { return n < 0 ? "−" + Math.abs(n) : String(n); };
+      VMANZ.plot(b, function (x) { return a.Value() * Math.pow(x - h.Value(), 2) + k.Value(); });
+      VMANZ.point(b, [function () { return h.Value(); }, function () { return k.Value(); }],
+        function () { return "(" + f(h.Value()) + ", " + f(k.Value()) + ")"; });
+    });
+  });
+  </script>
 </section>
 
 <section class="block">
-  <h2>Worked examples</h2>
-  <!-- Two or three .example blocks, easiest first, each with a details.solution -->
-  <p class="todo">Worked examples coming soon.</p>
+<h2>Worked examples</h2>
+
+<div class="example">
+  <h3>Sketching from factorised form</h3>
+  <p>Sketch \(y = (x - 2)(x + 4)\). Label the intercepts and the turning point.</p>
+  <details class="solution">
+    <summary>Show solution</summary>
+    <ol class="steps">
+      <li>\(x\)-intercepts: set each bracket to zero. \(x - 2 = 0\) gives \(x = 2\); \(x + 4 = 0\) gives \(x = -4\).</li>
+      <li>\(y\)-intercept: put \(x = 0\). \(y = (0 - 2)(0 + 4) = -8\).</li>
+      <li>Axis of symmetry: halfway between the roots. \(x = \dfrac{2 + (-4)}{2} = -1\).</li>
+      <li>Turning point: put \(x = -1\). \(y = (-1 - 2)(-1 + 4) = (-3)(3) = -9\), so \((-1, -9)\).</li>
+      <li>The \(x^2\) term is positive, so it opens upwards.</li>
+    </ol>
+    <div id="qg-ex1" class="jxgbox" role="img" aria-label="Graph of y equals x minus 2 times x plus 4, crossing the x-axis at minus 4 and 2, the y-axis at minus 8, with turning point minus 1, minus 9."></div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      VMANZ.graph("qg-ex1", { x: [-7, 5], y: [-11, 4], step: 2 }, function (b) {
+        VMANZ.vline(b, -1);
+        VMANZ.plot(b, function (x) { return (x - 2) * (x + 4); });
+        VMANZ.point(b, [-4, 0], "(−4, 0)", { label: { offset: [-56, 14] } });
+        VMANZ.point(b, [2, 0], "(2, 0)");
+        VMANZ.point(b, [0, -8], "(0, −8)");
+        VMANZ.point(b, [-1, -9], "(−1, −9)", { label: { offset: [10, -12] } });
+      });
+    });
+    </script>
+      </details>
+    </div>
+
+    <div class="example">
+      <h3>Sketching from turning-point form</h3>
+      <p>Sketch \(y = -(x - 3)^2 + 4\). Label the intercepts and the turning point.</p>
+      <details class="solution">
+        <summary>Show solution</summary>
+        <ol class="steps">
+          <li>Turning point: compare with \(y = a(x - h)^2 + k\). Here \(h = 3\) and \(k = 4\), so \((3, 4)\).</li>
+          <li>\(a = -1\) is negative, so it opens <strong>downwards</strong> and \((3, 4)\) is a maximum.</li>
+          <li>\(y\)-intercept: \(y = -(0 - 3)^2 + 4 = -9 + 4 = -5\).</li>
+          <li>\(x\)-intercepts: set \(y = 0\). \((x - 3)^2 = 4\), so \(x - 3 = \pm 2\), giving \(x = 1\) and \(x = 5\).</li>
+        </ol>
+        <div id="qg-ex2" class="jxgbox" role="img" aria-label="Graph of y equals minus x minus 3 all squared plus 4. It opens downwards with maximum at 3, 4, crosses the x-axis at 1 and 5, and the y-axis at minus 5."></div>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          VMANZ.graph("qg-ex2", { x: [-2, 7], y: [-7, 6] }, function (b) {
+            VMANZ.vline(b, 3);
+            VMANZ.plot(b, function (x) { return -Math.pow(x - 3, 2) + 4; });
+            VMANZ.point(b, [1, 0], "(1, 0)", { label: { offset: [-46, 14] } });
+            VMANZ.point(b, [5, 0], "(5, 0)");
+            VMANZ.point(b, [0, -5], "(0, −5)");
+            VMANZ.point(b, [3, 4], "(3, 4)");
+          });
+        });
+        </script>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Finding the equation from a graph</h3>
+    <p>Find the equation of this parabola.</p>
+    <div id="qg-ex3" class="jxgbox" role="img" aria-label="A parabola opening upwards crossing the x-axis at minus 2 and 4 and the y-axis at minus 8."></div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      VMANZ.graph("qg-ex3", { x: [-4, 6], y: [-11, 4], step: 2 }, function (b) {
+        VMANZ.plot(b, function (x) { return (x + 2) * (x - 4); });
+        VMANZ.point(b, [-2, 0], "(−2, 0)", { label: { offset: [-56, 14] } });
+        VMANZ.point(b, [4, 0], "(4, 0)");
+        VMANZ.point(b, [0, -8], "(0, −8)");
+      });
+    });
+    </script>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>The \(x\)-intercepts are \(-2\) and \(4\), so the brackets are \((x + 2)\) and \((x - 4)\): \(y = a(x + 2)(x - 4)\).</li>
+        <li>Use the \(y\)-intercept to find \(a\). At \(x = 0\): \(-8 = a(2)(-4) = -8a\), so \(a = 1\).</li>
+      </ol>
+      <p class="answer">\(y = (x + 2)(x - 4)\), or expanded, \(y = x^2 - 2x - 8\)</p>
+    </details>
+  </div>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
-  <!-- One or two .warn boxes -->
-  <p class="todo">Coming soon.</p>
+  <div class="warn">
+    <span class="box-label">Common mistake</span>
+    <p>Getting the sign wrong. \(y = (x + 4)(x - 1)\) crosses the \(x\)-axis at \(x = -4\) and \(x = 1\): the signs <strong>swap</strong>. In the same way, \(y = (x - 3)^2 + 2\) has its turning point at \((3, 2)\), not \((-3, 2)\).</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Common mistake</span>
+    <p>Forgetting to check \(a\). A negative number in front of the \(x^2\) (or the bracket) flips the parabola upside down.</p>
+  </div>
 </section>
 
 <section class="block">
   <h2>Try these</h2>
-  <!-- 4–8 questions, answers in a details.solution at the end -->
-  <p class="todo">Practice questions coming soon.</p>
+  <p>For questions 1–5, find the \(x\)-intercepts (if any), the \(y\)-intercept and the turning point, then sketch the graph.</p>
+  <ol>
+    <li>\(y = (x - 1)(x - 5)\)</li>
+    <li>\(y = (x + 3)(x - 1)\)</li>
+    <li>\(y = x^2 - 4\)</li>
+    <li>\(y = (x - 2)^2 + 1\)</li>
+    <li>\(y = -(x + 1)^2 + 9\)</li>
+    <li>A parabola crosses the \(x\)-axis at \(0\) and \(6\), and has its turning point at \((3, -9)\). Find its equation.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol>
+      <li>\(x\)-intercepts \(1\) and \(5\); \(y\)-intercept \(5\); turning point \((3, -4)\).</li>
+      <li>\(x\)-intercepts \(-3\) and \(1\); \(y\)-intercept \(-3\); turning point \((-1, -4)\).</li>
+      <li>\(x\)-intercepts \(-2\) and \(2\); \(y\)-intercept \(-4\); turning point \((0, -4)\).</li>
+      <li>No \(x\)-intercepts (the lowest point is above the \(x\)-axis); \(y\)-intercept \(5\); turning point \((2, 1)\).</li>
+      <li>Opens downwards. \(x\)-intercepts \(-4\) and \(2\); \(y\)-intercept \(8\); turning point \((-1, 9)\).</li>
+      <li>\(y = a\,x(x - 6)\). At \(x = 3\): \(-9 = a(3)(-3) = -9a\), so \(a = 1\) and \(y = x(x - 6) = x^2 - 6x\).</li>
+    </ol>
+  </details>
 </section>
-
 <!-- vmanz:content:end -->
   </article>
   <nav class="pager" aria-label="Previous and next"><a class="pager-prev" href="../../algebra/equation-of-a-line/index.html"><span class="pager-dir">Previous</span><span>Equation of a line</span></a><a class="pager-next" href="../../measurement/circles/index.html"><span class="pager-dir">Next</span><span>Circles</span></a></nav>

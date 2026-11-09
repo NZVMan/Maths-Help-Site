@@ -16,9 +16,10 @@ This file is the plan for getting there.
 
 Write these fully first, review on a phone and in print, and adjust `CONTENT_GUIDE.md` before mass-producing.
 
-- [ ] Year 9 › Algebra › **Expanding two brackets**: maths-heavy (grid method table, FOIL, aligned working)
-- [ ] Year 9 › Measurement › **Pythagoras' theorem**: diagram-heavy (inline SVG triangles)
-- [ ] Year 10 › Algebra › **Quadratic graphs**: graph-heavy (JSXGraph with a slider)
+- [x] Year 9 › Algebra › **Expanding two brackets**: maths-heavy (area model SVG, grid method tables)
+- [x] Year 9 › Measurement › **Pythagoras' theorem**: diagram-heavy (inline SVG triangles, squares proof, ladder)
+- [x] Year 10 › Algebra › **Quadratic graphs**: graph-heavy (JSXGraph features graph, a/h/k slider explorer)
+- [ ] Review the three pilots (content level, wording, length) and note any house-style changes here
 
 ## Definition of done for every subtopic page
 
