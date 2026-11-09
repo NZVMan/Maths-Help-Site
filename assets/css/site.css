@@ -1,0 +1,237 @@
+/* VMANZ Maths — one stylesheet for every page.
+   Colours are tokens: change them here and the whole site (and every
+   diagram that uses the .dg-* classes) follows, in light and dark mode. */
+
+:root {
+  --paper: #f7f5f0;
+  --surface: #ffffff;
+  --ink: #1b1f1d;
+  --muted: #5b625e;
+  --line: #dcd8ce;
+  --accent: #0e5a47;        /* bottle green: the VMANZ colour */
+  --accent-ink: #ffffff;
+  --accent-soft: #e3efea;
+  --warn: #a63d2a;          /* brick: common mistakes */
+  --warn-soft: #f6e7e2;
+  --rule-soft: #eef0f6;     /* formula boxes */
+  --rule-line: #3b4a7a;
+
+  --font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --radius: 6px;
+  --wrap: 72rem;
+  --narrow: 46rem;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121614;
+    --surface: #1a1f1c;
+    --ink: #e8e6e0;
+    --muted: #a2a9a4;
+    --line: #2e3531;
+    --accent: #5fc2a4;
+    --accent-ink: #0d1a15;
+    --accent-soft: #1d3029;
+    --warn: #e07a5f;
+    --warn-soft: #2e1f1a;
+    --rule-soft: #1c2130;
+    --rule-line: #8fa2df;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121614; --surface: #1a1f1c; --ink: #e8e6e0; --muted: #a2a9a4; --line: #2e3531;
+  --accent: #5fc2a4; --accent-ink: #0d1a15; --accent-soft: #1d3029;
+  --warn: #e07a5f; --warn-soft: #2e1f1a; --rule-soft: #1c2130; --rule-line: #8fa2df;
+  color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main { flex: 1; padding-bottom: 4rem; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 800; margin: 0.2rem 0 0.6rem; }
+h2 { font-size: 1.5rem; margin: 2.4rem 0 0.8rem; }
+h3 { font-size: 1.2rem; margin: 1.6rem 0 0.5rem; }
+code { font-size: 0.9em; background: var(--accent-soft); padding: 0.05em 0.35em; border-radius: 3px; }
+img, svg { max-width: 100%; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 16px; }
+.wrap.narrow { max-width: var(--narrow); }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 8px; background: var(--surface); padding: 0.5rem 1rem; z-index: 10; }
+
+.eyebrow {
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); margin: 0;
+}
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 40rem; margin: 0; }
+.badge {
+  display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.03em;
+  padding: 0.15rem 0.55rem; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--muted); background: var(--paper); white-space: nowrap;
+}
+
+/* ---------- header / footer ---------- */
+.site-header { background: var(--surface); border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; flex-wrap: wrap; }
+.wordmark { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; }
+.wordmark-text { font-family: var(--font-display); font-size: 1.25rem; }
+.wordmark-text strong { font-weight: 800; letter-spacing: 0.02em; }
+.wordmark-mark {
+  display: inline-grid; place-items: center; width: 2rem; height: 2rem;
+  background: var(--accent); color: var(--accent-ink);
+  font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; border-radius: 4px;
+}
+.wordmark-mark.small { width: 1.4rem; height: 1.4rem; font-size: 0.8rem; vertical-align: -0.3em; }
+.header-nav { display: flex; gap: 0.25rem; }
+.header-nav a { padding: 0.4rem 0.75rem; border-radius: var(--radius); text-decoration: none; color: var(--ink); font-weight: 700; }
+.header-nav a:hover { background: var(--accent-soft); }
+
+.site-footer { border-top: 1px solid var(--line); background: var(--surface); padding: 1.5rem 0; font-size: 0.95rem; }
+.footer-inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; }
+.footer-inner p { margin: 0; }
+.byline { font-weight: 700; }
+.footer-links { color: var(--muted); }
+
+/* ---------- breadcrumbs + page head ---------- */
+.crumbs ol { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem; font-size: 0.92rem; color: var(--muted); }
+.crumbs li + li::before { content: "/"; margin-right: 0.35rem; opacity: 0.6; }
+.crumbs a { color: var(--muted); }
+.page-head { padding: 1.75rem 0 1.25rem; border-bottom: 2px solid var(--ink); margin-bottom: 2rem; }
+
+/* ---------- home ---------- */
+.hero { padding: 4rem 0 2.5rem; }
+.hero h1 { font-size: clamp(2.4rem, 7vw, 4rem); max-width: 14ch; }
+.section-h { font-size: 1.1rem; font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
+
+.course-grid, .topic-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+.course-card > a, .course-card > div, .topic-card > a {
+  display: flex; flex-direction: column; gap: 0.35rem; height: 100%;
+  padding: 1.25rem 1.25rem 1.1rem; background: var(--surface);
+  border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: var(--radius);
+  color: var(--ink); text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.course-card > a:hover, .topic-card > a:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgb(0 0 0 / 0.08); }
+.course-card.is-soon > div { border-top-color: var(--line); color: var(--muted); }
+.course-card.is-soon .eyebrow { color: var(--muted); }
+.course-card .badge { align-self: flex-start; margin-top: 0.4rem; }
+.course-title, .topic-title { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; line-height: 1.15; }
+.topic-title { font-size: 1.35rem; }
+.course-blurb, .topic-blurb { color: var(--muted); flex: 1; }
+.course-meta { font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+
+.progress { display: grid; gap: 0.3rem; font-size: 0.85rem; color: var(--muted); }
+.progress-bar { height: 6px; border-radius: 999px; background: var(--accent-soft); position: relative; overflow: hidden; }
+.progress-bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: calc(var(--done) / var(--total) * 100%); background: var(--accent); }
+
+/* ---------- topic page ---------- */
+.groups { display: grid; gap: 0.5rem 2rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+.group h2 { font-size: 1.15rem; margin: 1rem 0 0.5rem; }
+.sub-list { list-style: none; padding: 0; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.sub-list li + li { border-top: 1px solid var(--line); }
+.sub-list a { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.8rem 1rem; text-decoration: none; color: var(--ink); font-weight: 700; }
+.sub-list a:hover { background: var(--accent-soft); }
+
+/* ---------- subtopic notes ---------- */
+.notes > section.block:first-child h2, .notes h2:first-child { margin-top: 0; }
+.notes h2 { padding-bottom: 0.3rem; border-bottom: 1px solid var(--line); }
+.todo { color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: var(--radius); padding: 0.75rem 1rem; list-style: none; }
+ul:has(> li.todo) { padding: 0; }
+.intentions ul { padding-left: 1.2rem; }
+
+/* call-out boxes */
+.note, .rule, .warn, .example {
+  border-radius: var(--radius); padding: 1rem 1.15rem; margin: 1.25rem 0;
+  border: 1px solid var(--line); background: var(--surface);
+}
+.note { border-left: 5px solid var(--accent); background: var(--accent-soft); border-color: transparent; border-left-color: var(--accent); }
+.rule { border-left: 5px solid var(--rule-line); background: var(--rule-soft); border-color: transparent; border-left-color: var(--rule-line); text-align: center; font-size: 1.15rem; }
+.warn { border-left: 5px solid var(--warn); background: var(--warn-soft); border-color: transparent; border-left-color: var(--warn); }
+.note > :first-child, .rule > :first-child, .warn > :first-child, .example > :first-child { margin-top: 0; }
+.note > :last-child, .rule > :last-child, .warn > :last-child, .example > :last-child { margin-bottom: 0; }
+.box-label { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; text-align: left; }
+.note .box-label { color: var(--accent); }
+.rule .box-label { color: var(--rule-line); }
+.warn .box-label { color: var(--warn); }
+
+/* worked examples: <div class="example"> with a <details class="solution"> inside */
+.example { counter-increment: example; }
+.notes { counter-reset: example; }
+.example > h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+.example > h3::before { content: "Example " counter(example) " · "; color: var(--accent); }
+details.solution { margin-top: 0.75rem; border-top: 1px dashed var(--line); padding-top: 0.6rem; }
+details.solution > summary { cursor: pointer; font-weight: 700; color: var(--accent); width: fit-content; }
+details.solution[open] > summary { margin-bottom: 0.5rem; }
+.steps { padding-left: 1.3rem; }
+.steps li { margin-bottom: 0.35rem; }
+.answer { font-weight: 700; }
+
+/* maths */
+.katex { font-size: 1.08em; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+
+/* tables: <table class="mtable"> ; add "value-table" for a horizontal x / y table */
+.table-scroll { overflow-x: auto; margin: 1.25rem 0; }
+table.mtable { border-collapse: collapse; background: var(--surface); min-width: 50%; }
+.mtable caption { text-align: left; font-weight: 700; padding-bottom: 0.4rem; }
+.mtable th, .mtable td { border: 1px solid var(--line); padding: 0.45rem 0.8rem; text-align: center; }
+.mtable thead th, .mtable.value-table th { background: var(--accent-soft); }
+.mtable.value-table th { text-align: left; }
+
+/* figures */
+figure.diagram { margin: 1.5rem 0; text-align: center; }
+figure.diagram svg { width: 100%; height: auto; max-width: 28rem; }
+figure.diagram figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; }
+
+/* Diagram classes for hand-written inline SVG: they follow the theme. */
+.dg-line   { stroke: var(--ink); stroke-width: 2; fill: none; }
+.dg-thin   { stroke: var(--muted); stroke-width: 1; fill: none; }
+.dg-grid   { stroke: var(--line); stroke-width: 1; fill: none; }
+.dg-accent { stroke: var(--accent); stroke-width: 2.5; fill: none; }
+.dg-fill   { fill: var(--accent-soft); stroke: var(--ink); stroke-width: 2; }
+.dg-dot    { fill: var(--accent); }
+.dg-label  { fill: var(--ink); font-family: var(--font-body); font-size: 15px; }
+.dg-label.muted { fill: var(--muted); }
+.dg-label.accent { fill: var(--accent); font-weight: 700; }
+
+/* interactive graphs (JSXGraph) */
+.jxgbox { width: 100%; max-width: 32rem; aspect-ratio: 1; margin: 1.25rem auto; border: 1px solid var(--line) !important; border-radius: var(--radius) !important; background: var(--surface) !important; }
+
+/* previous / next */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
+.pager a { display: flex; flex-direction: column; text-decoration: none; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); font-weight: 700; color: var(--ink); }
+.pager a:hover { border-color: var(--accent); }
+.pager-next { text-align: right; }
+.pager-dir { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+
+@media (max-width: 40rem) {
+  .header-nav { width: 100%; padding-bottom: 0.6rem; }
+  .hero { padding-top: 2.5rem; }
+  .pager { grid-template-columns: 1fr; }
+  .pager-next { text-align: left; }
+}
+
+@media print {
+  .site-header, .site-footer, .pager, .crumbs { display: none; }
+  body { background: #fff; color: #000; }
+  details.solution > :not(summary) { display: block; }
+}

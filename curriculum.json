@@ -1,0 +1,142 @@
+{
+  "_readme": "The site map. Add a course, topic or subtopic here, then run: python3 tools/build.py  (it creates any missing pages and never overwrites your notes). A subtopic can be a plain title, or {\"title\": ..., \"slug\": ...} to choose its web address. Set a course's status to \"live\" to give it pages; \"coming-soon\" shows a card on the home page only.",
+  "site": {
+    "name": "VMANZ Maths",
+    "brand": "VMANZ",
+    "tagline": "Clear notes and worked examples for secondary school maths.",
+    "byline": "Brought to you by VMANZ"
+  },
+  "courses": [
+    {
+      "title": "Year 9",
+      "slug": "year-9",
+      "status": "live",
+      "label": "Junior",
+      "blurb": "Building the foundations: number, algebra, measurement, geometry, statistics and probability.",
+      "topics": [
+        {
+          "title": "Number",
+          "blurb": "Fractions, percentages, ratio, powers and money.",
+          "groups": [
+            { "title": "Fractions and percentages", "subtopics": ["Fractions of amounts", "Percentages"] },
+            { "title": "Ratio and rates", "subtopics": ["Sharing in a ratio", "Best buys"] },
+            { "title": "Powers", "subtopics": ["Indices", "Standard form"] },
+            { "title": "Directed number", "subtopics": ["Directed number"] },
+            { "title": "Financial maths", "subtopics": ["GST and simple interest"] }
+          ]
+        },
+        {
+          "title": "Algebra",
+          "blurb": "Expressions, equations, sequences and straight-line graphs.",
+          "groups": [
+            { "title": "Expressions", "subtopics": ["Collecting like terms", "Expanding single brackets", "Expanding two brackets", "Factorising"] },
+            { "title": "Equations", "subtopics": ["Linear equations", "Substitution into formulae", "Rearranging formulae", "Linear inequalities", "Simultaneous equations"] },
+            { "title": "Sequences", "subtopics": ["Arithmetic sequences"] },
+            { "title": "Graphs", "subtopics": ["Gradient", "Linear graphs"] }
+          ]
+        },
+        {
+          "title": "Measurement",
+          "blurb": "Perimeter, area, units, Pythagoras and rates.",
+          "groups": [
+            { "title": "Area and perimeter", "subtopics": ["Perimeter", "Area", "Compound area"] },
+            { "title": "Units", "subtopics": ["Unit conversion"] },
+            { "title": "Right-angled triangles", "subtopics": [{ "title": "Pythagoras' theorem", "slug": "pythagoras-theorem" }] },
+            { "title": "Rates", "subtopics": ["Speed, distance and time"] }
+          ]
+        },
+        {
+          "title": "Geometry",
+          "blurb": "Angles, coordinates, transformations and 3D shapes.",
+          "groups": [
+            { "title": "Angle properties", "subtopics": ["Angle facts", "Parallel lines"] },
+            { "title": "Coordinates", "subtopics": ["Coordinates"] },
+            { "title": "Spatial reasoning", "subtopics": ["Reflections and rotations", { "title": "3D shapes and nets", "slug": "3d-shapes-and-nets" }] }
+          ]
+        },
+        {
+          "title": "Statistics",
+          "blurb": "Averages, charts and summarising data.",
+          "groups": [
+            { "title": "Summarising data", "subtopics": ["Averages", "Five-number summary"] },
+            { "title": "Displaying data", "subtopics": ["Charts", "Box plots"] }
+          ]
+        },
+        {
+          "title": "Probability",
+          "blurb": "Chance, outcomes and experiments.",
+          "groups": [
+            { "title": "Single events", "subtopics": ["Probability", "Complementary and mutually exclusive events"] },
+            { "title": "Experiments", "subtopics": ["Experimental probability"] }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Year 10",
+      "slug": "year-10",
+      "status": "live",
+      "label": "Junior",
+      "blurb": "Extending the toolkit: surds, quadratics, trigonometry, volume, scatter graphs and tree diagrams.",
+      "topics": [
+        {
+          "title": "Number",
+          "blurb": "Compound change, surds, significant figures and money.",
+          "groups": [
+            { "title": "Percentages", "subtopics": ["Compound percentages"] },
+            { "title": "Powers and roots", "subtopics": ["Calculating in standard form", "Surds"] },
+            { "title": "Rounding and estimation", "subtopics": ["Significant figures"] },
+            { "title": "Financial maths", "subtopics": ["Compound interest and currency"] }
+          ]
+        },
+        {
+          "title": "Algebra",
+          "blurb": "Quadratics, harder rearranging, simultaneous equations and graphs.",
+          "groups": [
+            { "title": "Expressions", "subtopics": [{ "title": "Expanding (ax + b)(cx + d)", "slug": "expanding-binomials" }, { "title": "Factorising ax² + bx + c", "slug": "factorising-harder-quadratics" }] },
+            { "title": "Equations", "subtopics": ["Rearranging formulae with powers and roots", "Simultaneous equations", "Solving quadratic equations"] },
+            { "title": "Graphs", "subtopics": ["Equation of a line", "Quadratic graphs"] }
+          ]
+        },
+        {
+          "title": "Measurement",
+          "blurb": "Circles, trigonometry, volume, surface area and scale.",
+          "groups": [
+            { "title": "Circles", "subtopics": ["Circles"] },
+            { "title": "Right-angled triangles", "subtopics": ["Trigonometry"] },
+            { "title": "Volume and surface area", "subtopics": ["Prism, pyramid and cylinder volume", "Surface area"] },
+            { "title": "Scaling", "subtopics": ["Scale factors for area and volume"] }
+          ]
+        },
+        {
+          "title": "Geometry",
+          "blurb": "Similarity and congruence.",
+          "groups": [
+            { "title": "Similarity and congruence", "subtopics": ["Similar shapes"] }
+          ]
+        },
+        {
+          "title": "Statistics",
+          "blurb": "Relationships between variables, samples and populations.",
+          "groups": [
+            { "title": "Bivariate data", "subtopics": ["Scatter graphs"] },
+            { "title": "Sampling and inference", "subtopics": ["Sampling and inference"] }
+          ]
+        },
+        {
+          "title": "Probability",
+          "blurb": "Two or more events.",
+          "groups": [
+            { "title": "Combined events", "subtopics": ["Tree diagrams"] }
+          ]
+        }
+      ]
+    },
+    { "title": "NCEA Level 1", "slug": "ncea-level-1", "status": "coming-soon", "label": "NZ Curriculum", "blurb": "Mathematics and Statistics, Level 1." },
+    { "title": "NCEA Level 2", "slug": "ncea-level-2", "status": "coming-soon", "label": "NZ Curriculum", "blurb": "Mathematics and Statistics, Level 2." },
+    { "title": "NCEA Level 3", "slug": "ncea-level-3", "status": "coming-soon", "label": "NZ Curriculum", "blurb": "Calculus and Statistics, Level 3." },
+    { "title": "Cambridge IGCSE", "slug": "cambridge-igcse", "status": "coming-soon", "label": "Cambridge", "blurb": "IGCSE Mathematics (0580)." },
+    { "title": "Cambridge AS Level", "slug": "cambridge-as-level", "status": "coming-soon", "label": "Cambridge", "blurb": "AS Level Mathematics (9709)." },
+    { "title": "Cambridge A Level", "slug": "cambridge-a-level", "status": "coming-soon", "label": "Cambridge", "blurb": "A Level Mathematics (9709)." }
+  ]
+}
