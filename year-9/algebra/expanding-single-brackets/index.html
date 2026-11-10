@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css">
-<script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js"></script>
 <link rel="stylesheet" href="../../../assets/css/site.css?v=90f19483">
 <script defer src="../../../assets/js/site.js?v=4b4894bb"></script>
 </head>
@@ -39,82 +37,609 @@
   </header>
   <article class="notes">
 <!-- vmanz:content:start -->
-<!-- vmanz:placeholder -->
-<!-- Delete the placeholder line above once the chapter is written, then run: python3 tools/build.py
-     This page is a textbook chapter (about 8 printed pages). Follow the structure below and
-     copy from the finished chapters, e.g. year-9/algebra/expanding-two-brackets/.
-     Building blocks: .note .rule .warn .check .investigate .example+details.solution
-     dl.keywords  ol.exercise.cols-N  ol.answers  ol.parts  table.mtable  figure.diagram  .jxgbox  .readout
-     Maths: inline \( ... \)   display \[ ... \]   (never single $) -->
 <section class="block intentions">
   <h2>What you'll learn</h2>
-  <!-- 4–6 "I can …" statements -->
   <ul>
-    <li class="todo">Learning goals for Expanding single brackets are coming soon.</li>
+    <li>I can explain why expanding works, using arithmetic and the area of a rectangle.</li>
+    <li>I can expand a bracket with a positive number outside, such as \(3(x + 4)\).</li>
+    <li>I can expand a bracket with a negative number outside, such as \(-2(x - 5)\).</li>
+    <li>I can expand a bracket with a letter outside, such as \(x(x + 3)\) or \(2a(3a - b)\).</li>
+    <li>I can expand and simplify expressions with more than one bracket.</li>
+    <li>I can use expanding to solve problems.</li>
   </ul>
 </section>
 
 <section class="block">
   <h2>Before you start</h2>
-  <!-- 4–6 warm-up questions on prior skills, with answers, and links to the pages they come from -->
-  <p class="todo">Warm-up questions coming soon.</p>
+  <p>You will need these skills. If you get stuck, revisit <a href="../collecting-like-terms/index.html">Collecting like terms</a> or <a href="../../number/directed-number/index.html">Directed number</a>.</p>
+  <ol class="exercise cols-3">
+    <li>\(4 \times (-3)\)</li>
+    <li>\((-2) \times (-5)\)</li>
+    <li>Simplify \(5x + 2 - 3x + 4\)</li>
+    <li>Simplify \(3 \times 2x\)</li>
+    <li>Simplify \(x \times x\)</li>
+    <li>Work out \(7 \times 99\) in your head</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(-12\)</li>
+      <li>\(10\)</li>
+      <li>\(2x + 6\)</li>
+      <li>\(6x\)</li>
+      <li>\(x^2\)</li>
+      <li>\(700 - 7 = 693\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Key words</h2>
-  <!-- dl.keywords with 4–8 terms -->
-  <p class="todo">Key words coming soon.</p>
+  <dl class="keywords">
+    <dt>Bracket</dt><dd>A pair of symbols \(( \ )\) that groups terms together. Everything inside is treated as one quantity.</dd>
+    <dt>Expand</dt><dd>Multiply out a bracket so the expression has no brackets.</dd>
+    <dt>Term</dt><dd>One part of an expression, together with the sign in front of it.</dd>
+    <dt>Like terms</dt><dd>Terms with exactly the same letters and powers.</dd>
+    <dt>Expand and simplify</dt><dd>Multiply out the brackets, then collect like terms.</dd>
+    <dt>Distributive law</dt><dd>The rule \(a(b + c) = ab + ac\): the term outside is shared out to every term inside.</dd>
+  </dl>
 </section>
 
 <section class="block">
-  <h2>1. First idea</h2>
-  <!-- 4–9 numbered sections. Each: explanation, .note/.rule, diagram or graph,
-       1–3 worked examples (.example), and a .check with 2–3 quick questions. -->
-  <p class="todo">Notes and worked examples coming soon.</p>
+  <h2>1. Why expanding works</h2>
+  <p>You already use expanding in mental arithmetic. To work out \(4 \times 23\), you can split 23 into \(20 + 3\):</p>
+  \[ 4 \times 23 = 4 \times (20 + 3) = 4 \times 20 + 4 \times 3 = 80 + 12 = 92 \]
+  <p>Algebra works the same way. \(4(x + 3)\) means 4 lots of \((x + 3)\). Picture it as the area of a rectangle 4 tall and \(x + 3\) wide.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 130" role="img" aria-label="A rectangle with height 4 split into two parts. The first part has width x and area 4x. The second has width 3 and area 12.">
+      <rect class="dg-fill" x="60" y="40" width="190" height="60"/>
+      <rect class="dg-soft" x="250" y="40" width="70" height="60"/>
+      <text class="dg-label dg-var" x="155" y="28" text-anchor="middle">x</text>
+      <text class="dg-label" x="285" y="28" text-anchor="middle">3</text>
+      <text class="dg-label" x="40" y="76" text-anchor="middle">4</text>
+      <text class="dg-label" x="155" y="76" text-anchor="middle">4<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="285" y="76" text-anchor="middle">12</text>
+    </svg>
+    <figcaption>Total area: \(4(x + 3) = 4x + 12\)</figcaption>
+  </figure>
+  <div class="rule">
+    <span class="box-label">Distributive law</span>
+    \[ a(b + c) = ab + ac \]
+    <p style="font-size:1rem">The term outside the bracket multiplies <strong>every</strong> term inside.</p>
+  </div>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 140" role="img" aria-label="The expression 3 times x plus 4, with one arrow from the 3 to the x and another from the 3 to the 4.">
+      <path class="dg-accent" d="M40,86 Q65,46 90,86"/>
+      <path class="dg-accent" d="M40,86 Q100,14 160,86"/>
+      <text class="dg-label" x="40" y="112" text-anchor="middle" style="font-size:30px">3</text>
+      <text class="dg-label" x="62" y="112" text-anchor="middle" style="font-size:30px">(</text>
+      <text class="dg-label dg-var" x="90" y="112" text-anchor="middle" style="font-size:30px">x</text>
+      <text class="dg-label" x="125" y="112" text-anchor="middle" style="font-size:30px">+</text>
+      <text class="dg-label" x="160" y="112" text-anchor="middle" style="font-size:30px">4</text>
+      <text class="dg-label" x="182" y="112" text-anchor="middle" style="font-size:30px">)</text>
+      <text class="dg-label" x="210" y="70">3 × <tspan class="dg-var">x</tspan> = 3<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="210" y="100">3 × 4 = 12</text>
+    </svg>
+    <figcaption>Draw an arrow from the outside term to each term inside, so you don't miss one.</figcaption>
+  </figure>
+</section>
+
+<section class="block">
+  <h2>2. A positive number outside</h2>
+  <div class="example">
+    <h3>Expanding</h3>
+    <p>Expand (a) \(5(x + 2)\) &nbsp; (b) \(3(2a - 7)\) &nbsp; (c) \(4(3 + 2y)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(5 \times x = 5x\) and \(5 \times 2 = 10\): \(5x + 10\)</li>
+        <li>\(3 \times 2a = 6a\) and \(3 \times (-7) = -21\): \(6a - 21\)</li>
+        <li>\(4 \times 3 = 12\) and \(4 \times 2y = 8y\): \(12 + 8y\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Three terms inside</h3>
+    <p>Expand \(6(x + y - 2)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Multiply each of the three terms by 6: \(6 \times x\), \(6 \times y\), \(6 \times (-2)\).</li>
+      </ol>
+      <p class="answer">\(6x + 6y - 12\)</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(2(x + 9)\)</li>
+      <li>\(7(3y - 1)\)</li>
+      <li>\(5(a + 2b - 4)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(2x + 18\)</li>
+        <li>\(21y - 7\)</li>
+        <li>\(5a + 10b - 20\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>3. A negative number outside</h2>
+  <p>When the number outside is negative, it changes the sign of every term inside. Use the sign rules: a negative times a positive is negative, and a negative times a negative is positive.</p>
+  <div class="example">
+    <h3>Negative outside</h3>
+    <p>Expand (a) \(-3(x + 4)\) &nbsp; (b) \(-2(y - 5)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(-3 \times x = -3x\) and \(-3 \times 4 = -12\): \(-3x - 12\)</li>
+        <li>\(-2 \times y = -2y\) and \(-2 \times (-5) = +10\): \(-2y + 10\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Just a minus sign</h3>
+    <p>Expand \(-(x - 6)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>A minus sign on its own in front of a bracket means \(-1\): \(-1(x - 6)\).</li>
+        <li>\(-1 \times x = -x\) and \(-1 \times (-6) = +6\).</li>
+      </ol>
+      <p class="answer">\(-x + 6\), or \(6 - x\)</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(-4(x + 1)\)</li>
+      <li>\(-5(2y - 3)\)</li>
+      <li>\(-(a + 8)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(-4x - 4\)</li>
+        <li>\(-10y + 15\)</li>
+        <li>\(-a - 8\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>4. A letter outside</h2>
+  <p>The term outside can be a letter, or a number and a letter. Multiply it by each term inside, using the rules for multiplying terms: \(x \times x = x^2\).</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 200" role="img" aria-label="A rectangle with height x split into two parts. The first part has width x and area x squared. The second has width 5 and area 5x.">
+      <rect class="dg-fill" x="60" y="40" width="150" height="140"/>
+      <rect class="dg-soft" x="210" y="40" width="100" height="140"/>
+      <text class="dg-label dg-var" x="135" y="28" text-anchor="middle">x</text>
+      <text class="dg-label" x="260" y="28" text-anchor="middle">5</text>
+      <text class="dg-label dg-var" x="40" y="115" text-anchor="middle">x</text>
+      <text class="dg-label dg-var" x="135" y="116" text-anchor="middle">x²</text>
+      <text class="dg-label" x="260" y="116" text-anchor="middle">5<tspan class="dg-var">x</tspan></text>
+    </svg>
+    <figcaption>\(x(x + 5) = x^2 + 5x\)</figcaption>
+  </figure>
+  <div class="example">
+    <h3>A letter outside</h3>
+    <p>Expand (a) \(a(3 - a)\) &nbsp; (b) \(2p(4p + 3)\) &nbsp; (c) \(-y(y - 2)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(a \times 3 = 3a\) and \(a \times (-a) = -a^2\): \(3a - a^2\)</li>
+        <li>\(2p \times 4p = 8p^2\) and \(2p \times 3 = 6p\): \(8p^2 + 6p\)</li>
+        <li>\(-y \times y = -y^2\) and \(-y \times (-2) = +2y\): \(-y^2 + 2y\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Two different letters</h3>
+    <p>Expand \(3x(2x - y + 4)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(3x \times 2x = 6x^2\)</li>
+        <li>\(3x \times (-y) = -3xy\)</li>
+        <li>\(3x \times 4 = 12x\)</li>
+      </ol>
+      <p class="answer">\(6x^2 - 3xy + 12x\)</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(x(x + 7)\)</li>
+      <li>\(4m(m - 2)\)</li>
+      <li>\(-a(a + b)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(x^2 + 7x\)</li>
+        <li>\(4m^2 - 8m\)</li>
+        <li>\(-a^2 - ab\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>5. Expanding and simplifying</h2>
+  <p>When an expression has more than one bracket, expand each one, then collect like terms. Be especially careful when a bracket has a minus sign in front of it.</p>
+
+  <div class="example">
+    <h3>Adding two brackets</h3>
+    <p>Expand and simplify \(3(x + 2) + 4(x - 1)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Expand each bracket: \(3x + 6 + 4x - 4\).</li>
+        <li>Collect like terms: \(3x + 4x = 7x\) and \(6 - 4 = 2\).</li>
+      </ol>
+      <p class="answer">\(7x + 2\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Subtracting a bracket</h3>
+    <p>Expand and simplify \(5(a + 3) - 2(a - 4)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>The second bracket is multiplied by \(-2\), not \(2\).</li>
+        <li>\(5(a + 3) = 5a + 15\) and \(-2(a - 4) = -2a + 8\).</li>
+        <li>Collect: \(5a - 2a = 3a\) and \(15 + 8 = 23\).</li>
+      </ol>
+      <p class="answer">\(3a + 23\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Squares and constants</h3>
+    <p>Expand and simplify \(x(x + 2) + 3(x - 1)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Expand: \(x^2 + 2x + 3x - 3\).</li>
+        <li>Collect: \(2x + 3x = 5x\).</li>
+      </ol>
+      <p class="answer">\(x^2 + 5x - 3\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Multiply before you add</h3>
+    <p>Expand and simplify \(4 + 2(x - 3)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Order of operations: multiplication comes before addition, so expand the bracket first. Do <strong>not</strong> add \(4 + 2\).</li>
+        <li>\(4 + 2x - 6\).</li>
+        <li>Collect: \(4 - 6 = -2\).</li>
+      </ol>
+      <p class="answer">\(2x - 2\)</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-2">
+      <li>\(2(x + 5) + 3(x + 1)\)</li>
+      <li>\(6(y + 2) - 4(y + 1)\)</li>
+      <li>\(3(2m - 1) - (m - 5)\)</li>
+      <li>\(10 - 3(x + 2)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-2">
+        <li>\(5x + 13\)</li>
+        <li>\(2y + 8\)</li>
+        <li>\(5m + 2\)</li>
+        <li>\(4 - 3x\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>6. Using expanding</h2>
+
+  <div class="example">
+    <h3>Mental arithmetic</h3>
+    <p>Work out \(6 \times 98\) in your head.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(98 = 100 - 2\), so \(6 \times 98 = 6(100 - 2) = 600 - 12\).</li>
+      </ol>
+      <p class="answer">\(588\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Proving a number trick</h3>
+    <p>Think of a number. Add 4. Multiply by 3. Subtract 12. Divide by 3. Show that you always end up with the number you started with.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <div class="table-scroll">
+        <table class="mtable">
+          <thead><tr><th>Step</th><th>Try 7</th><th>Any number \(n\)</th></tr></thead>
+          <tbody>
+            <tr><td>Think of a number</td><td>7</td><td>\(n\)</td></tr>
+            <tr><td>Add 4</td><td>11</td><td>\(n + 4\)</td></tr>
+            <tr><td>Multiply by 3</td><td>33</td><td>\(3(n + 4) = 3n + 12\)</td></tr>
+            <tr><td>Subtract 12</td><td>21</td><td>\(3n\)</td></tr>
+            <tr><td>Divide by 3</td><td>7</td><td>\(n\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Trying one number shows the trick works for 7. The algebra column proves it works for <strong>every</strong> number.</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Expanding to solve an equation</h3>
+    <p>Solve \(3(x + 2) = 21\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Expand: \(3x + 6 = 21\).</li>
+        <li>Subtract 6 from both sides: \(3x = 15\).</li>
+        <li>Divide both sides by 3: \(x = 5\).</li>
+        <li>Check: \(3(5 + 2) = 3 \times 7 = 21\). ✓</li>
+      </ol>
+      <p class="answer">\(x = 5\)</p>
+      <p>You will learn more about this in <a href="../linear-equations/index.html">Linear equations</a>.</p>
+    </details>
+  </div>
 </section>
 
 <section class="block exercise">
   <h2>Exercise A <span class="level">Practice</span></h2>
-  <!-- 20–30 fluency questions in ol.exercise.cols-N, grouped by type with h3s, answers in one details -->
-  <p class="todo">Practice questions coming soon.</p>
+  <p class="exercise-intro">Expand. Where there is more than one bracket, expand and simplify.</p>
+  <h3>A positive number outside</h3>
+  <ol class="exercise cols-4">
+    <li>\(2(x + 5)\)</li>
+    <li>\(4(y + 3)\)</li>
+    <li>\(6(a - 2)\)</li>
+    <li>\(3(2x + 1)\)</li>
+    <li>\(5(4 - 3p)\)</li>
+    <li>\(7(2m - 3n)\)</li>
+    <li>\(2(x + y + 4)\)</li>
+    <li>\(10(0.5x - 0.3)\)</li>
+  </ol>
+  <h3>A negative number outside</h3>
+  <ol class="exercise cols-3" start="9">
+    <li>\(-3(x + 2)\)</li>
+    <li>\(-5(y - 4)\)</li>
+    <li>\(-2(3a + 1)\)</li>
+    <li>\(-(x + 7)\)</li>
+    <li>\(-4(2 - p)\)</li>
+    <li>\(-6(-x - 3)\)</li>
+  </ol>
+  <h3>A letter outside</h3>
+  <ol class="exercise cols-4" start="15">
+    <li>\(x(x + 4)\)</li>
+    <li>\(y(y - 9)\)</li>
+    <li>\(a(5 + a)\)</li>
+    <li>\(2x(x + 3)\)</li>
+    <li>\(3p(2p - 5)\)</li>
+    <li>\(-m(m + 6)\)</li>
+    <li>\(4a(2a - 3b)\)</li>
+    <li>\(xy(x + y)\)</li>
+  </ol>
+  <h3>Expand and simplify</h3>
+  <ol class="exercise cols-2" start="23">
+    <li>\(2(x + 3) + 5(x + 1)\)</li>
+    <li>\(4(a - 2) + 3(a + 5)\)</li>
+    <li>\(6(y + 1) - 2(y + 3)\)</li>
+    <li>\(3(2x - 1) - 4(x - 2)\)</li>
+    <li>\(x(x + 3) + 2(x - 4)\)</li>
+    <li>\(5 + 3(p - 2)\)</li>
+    <li>\(10 - 2(x + 4)\)</li>
+    <li>\(a(a - 1) - a(a + 2)\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(2x + 10\)</li>
+      <li>\(4y + 12\)</li>
+      <li>\(6a - 12\)</li>
+      <li>\(6x + 3\)</li>
+      <li>\(20 - 15p\)</li>
+      <li>\(14m - 21n\)</li>
+      <li>\(2x + 2y + 8\)</li>
+      <li>\(5x - 3\)</li>
+      <li>\(-3x - 6\)</li>
+      <li>\(-5y + 20\)</li>
+      <li>\(-6a - 2\)</li>
+      <li>\(-x - 7\)</li>
+      <li>\(-8 + 4p\)</li>
+      <li>\(6x + 18\)</li>
+      <li>\(x^2 + 4x\)</li>
+      <li>\(y^2 - 9y\)</li>
+      <li>\(5a + a^2\)</li>
+      <li>\(2x^2 + 6x\)</li>
+      <li>\(6p^2 - 15p\)</li>
+      <li>\(-m^2 - 6m\)</li>
+      <li>\(8a^2 - 12ab\)</li>
+      <li>\(x^2y + xy^2\)</li>
+      <li>\(7x + 11\)</li>
+      <li>\(7a + 7\)</li>
+      <li>\(4y\)</li>
+      <li>\(2x + 5\)</li>
+      <li>\(x^2 + 5x - 8\)</li>
+      <li>\(3p - 1\)</li>
+      <li>\(2 - 2x\)</li>
+      <li>\(-3a\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise B <span class="level">Apply</span></h2>
-  <!-- 8–10 problem-solving and in-context questions, answers in one details -->
-  <p class="todo">Problem-solving questions coming soon.</p>
+  <ol class="exercise">
+    <li>A rectangle is \((x + 6)\) cm long and 4 cm wide.
+      <ol class="parts">
+        <li>Write and expand an expression for its area.</li>
+        <li>Write and simplify an expression for its perimeter.</li>
+        <li>Find the area when \(x = 2\), and check it by working out the length first.</li>
+      </ol>
+    </li>
+    <li>Find the missing term.
+      <ol class="parts">
+        <li>\(3(x + \square) = 3x + 15\)</li>
+        <li>\(\square(2y - 3) = 8y - 12\)</li>
+        <li>\(5(\square - 2a) = 35 - 10a\)</li>
+        <li>\(\square(x + 4) = x^2 + 4x\)</li>
+      </ol>
+    </li>
+    <li>Leo expanded three expressions. Find his mistake in each, and write the correct answer.
+      <ol class="parts">
+        <li>\(4(x + 3) = 4x + 3\)</li>
+        <li>\(-2(x - 5) = -2x - 10\)</li>
+        <li>\(5 - 2(x + 1) = 3(x + 1) = 3x + 3\)</li>
+      </ol>
+    </li>
+    <li>Use expanding to work out in your head.
+      <ol class="parts">
+        <li>\(7 \times 103\)</li>
+        <li>\(9 \times 48\)</li>
+        <li>\(15 \times 19\)</li>
+      </ol>
+    </li>
+    <li>Think of a number. Double it. Add 10. Halve the result. Subtract the number you first thought of. Use algebra to show that the answer is always 5.</li>
+    <li>A phone plan costs $15 a month plus $2 for every gigabyte (GB) of data. Sam uses \(g\) GB each month.
+      <ol class="parts">
+        <li>Write an expression, with a bracket, for the cost of 12 months.</li>
+        <li>Expand your expression.</li>
+        <li>Find the cost of 12 months if Sam uses 3 GB each month.</li>
+      </ol>
+    </li>
+    <li>A shape is made from two rectangles: one is 4 cm by \((x + 2)\) cm and the other is 2 cm by \((2x + 3)\) cm. Show that its total area is \(8x + 14\) cm².</li>
+    <li>Show that \(3(x + 4) - 2(x + 6)\) is equal to \(x\) for every value of \(x\).</li>
+    <li>Solve.
+      <ol class="parts">
+        <li>\(4(x - 2) = 20\)</li>
+        <li>\(2(3x + 1) = 5(x + 2)\)</li>
+      </ol>
+    </li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>(a) \(4(x + 6) = 4x + 24\) cm² (b) \(2(x + 6) + 2 \times 4 = 2x + 20\) cm (c) \(32\) cm²; length \(8\), \(8 \times 4 = 32\) ✓</li>
+      <li>(a) \(5\) (b) \(4\) (c) \(7\) (d) \(x\)</li>
+      <li>(a) The 4 must multiply the 3 as well: \(4x + 12\). (b) \(-2 \times (-5) = +10\): \(-2x + 10\). (c) Multiply before subtracting: \(5 - 2x - 2 = 3 - 2x\).</li>
+      <li>(a) \(7(100 + 3) = 721\) (b) \(9(50 - 2) = 432\) (c) \(15(20 - 1) = 285\)</li>
+      <li>\(n \to 2n \to 2n + 10 \to \tfrac{1}{2}(2n + 10) = n + 5 \to n + 5 - n = 5\)</li>
+      <li>(a) \(12(15 + 2g)\) (b) \(180 + 24g\) (c) \(180 + 72 = \$252\)</li>
+      <li>\(4(x + 2) + 2(2x + 3) = 4x + 8 + 4x + 6 = 8x + 14\)</li>
+      <li>\(3x + 12 - 2x - 12 = x\)</li>
+      <li>(a) \(4x - 8 = 20\), \(4x = 28\), \(x = 7\) (b) \(6x + 2 = 5x + 10\), so \(x = 8\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise C <span class="level">Challenge</span></h2>
-  <!-- 4–6 extension questions, answers in one details -->
-  <p class="todo">Challenge questions coming soon.</p>
+  <ol class="exercise">
+    <li>Expand and simplify \(2x(3x - 4) - 3x(x - 5)\).</li>
+    <li>Find the numbers \(a\) and \(b\) if \(a(2x + b) = 6x - 15\).</li>
+    <li>Expand and simplify (a) \(\tfrac{1}{2}(4x - 6)\) &nbsp; (b) \(\tfrac{1}{3}(9y + 12) - \tfrac{1}{2}(4y - 2)\).</li>
+    <li>Prove that the sum of any five whole numbers in a row is 5 times the middle number. (Hint: call the middle number \(n\).)</li>
+    <li>Expand and simplify \(x^2(x + 3) - x(x^2 - 2x)\).</li>
+    <li>Find whole numbers to go in the boxes so that \(3(x + \square) - \square(x - 1)\) simplifies to \(x + 11\).</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>\(6x^2 - 8x - 3x^2 + 15x = 3x^2 + 7x\)</li>
+      <li>\(2a = 6\), so \(a = 3\); \(3b = -15\), so \(b = -5\)</li>
+      <li>(a) \(2x - 3\) (b) \(3y + 4 - 2y + 1 = y + 5\)</li>
+      <li>\((n - 2) + (n - 1) + n + (n + 1) + (n + 2) = 5n\)</li>
+      <li>\(x^3 + 3x^2 - x^3 + 2x^2 = 5x^2\)</li>
+      <li>\(3(x + 3) - 2(x - 1) = 3x + 9 - 2x + 2 = x + 11\), so the boxes are 3 and 2.</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
-  <!-- 3–4 .warn boxes, each with a short label -->
-  <p class="todo">Coming soon.</p>
+  <div class="warn">
+    <span class="box-label">Only multiplying the first term</span>
+    <p>\(4(x + 3)\) is \(4x + 12\), not \(4x + 3\). The number outside multiplies <strong>every</strong> term inside.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Signs with a negative outside</span>
+    <p>\(-2(x - 5) = -2x + 10\). A negative times a negative is positive.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Subtracting a bracket</span>
+    <p>In \(5(a + 3) - 2(a - 4)\), the second bracket is multiplied by \(-2\), so the last term is \(+8\), not \(-8\).</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Adding before multiplying</span>
+    <p>\(5 - 2(x + 1)\) is not \(3(x + 1)\). Expand first: \(5 - 2x - 2 = 3 - 2x\).</p>
+  </div>
 </section>
 
 <section class="block">
   <h2>Summary</h2>
-  <!-- .summary box with 5–7 bullet points -->
-  <p class="todo">Coming soon.</p>
+  <div class="summary">
+    <ul>
+      <li>Expanding means multiplying out brackets: \(a(b + c) = ab + ac\).</li>
+      <li>The term outside multiplies <strong>every</strong> term inside, including its sign.</li>
+      <li>A negative outside changes the sign of every term inside.</li>
+      <li>A letter outside can give squared terms: \(x(x + 5) = x^2 + 5x\).</li>
+      <li>"Expand and simplify" means expand every bracket, then collect like terms.</li>
+      <li>Multiply out brackets before adding or subtracting.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="block">
   <h2>Check-in</h2>
-  <!-- 6–8 end-of-chapter questions covering every section, answers in one details -->
-  <p class="todo">Coming soon.</p>
+  <p>Try these without looking back, then mark your answers.</p>
+  <ol class="exercise cols-2">
+    <li>\(5(x + 4)\)</li>
+    <li>\(3(2a - 7)\)</li>
+    <li>\(-4(y - 3)\)</li>
+    <li>\(x(x - 8)\)</li>
+    <li>\(2p(3p + 5)\)</li>
+    <li>\(2(x + 5) + 3(x - 1)\)</li>
+    <li>\(4(m + 2) - 3(m - 1)\)</li>
+    <li>Use expanding to work out \(8 \times 99\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-2">
+      <li>\(5x + 20\)</li>
+      <li>\(6a - 21\)</li>
+      <li>\(-4y + 12\)</li>
+      <li>\(x^2 - 8x\)</li>
+      <li>\(6p^2 + 10p\)</li>
+      <li>\(5x + 7\)</li>
+      <li>\(m + 11\)</li>
+      <li>\(8(100 - 1) = 792\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block where-next">
   <h2>Where next?</h2>
-  <!-- 2–3 links to related subtopics (this year and the next) -->
-  <p class="todo">Coming soon.</p>
+  <ul>
+    <li><a href="../expanding-two-brackets/index.html">Expanding two brackets</a>: multiplying expressions like \((x + 3)(x + 5)\).</li>
+    <li><a href="../factorising/index.html">Factorising</a>: putting the brackets back in.</li>
+    <li><a href="../linear-equations/index.html">Linear equations</a>: solving equations with brackets.</li>
+  </ul>
 </section>
-
 <!-- vmanz:content:end -->
   </article>
   <nav class="pager" aria-label="Previous and next"><a class="pager-prev" href="../../algebra/collecting-like-terms/index.html"><span class="pager-dir">Previous</span><span>Collecting like terms</span></a><a class="pager-next" href="../../algebra/expanding-two-brackets/index.html"><span class="pager-dir">Next</span><span>Expanding two brackets</span></a></nav>

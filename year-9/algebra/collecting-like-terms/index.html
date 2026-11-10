@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css">
-<script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js"></script>
 <link rel="stylesheet" href="../../../assets/css/site.css?v=90f19483">
 <script defer src="../../../assets/js/site.js?v=4b4894bb"></script>
 </head>
@@ -39,82 +37,706 @@
   </header>
   <article class="notes">
 <!-- vmanz:content:start -->
-<!-- vmanz:placeholder -->
-<!-- Delete the placeholder line above once the chapter is written, then run: python3 tools/build.py
-     This page is a textbook chapter (about 8 printed pages). Follow the structure below and
-     copy from the finished chapters, e.g. year-9/algebra/expanding-two-brackets/.
-     Building blocks: .note .rule .warn .check .investigate .example+details.solution
-     dl.keywords  ol.exercise.cols-N  ol.answers  ol.parts  table.mtable  figure.diagram  .jxgbox  .readout
-     Maths: inline \( ... \)   display \[ ... \]   (never single $) -->
 <section class="block intentions">
   <h2>What you'll learn</h2>
-  <!-- 4–6 "I can …" statements -->
   <ul>
-    <li class="todo">Learning goals for Collecting like terms are coming soon.</li>
+    <li>I can identify the terms, coefficients and constant in an expression.</li>
+    <li>I can tell whether two terms are like terms.</li>
+    <li>I can simplify an expression by collecting like terms, including negative terms.</li>
+    <li>I can collect like terms that contain powers or more than one letter.</li>
+    <li>I can multiply and divide terms, and explain how this is different from adding them.</li>
+    <li>I can write and simplify expressions to solve problems, such as perimeters.</li>
   </ul>
 </section>
 
 <section class="block">
   <h2>Before you start</h2>
-  <!-- 4–6 warm-up questions on prior skills, with answers, and links to the pages they come from -->
-  <p class="todo">Warm-up questions coming soon.</p>
+  <p>You will need these skills. If you get stuck, revisit <a href="../../number/directed-number/index.html">Directed number</a>.</p>
+  <ol class="exercise cols-3">
+    <li>\(-3 + 8\)</li>
+    <li>\(4 - 9\)</li>
+    <li>\(-2 - 6\)</li>
+    <li>\(5 \times (-3)\)</li>
+    <li>Write "a number \(n\) multiplied by 4" in algebra</li>
+    <li>Find the value of \(3x\) when \(x = 5\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(5\)</li>
+      <li>\(-5\)</li>
+      <li>\(-8\)</li>
+      <li>\(-15\)</li>
+      <li>\(4n\)</li>
+      <li>\(15\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Key words</h2>
-  <!-- dl.keywords with 4–8 terms -->
-  <p class="todo">Key words coming soon.</p>
+  <dl class="keywords">
+    <dt>Variable</dt><dd>A letter that stands for a number that can change, such as \(x\).</dd>
+    <dt>Expression</dt><dd>A collection of terms joined by \(+\) and \(-\) signs, such as \(5x - 3y + 7\). It has no equals sign.</dd>
+    <dt>Term</dt><dd>One part of an expression, together with the sign in front of it.</dd>
+    <dt>Coefficient</dt><dd>The number multiplying a variable. In \(-3y\) the coefficient is \(-3\).</dd>
+    <dt>Constant</dt><dd>A term with no variable, just a number, such as \(+7\).</dd>
+    <dt>Like terms</dt><dd>Terms with exactly the same letters and powers, such as \(4x^2\) and \(-x^2\).</dd>
+    <dt>Simplify</dt><dd>Write an expression in a shorter, neater way without changing its value.</dd>
+  </dl>
 </section>
 
 <section class="block">
-  <h2>1. First idea</h2>
-  <!-- 4–9 numbered sections. Each: explanation, .note/.rule, diagram or graph,
-       1–3 worked examples (.example), and a .check with 2–3 quick questions. -->
-  <p class="todo">Notes and worked examples coming soon.</p>
+  <h2>1. Terms, coefficients and constants</h2>
+  <p>An algebraic expression is built from <strong>terms</strong>. Each term is joined to the next by a \(+\) or \(-\) sign, and the sign belongs to the term that comes <strong>after</strong> it.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 150" role="img" aria-label="The expression 5x minus 3y plus 7 split into three terms: 5x, minus 3y and plus 7. The 5 is labelled as a coefficient and the 7 as the constant.">
+      <text class="dg-label" x="70" y="80" text-anchor="middle" style="font-size:32px">5<tspan class="dg-var" style="font-size:32px">x</tspan></text>
+      <text class="dg-label" x="170" y="80" text-anchor="middle" style="font-size:32px">− 3<tspan class="dg-var" style="font-size:32px">y</tspan></text>
+      <text class="dg-label" x="270" y="80" text-anchor="middle" style="font-size:32px">+ 7</text>
+      <polyline class="dg-accent" points="35,92 35,100 105,100 105,92"/>
+      <polyline class="dg-accent" points="125,92 125,100 215,100 215,92"/>
+      <polyline class="dg-accent" points="235,92 235,100 305,100 305,92"/>
+      <text class="dg-label accent" x="70" y="122" text-anchor="middle">term</text>
+      <text class="dg-label accent" x="170" y="122" text-anchor="middle">term</text>
+      <text class="dg-label accent" x="270" y="122" text-anchor="middle">constant term</text>
+      <line class="dg-thin" x1="60" y1="30" x2="60" y2="52"/>
+      <text class="dg-label muted" x="60" y="22" text-anchor="middle">coefficient</text>
+    </svg>
+    <figcaption>\(5x - 3y + 7\) has three terms. The coefficient of \(x\) is \(5\); the coefficient of \(y\) is \(-3\); the constant is \(7\).</figcaption>
+  </figure>
+  <h3>How algebra is written</h3>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Instead of…</th><th>write</th><th>because…</th></tr></thead>
+      <tbody>
+        <tr><td>\(3 \times x\) or \(x \times 3\)</td><td>\(3x\)</td><td>leave out the \(\times\) sign, number first</td></tr>
+        <tr><td>\(1x\)</td><td>\(x\)</td><td>a coefficient of 1 is not written</td></tr>
+        <tr><td>\(-1x\)</td><td>\(-x\)</td><td>the coefficient is \(-1\), but only the sign is written</td></tr>
+        <tr><td>\(b \times a\)</td><td>\(ab\)</td><td>letters usually go in alphabetical order</td></tr>
+        <tr><td>\(x \times x\)</td><td>\(x^2\)</td><td>a letter times itself is squared</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>For the expression \(4a - b + 9 - 2a^2\):</p>
+    <ol class="exercise cols-2">
+      <li>How many terms are there?</li>
+      <li>What is the coefficient of \(b\)?</li>
+      <li>What is the constant?</li>
+      <li>What is the coefficient of \(a^2\)?</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-2">
+        <li>4</li>
+        <li>\(-1\)</li>
+        <li>\(9\)</li>
+        <li>\(-2\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>2. Like terms</h2>
+  <p><strong>Like terms</strong> have exactly the same letters raised to exactly the same powers. Only the coefficients can be different.</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Terms</th><th>Like terms?</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>\(3x\) and \(7x\)</td><td>yes</td><td>both are \(x\)</td></tr>
+        <tr><td>\(3x\) and \(3y\)</td><td>no</td><td>different letters</td></tr>
+        <tr><td>\(2x\) and \(2x^2\)</td><td>no</td><td>same letter, different powers</td></tr>
+        <tr><td>\(ab\) and \(5ba\)</td><td>yes</td><td>\(ba\) is the same as \(ab\)</td></tr>
+        <tr><td>\(4\) and \(-9\)</td><td>yes</td><td>both are constants</td></tr>
+        <tr><td>\(x^2y\) and \(xy^2\)</td><td>no</td><td>\(x^2y = x \times x \times y\) but \(xy^2 = x \times y \times y\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Algebra tiles show why unlike terms can't be combined. An \(x^2\) tile, an \(x\) tile and a unit tile are different shapes, so you can count how many of each you have, but you can't turn them into one kind of tile.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 320 140" role="img" aria-label="Algebra tiles showing 2x squared plus 3x plus 4: two large squares, three long bars and four small squares.">
+      <rect class="dg-fill" x="20" y="20" width="56" height="56"/>
+      <rect class="dg-fill" x="84" y="20" width="56" height="56"/>
+      <rect class="dg-soft" x="160" y="20" width="56" height="16"/>
+      <rect class="dg-soft" x="160" y="40" width="56" height="16"/>
+      <rect class="dg-soft" x="160" y="60" width="56" height="16"/>
+      <rect class="dg-soft" x="240" y="20" width="16" height="16"/>
+      <rect class="dg-soft" x="262" y="20" width="16" height="16"/>
+      <rect class="dg-soft" x="240" y="42" width="16" height="16"/>
+      <rect class="dg-soft" x="262" y="42" width="16" height="16"/>
+      <text class="dg-label" x="80" y="104" text-anchor="middle">2<tspan class="dg-var">x</tspan>²</text>
+      <text class="dg-label" x="188" y="104" text-anchor="middle">3<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="259" y="104" text-anchor="middle">4</text>
+      <text class="dg-label muted" x="160" y="132" text-anchor="middle">2<tspan class="dg-var">x</tspan>² + 3<tspan class="dg-var">x</tspan> + 4 cannot be simplified</text>
+    </svg>
+  </figure>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>Which of these are like terms with \(4p\)?</p>
+    <p>\(7p\) &nbsp;&nbsp; \(4q\) &nbsp;&nbsp; \(-p\) &nbsp;&nbsp; \(p^2\) &nbsp;&nbsp; \(10pq\) &nbsp;&nbsp; \(\tfrac{1}{2}p\)</p>
+    <details class="solution">
+      <summary>Show answer</summary>
+      <p>\(7p\), \(-p\) and \(\tfrac{1}{2}p\).</p>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>3. Collecting like terms</h2>
+  <p>To <strong>simplify</strong> an expression, add or subtract the coefficients of like terms. The letters stay the same. Think of it as counting: 3 bananas plus 5 bananas is 8 bananas, and \(3x + 5x = 8x\).</p>
+  <div class="note">
+    <span class="box-label">Method</span>
+    <ol class="steps">
+      <li>Find each group of like terms. It can help to underline each group in a different way.</li>
+      <li>Add the coefficients in each group. Keep each term's sign with it.</li>
+      <li>Write the answer with the highest powers first, and the constant last.</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <h3>One letter</h3>
+    <p>Simplify \(3x + 5x + x\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>All three terms are like terms. Remember \(x\) means \(1x\).</li>
+        <li>\(3 + 5 + 1 = 9\).</li>
+      </ol>
+      <p class="answer">\(3x + 5x + x = 9x\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Two letters</h3>
+    <p>Simplify \(4a + 2b + 3a + 6b\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>The \(a\) terms: \(4a + 3a = 7a\).</li>
+        <li>The \(b\) terms: \(2b + 6b = 8b\).</li>
+      </ol>
+      <p class="answer">\(7a + 8b\)</p>
+      <p>\(7a + 8b\) cannot be simplified further: \(a\) and \(b\) are not like terms.</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(2y + 7y\)</li>
+      <li>\(m + m + m\)</li>
+      <li>\(5p + 3 + 2p + 4\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(9y\)</li>
+        <li>\(3m\)</li>
+        <li>\(7p + 7\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>4. Collecting negative terms</h2>
+  <p>When some terms are negative, the sign in front of each term travels with it. It helps to rewrite the expression with each group of like terms together before you add.</p>
+
+  <div class="example">
+    <h3>Subtracting</h3>
+    <p>Simplify (a) \(7y - 2y + 3y\) &nbsp; (b) \(5x - 8x\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(7 - 2 + 3 = 8\), so \(7y - 2y + 3y = 8y\).</li>
+        <li>\(5 - 8 = -3\), so \(5x - 8x = -3x\).</li>
+      </ol>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Mixed signs</h3>
+    <p>Simplify \(6a - 3b - 2a + 5b\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Group the like terms, keeping each sign: \(6a - 2a - 3b + 5b\).</li>
+        <li>\(6a - 2a = 4a\) and \(-3b + 5b = 2b\).</li>
+      </ol>
+      <p class="answer">\(4a + 2b\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Letters and numbers</h3>
+    <p>Simplify \(2p - 5 - 7p + 9\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Group: \(2p - 7p - 5 + 9\).</li>
+        <li>\(2p - 7p = -5p\) and \(-5 + 9 = 4\).</li>
+      </ol>
+      <p class="answer">\(-5p + 4\), which can also be written \(4 - 5p\)</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(4k - 9k\)</li>
+      <li>\(3x - 2y - x + 5y\)</li>
+      <li>\(8 - 3n - 10 + n\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(-5k\)</li>
+        <li>\(2x + 3y\)</li>
+        <li>\(-2n - 2\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>5. Powers and more than one letter</h2>
+  <p>The same rule applies to terms with powers or several letters: only terms with <strong>exactly</strong> the same letters and powers can be collected.</p>
+
+  <div class="example">
+    <h3>Squares</h3>
+    <p>Simplify \(3x^2 + 2x - x^2 + 5x\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>The \(x^2\) terms: \(3x^2 - x^2 = 2x^2\).</li>
+        <li>The \(x\) terms: \(2x + 5x = 7x\).</li>
+      </ol>
+      <p class="answer">\(2x^2 + 7x\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Two letters in a term</h3>
+    <p>Simplify \(4ab + 3ba - ab + 2a\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(ba\) is the same as \(ab\), so \(4ab\), \(3ba\) and \(-ab\) are like terms: \(4 + 3 - 1 = 6\).</li>
+        <li>\(2a\) has no partner.</li>
+      </ol>
+      <p class="answer">\(6ab + 2a\)</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(5y^2 - 2y^2 + y\)</li>
+      <li>\(7mn - 2nm\)</li>
+      <li>\(x^2 + 4x - 3x^2 - x\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(3y^2 + y\)</li>
+        <li>\(5mn\)</li>
+        <li>\(-2x^2 + 3x\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>6. Multiplying terms</h2>
+  <p>Any terms can be multiplied together, like or not. Multiply the numbers, then write the letters next to each other.</p>
+  <div class="example">
+    <h3>Multiplying terms</h3>
+    <p>Simplify (a) \(3a \times 4b\) &nbsp; (b) \(2x \times 5x\) &nbsp; (c) \(-3m \times 2n\) &nbsp; (d) \(a \times a \times a\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(3 \times 4 = 12\) and \(a \times b = ab\): \(12ab\)</li>
+        <li>\(2 \times 5 = 10\) and \(x \times x = x^2\): \(10x^2\)</li>
+        <li>\(-3 \times 2 = -6\): \(-6mn\)</li>
+        <li>\(a^3\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="note">
+    <span class="box-label">Adding is not multiplying</span>
+    <div class="table-scroll">
+      <table class="mtable">
+        <thead><tr><th>Adding</th><th>Multiplying</th></tr></thead>
+        <tbody>
+          <tr><td>\(x + x = 2x\)</td><td>\(x \times x = x^2\)</td></tr>
+          <tr><td>\(3x + 2x = 5x\)</td><td>\(3x \times 2x = 6x^2\)</td></tr>
+          <tr><td>\(a + b\) can't be simplified</td><td>\(a \times b = ab\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(5 \times 3y\)</li>
+      <li>\(4p \times 2q\)</li>
+      <li>\(6x \times x\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(15y\)</li>
+        <li>\(8pq\)</li>
+        <li>\(6x^2\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>7. Dividing terms</h2>
+  <p>Division in algebra is usually written as a fraction. Divide the numbers, then cancel any letters that appear on the top and the bottom.</p>
+  <div class="example">
+    <h3>Dividing terms</h3>
+    <p>Simplify (a) \(12x \div 4\) &nbsp; (b) \(\dfrac{10ab}{5a}\) &nbsp; (c) \(\dfrac{6x^2}{3x}\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(12 \div 4 = 3\): \(3x\)</li>
+        <li>\(10 \div 5 = 2\); the \(a\) cancels: \(\dfrac{10ab}{5a} = 2b\)</li>
+        <li>\(6 \div 3 = 2\); \(\dfrac{x^2}{x} = \dfrac{x \times x}{x} = x\): \(2x\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(20y \div 5\)</li>
+      <li>\(\dfrac{14pq}{7q}\)</li>
+      <li>\(\dfrac{9a^2}{3a}\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(4y\)</li>
+        <li>\(2p\)</li>
+        <li>\(3a\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>8. Using simplifying in problems</h2>
+  <div class="example">
+    <h3>Perimeter</h3>
+    <p>Find a simplified expression for the perimeter of this rectangle.</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 300 170" role="img" aria-label="A rectangle with length 3x plus 2 and width x minus 1.">
+        <rect class="dg-fill" x="50" y="30" width="200" height="100"/>
+        <text class="dg-label" x="150" y="22" text-anchor="middle">3<tspan class="dg-var">x</tspan> + 2</text>
+        <text class="dg-label" x="42" y="85" text-anchor="end"><tspan class="dg-var">x</tspan> − 1</text>
+      </svg>
+      <figcaption>Not to scale</figcaption>
+    </figure>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Add all four sides: \((3x + 2) + (x - 1) + (3x + 2) + (x - 1)\).</li>
+        <li>\(x\) terms: \(3x + x + 3x + x = 8x\). Constants: \(2 - 1 + 2 - 1 = 2\).</li>
+      </ol>
+      <p class="answer">Perimeter \(= 8x + 2\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>An algebra wall</h3>
+    <p>In an algebra wall, each brick is the sum of the two bricks directly below it. Find the expressions in the empty bricks.</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 280 150" role="img" aria-label="An algebra wall. The bottom row is 2a, a plus 3, and 5. The two bricks in the middle row and the top brick are empty.">
+        <rect class="dg-soft" x="20" y="100" width="80" height="36"/>
+        <rect class="dg-soft" x="100" y="100" width="80" height="36"/>
+        <rect class="dg-soft" x="180" y="100" width="80" height="36"/>
+        <rect class="dg-fill" x="60" y="64" width="80" height="36"/>
+        <rect class="dg-fill" x="140" y="64" width="80" height="36"/>
+        <rect class="dg-fill" x="100" y="28" width="80" height="36"/>
+        <text class="dg-label" x="60" y="124" text-anchor="middle">2<tspan class="dg-var">a</tspan></text>
+        <text class="dg-label" x="140" y="124" text-anchor="middle"><tspan class="dg-var">a</tspan> + 3</text>
+        <text class="dg-label" x="220" y="124" text-anchor="middle">5</text>
+        <text class="dg-label muted" x="100" y="88" text-anchor="middle">?</text>
+        <text class="dg-label muted" x="180" y="88" text-anchor="middle">?</text>
+        <text class="dg-label muted" x="140" y="52" text-anchor="middle">?</text>
+      </svg>
+    </figure>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Middle left: \(2a + (a + 3) = 3a + 3\).</li>
+        <li>Middle right: \((a + 3) + 5 = a + 8\).</li>
+        <li>Top: \((3a + 3) + (a + 8) = 4a + 11\).</li>
+      </ol>
+      <p class="answer">Middle row \(3a + 3\) and \(a + 8\); top \(4a + 11\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Simplify first</h3>
+    <p>Find the value of \(4x + 7 - x + 2 - 3x + x\) when \(x = 12\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Simplify first: \(4x - x - 3x + x = x\) and \(7 + 2 = 9\), so the expression is \(x + 9\).</li>
+        <li>Substitute: \(12 + 9 = 21\).</li>
+      </ol>
+      <p class="answer">\(21\)</p>
+      <p>Simplifying first means one easy substitution instead of four.</p>
+    </details>
+  </div>
 </section>
 
 <section class="block exercise">
   <h2>Exercise A <span class="level">Practice</span></h2>
-  <!-- 20–30 fluency questions in ol.exercise.cols-N, grouped by type with h3s, answers in one details -->
-  <p class="todo">Practice questions coming soon.</p>
+  <p class="exercise-intro">Simplify.</p>
+  <h3>Collecting like terms</h3>
+  <ol class="exercise cols-3">
+    <li>\(4x + 6x\)</li>
+    <li>\(9y - 3y\)</li>
+    <li>\(5a + a + 2a\)</li>
+    <li>\(7p - 10p\)</li>
+    <li>\(-2m + 8m\)</li>
+    <li>\(3x + 4y + 2x + y\)</li>
+    <li>\(6a + 5 + 2a - 3\)</li>
+    <li>\(8p - 3q - 5p + 7q\)</li>
+    <li>\(2c - 9 - 6c + 4\)</li>
+    <li>\(10 - 3k + 2 + k\)</li>
+    <li>\(5x - 2y - 5x + 6y\)</li>
+    <li>\(-4t - 3 - t + 8\)</li>
+  </ol>
+  <h3>Powers and more than one letter</h3>
+  <ol class="exercise cols-3" start="13">
+    <li>\(3x^2 + 5x^2\)</li>
+    <li>\(4y^2 + 2y - y^2 + 3y\)</li>
+    <li>\(6ab + 2ab - 3a\)</li>
+    <li>\(5xy + 2yx\)</li>
+    <li>\(a^2 + 3a + 4a^2 - 7a + 2\)</li>
+    <li>\(2m^2n + 5mn^2 - m^2n\)</li>
+  </ol>
+  <h3>Multiplying</h3>
+  <ol class="exercise cols-3" start="19">
+    <li>\(3 \times 4x\)</li>
+    <li>\(5a \times 2b\)</li>
+    <li>\(4x \times 3x\)</li>
+    <li>\(-2p \times 6q\)</li>
+    <li>\(3y \times y \times 2\)</li>
+    <li>\(2a \times 3b \times 4c\)</li>
+  </ol>
+  <h3>Dividing</h3>
+  <ol class="exercise cols-4" start="25">
+    <li>\(15x \div 3\)</li>
+    <li>\(\dfrac{12ab}{4b}\)</li>
+    <li>\(\dfrac{8x^2}{2x}\)</li>
+    <li>\(\dfrac{20pq}{5pq}\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(10x\)</li>
+      <li>\(6y\)</li>
+      <li>\(8a\)</li>
+      <li>\(-3p\)</li>
+      <li>\(6m\)</li>
+      <li>\(5x + 5y\)</li>
+      <li>\(8a + 2\)</li>
+      <li>\(3p + 4q\)</li>
+      <li>\(-4c - 5\)</li>
+      <li>\(12 - 2k\)</li>
+      <li>\(4y\)</li>
+      <li>\(-5t + 5\)</li>
+      <li>\(8x^2\)</li>
+      <li>\(3y^2 + 5y\)</li>
+      <li>\(8ab - 3a\)</li>
+      <li>\(7xy\)</li>
+      <li>\(5a^2 - 4a + 2\)</li>
+      <li>\(m^2n + 5mn^2\)</li>
+      <li>\(12x\)</li>
+      <li>\(10ab\)</li>
+      <li>\(12x^2\)</li>
+      <li>\(-12pq\)</li>
+      <li>\(6y^2\)</li>
+      <li>\(24abc\)</li>
+      <li>\(5x\)</li>
+      <li>\(3a\)</li>
+      <li>\(4x\)</li>
+      <li>\(4\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise B <span class="level">Apply</span></h2>
-  <!-- 8–10 problem-solving and in-context questions, answers in one details -->
-  <p class="todo">Problem-solving questions coming soon.</p>
+  <ol class="exercise">
+    <li>Find a simplified expression for the perimeter of
+      <ol class="parts">
+        <li>a triangle with sides \(2a + 5\), \(3a - 1\) and \(a + 4\)</li>
+        <li>a regular hexagon with sides of \(2y + 1\)</li>
+        <li>a square with sides of \(5 - x\)</li>
+      </ol>
+    </li>
+    <li>Find the expressions in the empty bricks of this algebra wall. Each brick is the sum of the two below it.
+      <figure class="diagram">
+        <svg viewBox="0 0 280 150" role="img" aria-label="An algebra wall. The bottom row is x, 2x plus 3, and 4. The middle row and top brick are empty.">
+          <rect class="dg-soft" x="20" y="100" width="80" height="36"/>
+          <rect class="dg-soft" x="100" y="100" width="80" height="36"/>
+          <rect class="dg-soft" x="180" y="100" width="80" height="36"/>
+          <rect class="dg-fill" x="60" y="64" width="80" height="36"/>
+          <rect class="dg-fill" x="140" y="64" width="80" height="36"/>
+          <rect class="dg-fill" x="100" y="28" width="80" height="36"/>
+          <text class="dg-label dg-var" x="60" y="124" text-anchor="middle">x</text>
+          <text class="dg-label" x="140" y="124" text-anchor="middle">2<tspan class="dg-var">x</tspan> + 3</text>
+          <text class="dg-label" x="220" y="124" text-anchor="middle">4</text>
+          <text class="dg-label muted" x="100" y="88" text-anchor="middle">?</text>
+          <text class="dg-label muted" x="180" y="88" text-anchor="middle">?</text>
+          <text class="dg-label muted" x="140" y="52" text-anchor="middle">?</text>
+        </svg>
+      </figure>
+    </li>
+    <li>Mia simplified four expressions. Find her mistake in each, and write the correct answer.
+      <ol class="parts">
+        <li>\(5x + 3y = 8xy\)</li>
+        <li>\(4a - a = 4\)</li>
+        <li>\(2x + 3x^2 = 5x^3\)</li>
+        <li>\(3m \times 4m = 12m\)</li>
+      </ol>
+    </li>
+    <li>Ana has \(n\) stickers. Ben has 3 more than twice as many as Ana. Cara has 5 fewer than Ana.
+      <ol class="parts">
+        <li>Write an expression for the number of stickers each person has.</li>
+        <li>Write and simplify an expression for the total.</li>
+        <li>The total is 38. How many stickers does Ana have?</li>
+      </ol>
+    </li>
+    <li>A rectangle is \(4x\) cm long and \(3y\) cm wide. Find simplified expressions for its area and its perimeter.</li>
+    <li>Find the missing term.
+      <ol class="parts">
+        <li>\(5a + \square - 2b + 3a = 8a + 4b\)</li>
+        <li>\(7x^2 - \square + 2x = 4x^2 + 2x\)</li>
+        <li>\(\square \times 3y = 15xy\)</li>
+      </ol>
+    </li>
+    <li>Simplify \(9x + 4 - 2x - 7 + x\), then find its value when \(x = 5\).</li>
+    <li>Show that the sum of any four whole numbers in a row is always even. (Hint: call the numbers \(n\), \(n + 1\), \(n + 2\) and \(n + 3\).)</li>
+    <li>A cuboid is \(2x\) cm long, \(3x\) cm wide and \(x\) cm high. Find simplified expressions for the total length of all its 12 edges, and for its volume.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>(a) \(6a + 8\) (b) \(12y + 6\) (c) \(20 - 4x\)</li>
+      <li>Middle row: \(3x + 3\) and \(2x + 7\). Top: \(5x + 10\).</li>
+      <li>(a) \(x\) and \(y\) are not like terms, so \(5x + 3y\) cannot be simplified. (b) \(4a - 1a = 3a\). (c) \(x\) and \(x^2\) are not like terms, so \(2x + 3x^2\) cannot be simplified. (d) \(m \times m = m^2\), so \(12m^2\).</li>
+      <li>(a) Ana \(n\), Ben \(2n + 3\), Cara \(n - 5\) (b) \(4n - 2\) (c) \(4n - 2 = 38\), so \(n = 10\)</li>
+      <li>Area \(12xy\) cm²; perimeter \(8x + 6y\) cm</li>
+      <li>(a) \(6b\) (b) \(3x^2\) (c) \(5x\)</li>
+      <li>\(8x - 3\); when \(x = 5\), \(37\)</li>
+      <li>\(n + (n + 1) + (n + 2) + (n + 3) = 4n + 6 = 2(2n + 3)\), which is 2 times a whole number, so it is even.</li>
+      <li>Edges: \(4(2x + 3x + x) = 24x\) cm. Volume: \(2x \times 3x \times x = 6x^3\) cm³.</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise C <span class="level">Challenge</span></h2>
-  <!-- 4–6 extension questions, answers in one details -->
-  <p class="todo">Challenge questions coming soon.</p>
+  <ol class="exercise">
+    <li>An algebra wall has four bricks on the bottom row: \(a\), \(2a\), \(3b\) and \(b\). Find the expression in the top brick.</li>
+    <li>The bottom row of a three-row algebra wall is \(x\), \(2x + 1\) and a missing brick. The top brick is \(10x + 4\). Find the missing brick.</li>
+    <li>A triangle has sides \(x + 2\), \(3x - 1\) and \(5 - x\). For what value of \(x\) is the triangle equilateral?</li>
+    <li>Simplify (a) \(3a^2b \times 2ab^3\) &nbsp; (b) \(\dfrac{12x^3y^2}{4xy}\).</li>
+    <li>Prove that the sum of any three even numbers in a row is a multiple of 6. (Hint: call them \(2n\), \(2n + 2\) and \(2n + 4\).)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>Second row: \(3a\), \(2a + 3b\), \(4b\). Third row: \(5a + 3b\), \(2a + 7b\). Top: \(7a + 10b\).</li>
+      <li>Middle row: \(3x + 1\) and \(2x + 1 + r\), where \(r\) is the missing brick. Top: \(5x + 2 + r = 10x + 4\), so \(r = 5x + 2\).</li>
+      <li>\(x + 2 = 3x - 1\) gives \(x = 1.5\). Check: all three sides are \(3.5\).</li>
+      <li>(a) \(6a^3b^4\) (b) \(3x^2y\)</li>
+      <li>\(2n + (2n + 2) + (2n + 4) = 6n + 6 = 6(n + 1)\), a multiple of 6.</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
-  <!-- 3–4 .warn boxes, each with a short label -->
-  <p class="todo">Coming soon.</p>
+  <div class="warn">
+    <span class="box-label">Adding unlike terms</span>
+    <p>\(5x + 3y\) is <strong>not</strong> \(8xy\). Different letters cannot be collected. The answer is just \(5x + 3y\).</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Forgetting the hidden 1</span>
+    <p>\(4a - a\) is \(4a - 1a = 3a\), not \(4\). The \(a\) does not disappear.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Mixing up adding and multiplying</span>
+    <p>\(x + x = 2x\), but \(x \times x = x^2\). And \(2x + 3x^2\) cannot be simplified at all.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Losing the sign</span>
+    <p>In \(5 - 3x + 2x\), the \(3x\) is negative: \(-3x + 2x = -x\), so the answer is \(5 - x\), not \(5 - 5x\).</p>
+  </div>
 </section>
 
 <section class="block">
   <h2>Summary</h2>
-  <!-- .summary box with 5–7 bullet points -->
-  <p class="todo">Coming soon.</p>
+  <div class="summary">
+    <ul>
+      <li>A term includes the sign in front of it. The coefficient is the number in front of the letter.</li>
+      <li>Like terms have exactly the same letters and powers.</li>
+      <li>Collect like terms by adding or subtracting their coefficients. The letters do not change.</li>
+      <li>Unlike terms, such as \(x\) and \(x^2\), cannot be collected.</li>
+      <li>To multiply terms, multiply the numbers and write the letters together: \(3x \times 2x = 6x^2\).</li>
+      <li>To divide terms, divide the numbers and cancel letters: \(\dfrac{10ab}{5a} = 2b\).</li>
+    </ul>
+  </div>
 </section>
 
 <section class="block">
   <h2>Check-in</h2>
-  <!-- 6–8 end-of-chapter questions covering every section, answers in one details -->
-  <p class="todo">Coming soon.</p>
+  <p>Simplify, without looking back, then mark your answers.</p>
+  <ol class="exercise cols-2">
+    <li>\(6x + 3x - 2x\)</li>
+    <li>\(4a + 3b - a + 5b\)</li>
+    <li>\(7 - 2y + 3 - 5y\)</li>
+    <li>\(2x^2 + 3x - x^2 - 5x\)</li>
+    <li>\(4p \times 3q\)</li>
+    <li>\(5x \times 2x\)</li>
+    <li>\(\dfrac{18ab}{6b}\)</li>
+    <li>The perimeter of a square with sides \(3x - 2\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-2">
+      <li>\(7x\)</li>
+      <li>\(3a + 8b\)</li>
+      <li>\(10 - 7y\)</li>
+      <li>\(x^2 - 2x\)</li>
+      <li>\(12pq\)</li>
+      <li>\(10x^2\)</li>
+      <li>\(3a\)</li>
+      <li>\(12x - 8\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block where-next">
   <h2>Where next?</h2>
-  <!-- 2–3 links to related subtopics (this year and the next) -->
-  <p class="todo">Coming soon.</p>
+  <ul>
+    <li><a href="../expanding-single-brackets/index.html">Expanding single brackets</a>: multiplying out a bracket, then collecting like terms.</li>
+    <li><a href="../substitution-into-formulae/index.html">Substitution into formulae</a>: finding the value of an expression.</li>
+    <li><a href="../linear-equations/index.html">Linear equations</a>: collecting like terms is often the first step in solving.</li>
+  </ul>
 </section>
-
 <!-- vmanz:content:end -->
   </article>
   <nav class="pager" aria-label="Previous and next"><a class="pager-prev" href="../../number/gst-and-simple-interest/index.html"><span class="pager-dir">Previous</span><span>GST and simple interest</span></a><a class="pager-next" href="../../algebra/expanding-single-brackets/index.html"><span class="pager-dir">Next</span><span>Expanding single brackets</span></a></nav>

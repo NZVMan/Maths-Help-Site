@@ -35,7 +35,7 @@ Target: about 8 printed pages, so each course is roughly a 300-page textbook. Fu
 - [ ] 3–4 common mistakes, a summary, and a 6–8 question check-in
 - [ ] Where next? links
 - [ ] The visual(s) listed below
-- [ ] Every answer checked; checked on a phone and in dark mode, with no red KaTeX errors
+- [ ] Every answer checked (run `python3 tools/check_answers.py`, then check worded answers by hand); checked on a phone and in dark mode, with no red KaTeX errors
 - [ ] `<!-- vmanz:placeholder -->` deleted, build run
 
 ## Phase 2: Year 9 (38 pages)
@@ -53,8 +53,8 @@ Suggested order follows a typical teaching year. **Visual** = what the page need
 - [ ] GST and simple interest (visual: worked receipt table)
 
 ### Algebra
-- [ ] Collecting like terms
-- [ ] Expanding single brackets (visual: grid-method table)
+- [x] Collecting like terms (visual: term diagram, algebra tiles, algebra walls)
+- [x] Expanding single brackets (visual: area models, arrow diagram)
 - [x] Expanding two brackets (pilot)
 - [x] Factorising (visual: area model, expand/factorise diagram)
 - [ ] Substitution into formulae
