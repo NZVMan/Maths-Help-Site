@@ -130,18 +130,36 @@
         { strokeColor: c.muted, fontSize: 14, fixed: true, highlight: false }, opts || {}));
     },
 
-    /* A slider in the top-left corner of the board. row 0, 1, 2 stacks them.
-       range = [min, start, max]. Read it with slider.Value(). */
-    slider: function (board, name, range, row, snap) {
-      var c = this.colours(), bb = board.getBoundingBox();
-      var w = bb[2] - bb[0], h = bb[1] - bb[3];
-      var y = bb[1] - (0.07 + 0.08 * (row || 0)) * h;
-      return board.create("slider", [[bb[0] + 0.06 * w, y], [bb[0] + 0.32 * w, y], range], {
-        name: name, snapWidth: snap || 0.5, precision: 1, withTicks: false,
-        strokeColor: c.accent, fillColor: c.accent, highlightFillColor: c.accent,
-        baseline: { strokeColor: c.line }, highline: { strokeColor: c.accent },
-        label: { strokeColor: c.ink, fontSize: 14 }
+    /* A slider in a control panel underneath the graph (so it never covers the
+       curve, and is easy to drag on a phone). range = [min, start, max],
+       step = how far each notch moves. Read it with slider.Value().
+       (The "row" argument is kept for older pages and no longer used.) */
+    slider: function (board, name, range, row, step) {
+      var box = document.getElementById(board.container);
+      var panelId = board.container + "-controls";
+      var panel = document.getElementById(panelId);
+      if (!panel) {
+        panel = document.createElement("div");
+        panel.id = panelId;
+        panel.className = "controls";
+        box.insertAdjacentElement("afterend", panel);
+        box.classList.add("has-controls");
+      }
+      var fmt = function (v) { return v < 0 ? "−" + tex.num(-v) : tex.num(v); };
+      var label = document.createElement("label");
+      label.className = "ctl";
+      label.innerHTML = '<span class="ctl-name"></span><input type="range"><output></output>';
+      label.querySelector(".ctl-name").textContent = name;
+      var input = label.querySelector("input"), out = label.querySelector("output");
+      input.min = range[0]; input.max = range[2]; input.step = step || 0.5; input.value = range[1];
+      input.setAttribute("aria-label", name);
+      out.textContent = fmt(range[1]);
+      input.addEventListener("input", function () {
+        out.textContent = fmt(parseFloat(input.value));
+        board.update();
       });
+      panel.appendChild(label);
+      return { Value: function () { return parseFloat(input.value); }, input: input };
     },
 
     /* Live maths that updates as the board changes (e.g. when a slider moves).

@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
 | `VMANZ.plot(b, fn)` | draws \(y = f(x)\) in the site green |
 | `VMANZ.point(b, [x, y], "label", opts)` | fixed, labelled point; `opts.label.offset` moves the label (pixels) |
 | `VMANZ.vline(b, k)` | dashed vertical line \(x = k\) (axis of symmetry, asymptote) |
-| `VMANZ.slider(b, "a", [min, start, max], row, step)` | slider in the top-left; read it with `a.Value()` |
+| `VMANZ.slider(b, "a", [min, start, max], row, step)` | slider in a panel under the graph (easy to drag on a phone, never covers the curve); read it with `a.Value()`. `row` is ignored; `step` is how far each notch moves |
 | `VMANZ.segment(b, [x1, y1], [x2, y2], opts)` | line segment |
 | `VMANZ.text(b, [x, y], "t (s)")` | text on the board, e.g. axis names |
 | `VMANZ.readout(b, "id", fn)` | live equation above the graph that updates as sliders move (see below) |
