@@ -16,20 +16,26 @@ This file is the plan for getting there.
 
 Write these fully first, review on a phone and in print, and adjust `CONTENT_GUIDE.md` before mass-producing.
 
-- [x] Year 9 › Algebra › **Expanding two brackets**: maths-heavy (area model SVG, grid method tables)
-- [x] Year 9 › Measurement › **Pythagoras' theorem**: diagram-heavy (inline SVG triangles, squares proof, ladder)
-- [x] Year 10 › Algebra › **Quadratic graphs**: graph-heavy (JSXGraph features graph, a/h/k slider explorer)
-- [ ] Review the three pilots (content level, wording, length) and note any house-style changes here
+- [x] Year 9 › Algebra › **Expanding two brackets**: maths-heavy (area model SVGs, grid method, FOIL diagram)
+- [x] Year 9 › Measurement › **Pythagoras' theorem**: diagram-heavy (SVG triangles, two proofs, ladder, two-step)
+- [x] Year 10 › Algebra › **Quadratic graphs**: graph-heavy (11 JSXGraph graphs, two slider explorers with live equations)
+- [x] Expanded all three to full textbook chapters (about 3,200–5,000 words each)
+- [ ] Review the three chapters (content level, wording, length) and note any house-style changes here
 
-## Definition of done for every subtopic page
+## Definition of done for every chapter (subtopic page)
 
-- [ ] 2–4 "I can…" learning goals
-- [ ] Key ideas: short explanation, vocabulary, rule/formula in a `.rule` box
-- [ ] 2–3 worked examples, easiest first, step-by-step hidden solutions
-- [ ] 1–2 common mistakes (`.warn`)
-- [ ] 4–8 "Try these" questions with answers
+Target: about 8 printed pages, so each course is roughly a 300-page textbook. Full structure in `CONTENT_GUIDE.md`.
+
+- [ ] 4–6 "I can…" learning goals
+- [ ] Before you start: 4–6 warm-up questions with answers and links back
+- [ ] Key words: 4–8 terms
+- [ ] 4–9 numbered teaching sections, each with a diagram or graph where it helps and a Quick check
+- [ ] 8–14 worked examples in total, easiest first, step-by-step hidden solutions
+- [ ] Exercise A (20–30), B (8–10) and C (4–6), each with full answers
+- [ ] 3–4 common mistakes, a summary, and a 6–8 question check-in
+- [ ] Where next? links
 - [ ] The visual(s) listed below
-- [ ] Checked on a phone and in dark mode, with no red KaTeX errors
+- [ ] Every answer checked; checked on a phone and in dark mode, with no red KaTeX errors
 - [ ] `<!-- vmanz:placeholder -->` deleted, build run
 
 ## Phase 2: Year 9 (38 pages)

@@ -218,6 +218,75 @@ figure.diagram figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 
 /* interactive graphs (JSXGraph) */
 .jxgbox { width: 100%; max-width: 32rem; aspect-ratio: 1; margin: 1.25rem auto; border: 1px solid var(--line) !important; border-radius: var(--radius) !important; background: var(--surface) !important; }
 
+/* live equation above an interactive graph: <div id="..." class="readout"></div> */
+.readout {
+  max-width: 32rem; margin: 1.5rem auto 0; padding: 0.6rem 1rem 0.8rem;
+  background: var(--surface); border: 1px solid var(--line); border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0; min-height: 4.5rem;
+}
+.jxgbox.has-readout { margin-top: 0 !important; border-radius: 0 0 var(--radius) var(--radius) !important; }
+.readout .katex-display { margin: 0.2rem 0 0.5rem; }
+.readout .katex-display > .katex { font-size: 1.45em; color: var(--accent); }
+.readout dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 0.3rem 1rem; margin: 0; }
+.readout dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.readout dd { margin: 0; }
+
+/* graph key: <p class="legend"><span class="key key-accent">y = x²</span> …</p>
+   colours match VMANZ.colours(): accent, rule, warn, muted */
+.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.25rem; margin: -0.5rem auto 1.5rem; font-size: 0.95rem; }
+.key::before { content: ""; display: inline-block; width: 1.4rem; height: 0; border-top: 3px solid; vertical-align: 0.3em; margin-right: 0.45rem; }
+.key-accent::before { border-color: var(--accent); }
+.key-rule::before { border-color: var(--rule-line); }
+.key-warn::before { border-color: var(--warn); }
+.key-muted::before { border-color: var(--muted); border-top-style: dashed; }
+
+/* ---------- textbook structure ---------- */
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0 0 2.5rem; }
+.toc-title { margin: 0 0 0.4rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.toc ul { columns: 2 15rem; column-gap: 2rem; margin: 0; padding: 0; list-style: none; }
+.toc li { break-inside: avoid; margin-bottom: 0.15rem; }
+.notes h2 { scroll-margin-top: 1rem; }
+
+/* key words: <dl class="keywords"><dt>Term</dt><dd>meaning</dd>…</dl> */
+dl.keywords { display: grid; grid-template-columns: max-content 1fr; gap: 0.45rem 1.25rem; margin: 1rem 0; }
+dl.keywords dt { font-weight: 700; }
+dl.keywords dd { margin: 0; color: var(--muted); }
+
+/* quick check (short questions straight after a section) */
+.check { border: 1px solid var(--line); border-left: 5px solid var(--ink); background: var(--surface); border-radius: var(--radius); padding: 1rem 1.15rem; margin: 1.5rem 0; }
+.check .box-label { color: var(--ink); }
+.check > :last-child { margin-bottom: 0; }
+
+/* investigate / try it yourself */
+.investigate { border: 2px dashed var(--accent); border-radius: var(--radius); padding: 1rem 1.15rem; margin: 1.5rem 0; }
+.investigate .box-label { color: var(--accent); }
+.investigate > :last-child { margin-bottom: 0; }
+
+/* summary */
+.summary { background: var(--accent-soft); border-radius: var(--radius); padding: 1rem 1.25rem; }
+.summary ul { margin: 0; padding-left: 1.2rem; }
+.summary li { margin-bottom: 0.35rem; }
+
+/* exercises: <ol class="exercise cols-3">…</ol> lays questions out in columns */
+.exercise-intro { color: var(--muted); }
+ol.exercise { display: grid; grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr)); gap: 0.55rem 1.75rem; padding-left: 2rem; margin: 0.75rem 0 1.25rem; }
+ol.exercise > li::marker, ol.answers > li::marker { font-weight: 700; color: var(--accent); }
+.cols-2 { --cols: 2; }
+.cols-3 { --cols: 3; }
+.cols-4 { --cols: 4; }
+ol.answers { display: grid; grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr)); gap: 0.35rem 1.75rem; padding-left: 2rem; }
+ol.parts { list-style-type: lower-alpha; padding-left: 1.4rem; margin: 0.3rem 0; }
+ol.parts > li { margin-bottom: 0.2rem; }
+.level { display: inline-block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; vertical-align: 0.3em; margin-left: 0.5rem; padding: 0.1rem 0.5rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.where-next ul { padding-left: 1.2rem; }
+
+@media (max-width: 40rem) {
+  .cols-3, .cols-4 { --cols: 2; }
+  .cols-2 { --cols: 1; }
+  dl.keywords { grid-template-columns: 1fr; gap: 0.1rem; }
+  dl.keywords dd { margin-bottom: 0.5rem; }
+}
+
 /* previous / next */
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
 .pager a { display: flex; flex-direction: column; text-decoration: none; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); font-weight: 700; color: var(--ink); }
@@ -233,7 +302,8 @@ figure.diagram figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 
 }
 
 @media print {
-  .site-header, .site-footer, .pager, .crumbs { display: none; }
+  .site-header, .site-footer, .pager, .crumbs, .toc { display: none; }
+  .example, .check, .note, .rule, .warn, figure, table { break-inside: avoid; }
   body { background: #fff; color: #000; }
   details.solution > :not(summary) { display: block; }
 }

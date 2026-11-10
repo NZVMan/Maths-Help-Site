@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="../../../assets/css/site.css">
-<script defer src="../../../assets/js/site.js"></script>
+<link rel="stylesheet" href="../../../assets/css/site.css?v=6ba3b998">
+<script defer src="../../../assets/js/site.js?v=5d8d7c78"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,23 +40,118 @@
 <section class="block intentions">
   <h2>What you'll learn</h2>
   <ul>
-    <li>I can expand two brackets such as \((x + 3)(x + 5)\) using a grid.</li>
-    <li>I can expand brackets that contain subtraction, such as \((x - 4)(x + 2)\).</li>
-    <li>I can simplify my answer by collecting like terms.</li>
-    <li>I can expand a squared bracket such as \((x + 4)^2\).</li>
+    <li>I can explain what expanding means, using the area of a rectangle.</li>
+    <li>I can expand two brackets using the grid method and by multiplying term by term.</li>
+    <li>I can expand brackets that contain negative terms.</li>
+    <li>I can expand a squared bracket such as \((x + 4)^2\) and spot the pattern.</li>
+    <li>I can recognise and use the difference of two squares, \((x + a)(x - a) = x^2 - a^2\).</li>
+    <li>I can expand and simplify longer expressions, and use expanding to solve problems.</li>
   </ul>
 </section>
 
 <section class="block">
-  <h2>Key ideas</h2>
+  <h2>Before you start</h2>
+  <p>You will need these skills. Check you can do them before going on. If you get stuck, revisit <a href="../expanding-single-brackets/index.html">Expanding single brackets</a>, <a href="../collecting-like-terms/index.html">Collecting like terms</a> or <a href="../../number/directed-number/index.html">Directed number</a>.</p>
+  <ol class="exercise cols-3">
+    <li>\(3 \times (-4)\)</li>
+    <li>\((-5) \times (-2)\)</li>
+    <li>\(x \times x\)</li>
+    <li>Simplify \(4x + 7x - 2x\)</li>
+    <li>Expand \(3(x + 5)\)</li>
+    <li>Expand \(x(x - 6)\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(-12\)</li>
+      <li>\(10\)</li>
+      <li>\(x^2\)</li>
+      <li>\(9x\)</li>
+      <li>\(3x + 15\)</li>
+      <li>\(x^2 - 6x\)</li>
+    </ol>
+  </details>
+</section>
+
+<section class="block">
+  <h2>Key words</h2>
+  <dl class="keywords">
+    <dt>Expand</dt><dd>Multiply out the brackets so there are no brackets left.</dd>
+    <dt>Term</dt><dd>A single part of an expression, separated by \(+\) or \(-\) signs. \(x^2 + 5x - 3\) has three terms.</dd>
+    <dt>Like terms</dt><dd>Terms with exactly the same letters and powers, such as \(5x\) and \(-2x\). They can be added together.</dd>
+    <dt>Coefficient</dt><dd>The number in front of a letter. In \(7x\) the coefficient is \(7\).</dd>
+    <dt>Constant</dt><dd>A term that is just a number, such as \(+15\).</dd>
+    <dt>Binomial</dt><dd>An expression with two terms, such as \(x + 3\).</dd>
+    <dt>Quadratic expression</dt><dd>An expression where the highest power of \(x\) is \(x^2\), such as \(x^2 + 8x + 15\).</dd>
+  </dl>
+</section>
+
+<section class="block">
+  <h2>1. Multiplying two brackets</h2>
+  <p>You already know how to expand one bracket: \(3(a + 2) = 3a + 6\). The number outside multiplies <em>each</em> term inside.</p>
+  <p>Two brackets work the same way, but now there are two terms on the outside as well. A good way to see what happens is to think about the area of a rectangle.</p>
+  <p>Suppose a rectangle is \(a + 2\) tall and \(b + 3\) wide. Its area is \((a + 2)(b + 3)\). Split it into four smaller rectangles:</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 250" role="img" aria-label="A rectangle with height a plus 2 and width b plus 3, split into four parts with areas ab, 3a, 2b and 6">
+      <rect class="dg-fill" x="60" y="40" width="170" height="120"/>
+      <rect class="dg-soft" x="230" y="40" width="80" height="120"/>
+      <rect class="dg-soft" x="60" y="160" width="170" height="60"/>
+      <rect class="dg-soft" x="230" y="160" width="80" height="60"/>
+      <text class="dg-label dg-var" x="145" y="28" text-anchor="middle">b</text>
+      <text class="dg-label" x="270" y="28" text-anchor="middle">3</text>
+      <text class="dg-label dg-var" x="40" y="105" text-anchor="middle">a</text>
+      <text class="dg-label" x="40" y="195" text-anchor="middle">2</text>
+      <text class="dg-label dg-var" x="145" y="106" text-anchor="middle">ab</text>
+      <text class="dg-label" x="270" y="106" text-anchor="middle">3<tspan class="dg-var">a</tspan></text>
+      <text class="dg-label" x="145" y="196" text-anchor="middle">2<tspan class="dg-var">b</tspan></text>
+      <text class="dg-label" x="270" y="196" text-anchor="middle">6</text>
+    </svg>
+    <figcaption>Each small rectangle is height × width.</figcaption>
+  </figure>
+  <p>Adding the four areas gives</p>
+  \[ (a + 2)(b + 3) = ab + 3a + 2b + 6 \]
+  <p>Here there are no like terms, so the answer has four terms.</p>
+
   <div class="note">
     <span class="box-label">Key idea</span>
-    <p><strong>Expanding</strong> means multiplying out the brackets. Every term in the first bracket multiplies every term in the second bracket.</p>
-    <p>Two terms times two terms gives <strong>four</strong> products. Then you collect any like terms.</p>
+    <p>Every term in the first bracket multiplies every term in the second bracket. Two terms times two terms gives <strong>four</strong> products.</p>
   </div>
 
-  <h3>Why it works: the area model</h3>
-  <p>Think of \((x + 3)(x + 5)\) as the area of a rectangle that is \(x + 3\) tall and \(x + 5\) wide. Split it into four smaller rectangles and add up their areas.</p>
+  <div class="example">
+    <h3>Different letters</h3>
+    <p>Expand \((p + 5)(q + 1)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(p \times q = pq\)</li>
+        <li>\(p \times 1 = p\)</li>
+        <li>\(5 \times q = 5q\)</li>
+        <li>\(5 \times 1 = 5\)</li>
+      </ol>
+      <p class="answer">\((p + 5)(q + 1) = pq + p + 5q + 5\)</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-2">
+      <li>Expand \((m + 4)(n + 2)\)</li>
+      <li>Expand \((a + 1)(b + 7)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-2">
+        <li>\(mn + 2m + 4n + 8\)</li>
+        <li>\(ab + 7a + b + 7\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>2. The grid method</h2>
+  <p>When both brackets contain the same letter, two of the four products are <strong>like terms</strong>, and you can collect them.</p>
+  <p>Think of \((x + 3)(x + 5)\) as the area of a rectangle that is \(x + 3\) tall and \(x + 5\) wide.</p>
   <figure class="diagram">
     <svg viewBox="0 0 340 270" role="img" aria-label="A rectangle with width x plus 5 and height x plus 3, split into four parts with areas x squared, 5x, 3x and 15">
       <rect class="dg-fill" x="60" y="40" width="170" height="130"/>
@@ -74,9 +169,7 @@
     </svg>
     <figcaption>Total area: \(x^2 + 5x + 3x + 15 = x^2 + 8x + 15\)</figcaption>
   </figure>
-
-  <h3>The grid method</h3>
-  <p>The same idea as a table. Put one bracket across the top and the other down the side, then multiply to fill each box.</p>
+  <p>The <strong>grid method</strong> is the same idea without drawing the rectangle to scale. Put one bracket across the top and the other down the side, then multiply to fill each box.</p>
   <div class="table-scroll">
     <table class="mtable">
       <caption>\((x + 3)(x + 5)\)</caption>
@@ -87,36 +180,126 @@
       </tbody>
     </table>
   </div>
-  <p>Add the four boxes and collect the like terms \(5x\) and \(3x\):</p>
-  \[ (x + 3)(x + 5) = x^2 + 8x + 15 \]
-  <p>Keep the sign with each term. In \((x - 4)\) the second term is \(-4\), not \(4\).</p>
+  <p>Add the four boxes, then collect the like terms \(5x\) and \(3x\):</p>
+  \[ (x + 3)(x + 5) = x^2 + 5x + 3x + 15 = x^2 + 8x + 15 \]
+  <p>Notice that the like terms always sit on the diagonal of the grid.</p>
 
   <div class="rule">
     <span class="box-label">Rule</span>
     \[ (a + b)(c + d) = ac + ad + bc + bd \]
   </div>
 
-  <div class="note">
-    <span class="box-label">Squared brackets</span>
-    <p>A squared bracket means the bracket times itself: \((x + 4)^2 = (x + 4)(x + 4)\). Write it out as two brackets, then expand as normal.</p>
-  </div>
-</section>
-
-<section class="block">
-  <h2>Worked examples</h2>
-
   <div class="example">
-    <h3>Both terms adding</h3>
+    <h3>Using a grid</h3>
     <p>Expand and simplify \((x + 2)(x + 6)\).</p>
     <details class="solution">
       <summary>Show solution</summary>
+      <div class="table-scroll">
+        <table class="mtable">
+          <thead><tr><th>\(\times\)</th><th>\(x\)</th><th>\(+6\)</th></tr></thead>
+          <tbody>
+            <tr><th>\(x\)</th><td>\(x^2\)</td><td>\(+6x\)</td></tr>
+            <tr><th>\(+2\)</th><td>\(+2x\)</td><td>\(+12\)</td></tr>
+          </tbody>
+        </table>
+      </div>
       <ol class="steps">
-        <li>Multiply every term by every term: \(x \times x = x^2\), \(x \times 6 = 6x\), \(2 \times x = 2x\), \(2 \times 6 = 12\).</li>
-        <li>Write them out: \(x^2 + 6x + 2x + 12\).</li>
+        <li>Write out the four boxes: \(x^2 + 6x + 2x + 12\).</li>
         <li>Collect like terms: \(6x + 2x = 8x\).</li>
       </ol>
       <p class="answer">\((x + 2)(x + 6) = x^2 + 8x + 12\)</p>
     </details>
+  </div>
+
+  <div class="example">
+    <h3>A larger number</h3>
+    <p>Expand and simplify \((x + 10)(x + 4)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>The four products are \(x^2\), \(+4x\), \(+10x\) and \(+40\).</li>
+        <li>Collect like terms: \(4x + 10x = 14x\).</li>
+      </ol>
+      <p class="answer">\((x + 10)(x + 4) = x^2 + 14x + 40\)</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\((x + 3)(x + 4)\)</li>
+      <li>\((x + 2)(x + 10)\)</li>
+      <li>\((x + 5)(x + 1)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(x^2 + 7x + 12\)</li>
+        <li>\(x^2 + 12x + 20\)</li>
+        <li>\(x^2 + 6x + 5\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>3. Multiplying term by term</h2>
+  <p>Once you are confident with the grid, you can multiply without drawing it. Work through the four products in a fixed order so you never miss one. Many people remember the order with the word <strong>FOIL</strong>:</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 300 205" role="img" aria-label="The expression x plus 3 times x plus 5 with four arcs joining First terms x and x, Outer terms x and 5, Inner terms 3 and x, and Last terms 3 and 5">
+      <path class="dg-accent" d="M50,86 Q117,38 185,86"/>
+      <path class="dg-thin" d="M50,86 Q150,0 250,86"/>
+      <path class="dg-accent" d="M115,124 Q150,162 185,124"/>
+      <path class="dg-thin" d="M115,124 Q182,206 250,124"/>
+      <text class="dg-label accent" x="117" y="58" text-anchor="middle">F</text>
+      <text class="dg-label" x="150" y="38" text-anchor="middle">O</text>
+      <text class="dg-label accent" x="150" y="160" text-anchor="middle">I</text>
+      <text class="dg-label" x="182" y="186" text-anchor="middle">L</text>
+      <g style="font-size:28px">
+        <text class="dg-label" x="30" y="114" text-anchor="middle" style="font-size:28px">(</text>
+        <text class="dg-label dg-var" x="50" y="114" text-anchor="middle" style="font-size:28px">x</text>
+        <text class="dg-label" x="83" y="114" text-anchor="middle" style="font-size:28px">+</text>
+        <text class="dg-label" x="115" y="114" text-anchor="middle" style="font-size:28px">3</text>
+        <text class="dg-label" x="138" y="114" text-anchor="middle" style="font-size:28px">)(</text>
+        <text class="dg-label dg-var" x="185" y="114" text-anchor="middle" style="font-size:28px">x</text>
+        <text class="dg-label" x="218" y="114" text-anchor="middle" style="font-size:28px">+</text>
+        <text class="dg-label" x="250" y="114" text-anchor="middle" style="font-size:28px">5</text>
+        <text class="dg-label" x="272" y="114" text-anchor="middle" style="font-size:28px">)</text>
+      </g>
+    </svg>
+    <figcaption><strong>F</strong>irst \(x \times x\), <strong>O</strong>uter \(x \times 5\), <strong>I</strong>nner \(3 \times x\), <strong>L</strong>ast \(3 \times 5\)</figcaption>
+  </figure>
+  <p>The Outer and Inner products are the like terms in the middle. FOIL only works for two brackets with two terms each. The grid method works for any brackets, so it is worth keeping for harder questions.</p>
+
+  <div class="example">
+    <h3>Term by term</h3>
+    <p>Expand and simplify \((x + 7)(x + 2)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>First: \(x \times x = x^2\)</li>
+        <li>Outer: \(x \times 2 = 2x\)</li>
+        <li>Inner: \(7 \times x = 7x\)</li>
+        <li>Last: \(7 \times 2 = 14\)</li>
+        <li>Collect like terms: \(x^2 + 2x + 7x + 14 = x^2 + 9x + 14\)</li>
+      </ol>
+      <p class="answer">\((x + 7)(x + 2) = x^2 + 9x + 14\)</p>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>4. Brackets with negative terms</h2>
+  <p>A bracket such as \((x - 3)\) has the terms \(x\) and \(-3\). The minus sign belongs to the \(3\). Keep it with the number when you multiply, and use the rules for multiplying directed numbers.</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <caption>Sign rules for multiplying</caption>
+      <thead><tr><th>\(\times\)</th><th>positive</th><th>negative</th></tr></thead>
+      <tbody>
+        <tr><th>positive</th><td>positive</td><td>negative</td></tr>
+        <tr><th>negative</th><td>negative</td><td>positive</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="example">
@@ -134,10 +317,23 @@
         </table>
       </div>
       <ol class="steps">
-        <li>Add the boxes: \(x^2 - 3x + 5x - 15\).</li>
+        <li>Write out the boxes: \(x^2 - 3x + 5x - 15\).</li>
         <li>Collect like terms: \(-3x + 5x = 2x\).</li>
       </ol>
       <p class="answer">\((x + 5)(x - 3) = x^2 + 2x - 15\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Negative first</h3>
+    <p>Expand and simplify \((x - 6)(x + 2)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>First: \(x \times x = x^2\). Outer: \(x \times 2 = 2x\). Inner: \((-6) \times x = -6x\). Last: \((-6) \times 2 = -12\).</li>
+        <li>Collect like terms: \(2x - 6x = -4x\).</li>
+      </ol>
+      <p class="answer">\((x - 6)(x + 2) = x^2 - 4x - 12\)</p>
     </details>
   </div>
 
@@ -147,68 +343,494 @@
     <details class="solution">
       <summary>Show solution</summary>
       <ol class="steps">
-        <li>Multiply every term by every term: \(x \times x = x^2\), \(x \times (-7) = -7x\), \((-4) \times x = -4x\), \((-4) \times (-7) = +28\).</li>
-        <li>Write them out: \(x^2 - 7x - 4x + 28\).</li>
+        <li>First: \(x^2\). Outer: \(x \times (-7) = -7x\). Inner: \((-4) \times x = -4x\). Last: \((-4) \times (-7) = +28\).</li>
         <li>Collect like terms: \(-7x - 4x = -11x\).</li>
       </ol>
       <p class="answer">\((x - 4)(x - 7) = x^2 - 11x + 28\)</p>
-      <p>A negative times a negative is positive, so the number at the end is \(+28\).</p>
+      <p>A negative times a negative is positive, so the constant at the end is \(+28\).</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\((x + 3)(x - 5)\)</li>
+      <li>\((x - 2)(x - 9)\)</li>
+      <li>\((x - 8)(x + 1)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(x^2 - 2x - 15\)</li>
+        <li>\(x^2 - 11x + 18\)</li>
+        <li>\(x^2 - 7x - 8\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>5. Squaring a bracket</h2>
+  <p>A squared bracket means the bracket multiplied by itself: \((x + 3)^2 = (x + 3)(x + 3)\). As an area, it is a square with side \(x + 3\).</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 300 275" role="img" aria-label="A square with side x plus 3, split into a square of area x squared, two rectangles of area 3x and a small square of area 9">
+      <rect class="dg-fill" x="60" y="40" width="150" height="150"/>
+      <rect class="dg-soft" x="210" y="40" width="60" height="150"/>
+      <rect class="dg-soft" x="60" y="190" width="150" height="60"/>
+      <rect class="dg-soft" x="210" y="190" width="60" height="60"/>
+      <text class="dg-label dg-var" x="135" y="28" text-anchor="middle">x</text>
+      <text class="dg-label" x="240" y="28" text-anchor="middle">3</text>
+      <text class="dg-label dg-var" x="40" y="120" text-anchor="middle">x</text>
+      <text class="dg-label" x="40" y="225" text-anchor="middle">3</text>
+      <text class="dg-label dg-var" x="135" y="121" text-anchor="middle">x²</text>
+      <text class="dg-label" x="240" y="121" text-anchor="middle">3<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="135" y="226" text-anchor="middle">3<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="240" y="226" text-anchor="middle">9</text>
+    </svg>
+    <figcaption>\((x + 3)^2 = x^2 + 3x + 3x + 9 = x^2 + 6x + 9\)</figcaption>
+  </figure>
+  <p>There are <strong>two</strong> rectangles of area \(3x\), so the middle term is \(6x\). This always happens when you square a bracket: the middle term is double the number times \(x\), and the last term is the number squared.</p>
+  <div class="rule">
+    <span class="box-label">Perfect squares</span>
+    \[ (x + a)^2 = x^2 + 2ax + a^2 \qquad (x - a)^2 = x^2 - 2ax + a^2 \]
+  </div>
+
+  <div class="example">
+    <h3>Squaring with a plus</h3>
+    <p>Expand and simplify \((x + 4)^2\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Write it as two brackets: \((x + 4)(x + 4)\).</li>
+        <li>Multiply every term by every term: \(x^2 + 4x + 4x + 16\).</li>
+        <li>Collect like terms: \(4x + 4x = 8x\).</li>
+      </ol>
+      <p class="answer">\((x + 4)^2 = x^2 + 8x + 16\)</p>
+      <p>Check with the pattern: double \(4\) is \(8\), and \(4^2 = 16\).</p>
     </details>
   </div>
 
   <div class="example">
-    <h3>A squared bracket</h3>
-    <p>Expand and simplify \((x + 3)^2\).</p>
+    <h3>Squaring with a minus</h3>
+    <p>Expand and simplify \((x - 5)^2\).</p>
     <details class="solution">
       <summary>Show solution</summary>
       <ol class="steps">
-        <li>Write it as two brackets: \((x + 3)(x + 3)\).</li>
-        <li>Multiply every term by every term: \(x^2 + 3x + 3x + 9\).</li>
-        <li>Collect like terms: \(3x + 3x = 6x\).</li>
+        <li>Write it as two brackets: \((x - 5)(x - 5)\).</li>
+        <li>Multiply: \(x^2 - 5x - 5x + 25\). The last term is \((-5) \times (-5) = +25\).</li>
+        <li>Collect like terms: \(-5x - 5x = -10x\).</li>
       </ol>
-      <p class="answer">\((x + 3)^2 = x^2 + 6x + 9\)</p>
+      <p class="answer">\((x - 5)^2 = x^2 - 10x + 25\)</p>
     </details>
   </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\((x + 6)^2\)</li>
+      <li>\((x - 1)^2\)</li>
+      <li>\((x + 10)^2\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(x^2 + 12x + 36\)</li>
+        <li>\(x^2 - 2x + 1\)</li>
+        <li>\(x^2 + 20x + 100\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>6. The difference of two squares</h2>
+  <p>Something surprising happens when the two brackets have the same numbers but opposite signs.</p>
+  <div class="example">
+    <h3>The middle terms cancel</h3>
+    <p>Expand and simplify \((x + 5)(x - 5)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>First: \(x^2\). Outer: \(-5x\). Inner: \(+5x\). Last: \(-25\).</li>
+        <li>Collect like terms: \(-5x + 5x = 0\), so there is no \(x\) term.</li>
+      </ol>
+      <p class="answer">\((x + 5)(x - 5) = x^2 - 25\)</p>
+    </details>
+  </div>
+  <p>The answer is one square (\(x^2\)) take away another square (\(25 = 5^2\)), which is why it is called the <strong>difference of two squares</strong>.</p>
+  <div class="rule">
+    <span class="box-label">Difference of two squares</span>
+    \[ (x + a)(x - a) = x^2 - a^2 \]
+  </div>
+  <div class="investigate">
+    <span class="box-label">Investigate</span>
+    <p>Work out \(21 \times 19\) without a calculator by writing it as \((20 + 1)(20 - 1)\). Then try \(32 \times 28\) and \(105 \times 95\). Why does this trick work?</p>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <p>\(21 \times 19 = 20^2 - 1^2 = 399\). \(32 \times 28 = 30^2 - 2^2 = 896\). \(105 \times 95 = 100^2 - 5^2 = 9975\). It works because \((a + b)(a - b) = a^2 - b^2\) for any numbers.</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\((x + 2)(x - 2)\)</li>
+      <li>\((x - 7)(x + 7)\)</li>
+      <li>\((y + 10)(y - 10)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(x^2 - 4\)</li>
+        <li>\(x^2 - 49\)</li>
+        <li>\(y^2 - 100\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>7. A shortcut: add and multiply</h2>
+  <p>Look back at the answers so far. In every case where both brackets start with \(x\):</p>
+  <ul>
+    <li>the number in front of \(x\) is the two numbers <strong>added</strong>, and</li>
+    <li>the constant at the end is the two numbers <strong>multiplied</strong>.</li>
+  </ul>
+  <div class="rule">
+    <span class="box-label">Rule</span>
+    \[ (x + a)(x + b) = x^2 + (a + b)x + ab \]
+  </div>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Brackets</th><th>Add</th><th>Multiply</th><th>Expanded</th></tr></thead>
+      <tbody>
+        <tr><td>\((x + 2)(x + 5)\)</td><td>\(2 + 5 = 7\)</td><td>\(2 \times 5 = 10\)</td><td>\(x^2 + 7x + 10\)</td></tr>
+        <tr><td>\((x + 6)(x - 4)\)</td><td>\(6 + (-4) = 2\)</td><td>\(6 \times (-4) = -24\)</td><td>\(x^2 + 2x - 24\)</td></tr>
+        <tr><td>\((x - 3)(x - 5)\)</td><td>\(-3 + (-5) = -8\)</td><td>\((-3) \times (-5) = 15\)</td><td>\(x^2 - 8x + 15\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <span class="box-label">Why this matters</span>
+    <p>Factorising is expanding in reverse. To factorise \(x^2 + 7x + 10\), you look for two numbers that <strong>add</strong> to \(7\) and <strong>multiply</strong> to \(10\). See <a href="../factorising/index.html">Factorising</a>.</p>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>Use the shortcut.</p>
+    <ol class="exercise cols-3">
+      <li>\((x + 7)(x + 3)\)</li>
+      <li>\((x - 9)(x + 2)\)</li>
+      <li>\((x - 6)(x - 6)\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(x^2 + 10x + 21\)</li>
+        <li>\(x^2 - 7x - 18\)</li>
+        <li>\(x^2 - 12x + 36\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>8. Expanding and simplifying longer expressions</h2>
+  <p>Some questions have more than one pair of brackets, or a number in front. Expand each part first, then collect like terms.</p>
+
+  <div class="example">
+    <h3>Adding two expansions</h3>
+    <p>Expand and simplify \((x + 1)(x + 4) + (x + 2)(x + 3)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Expand the first pair: \((x + 1)(x + 4) = x^2 + 5x + 4\).</li>
+        <li>Expand the second pair: \((x + 2)(x + 3) = x^2 + 5x + 6\).</li>
+        <li>Add: \(x^2 + 5x + 4 + x^2 + 5x + 6\).</li>
+        <li>Collect like terms.</li>
+      </ol>
+      <p class="answer">\(2x^2 + 10x + 10\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Subtracting an expansion</h3>
+    <p>Expand and simplify \((x + 5)(x + 2) - (x + 1)(x + 3)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Expand each pair, keeping the second answer in brackets: \((x^2 + 7x + 10) - (x^2 + 4x + 3)\).</li>
+        <li>The minus sign changes the sign of <strong>every</strong> term in the second bracket: \(x^2 + 7x + 10 - x^2 - 4x - 3\).</li>
+        <li>Collect like terms: \(x^2 - x^2 = 0\), \(7x - 4x = 3x\), \(10 - 3 = 7\).</li>
+      </ol>
+      <p class="answer">\(3x + 7\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>A number in front</h3>
+    <p>Expand and simplify \(3(x + 2)(x - 1)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Expand the two brackets first: \((x + 2)(x - 1) = x^2 - x + 2x - 2 = x^2 + x - 2\).</li>
+        <li>Multiply every term by \(3\): \(3(x^2 + x - 2)\).</li>
+      </ol>
+      <p class="answer">\(3x^2 + 3x - 6\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Expanding in a problem</h3>
+    <p>A square garden has sides of \(x\) metres. A path 2 m wide is built all the way around it. Find an expression for the area of the path.</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 260 260" role="img" aria-label="A square garden of side x surrounded by a path 2 metres wide, making a larger square of side x plus 4">
+        <rect class="dg-fill" x="30" y="30" width="200" height="200"/>
+        <rect class="dg-soft" x="70" y="70" width="120" height="120"/>
+        <text class="dg-label" x="130" y="135" text-anchor="middle">garden</text>
+        <text class="dg-label dg-var" x="130" y="185" text-anchor="middle">x</text>
+        <text class="dg-label" x="50" y="135" text-anchor="middle">2</text>
+        <text class="dg-label" x="210" y="135" text-anchor="middle">2</text>
+        <text class="dg-label" x="130" y="22" text-anchor="middle">path</text>
+      </svg>
+      <figcaption>The outer square has side \(x + 2 + 2 = x + 4\).</figcaption>
+    </figure>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Area of the outer square: \((x + 4)^2 = x^2 + 8x + 16\).</li>
+        <li>Area of the garden: \(x^2\).</li>
+        <li>Path = outer square − garden: \(x^2 + 8x + 16 - x^2\).</li>
+      </ol>
+      <p class="answer">Area of path \(= 8x + 16\) m²</p>
+      <p>Check with \(x = 6\): outer square \(10^2 = 100\), garden \(36\), path \(64\). Formula: \(8 \times 6 + 16 = 64\). ✓</p>
+    </details>
+  </div>
+</section>
+
+<section class="block exercise">
+  <h2>Exercise A <span class="level">Practice</span></h2>
+  <p class="exercise-intro">Expand and simplify.</p>
+  <h3>Different letters</h3>
+  <ol class="exercise cols-3">
+    <li>\((a + 3)(b + 4)\)</li>
+    <li>\((p + 1)(q + 6)\)</li>
+    <li>\((m + 2)(n - 5)\)</li>
+  </ol>
+  <h3>Both terms positive</h3>
+  <ol class="exercise cols-3" start="4">
+    <li>\((x + 2)(x + 3)\)</li>
+    <li>\((x + 4)(x + 5)\)</li>
+    <li>\((x + 1)(x + 7)\)</li>
+    <li>\((x + 6)(x + 3)\)</li>
+    <li>\((x + 8)(x + 2)\)</li>
+    <li>\((x + 10)(x + 4)\)</li>
+  </ol>
+  <h3>Negative terms</h3>
+  <ol class="exercise cols-3" start="10">
+    <li>\((x + 5)(x - 2)\)</li>
+    <li>\((x - 3)(x + 7)\)</li>
+    <li>\((x + 4)(x - 9)\)</li>
+    <li>\((x - 6)(x + 1)\)</li>
+    <li>\((x - 2)(x - 5)\)</li>
+    <li>\((x - 4)(x - 3)\)</li>
+    <li>\((x - 1)(x - 8)\)</li>
+    <li>\((x - 10)(x - 2)\)</li>
+    <li>\((n + 5)(n - 8)\)</li>
+  </ol>
+  <h3>Squares and differences of squares</h3>
+  <ol class="exercise cols-3" start="19">
+    <li>\((x + 6)^2\)</li>
+    <li>\((x + 2)^2\)</li>
+    <li>\((x - 3)^2\)</li>
+    <li>\((x - 7)^2\)</li>
+    <li>\((t - 4)^2\)</li>
+    <li>\((k + 12)^2\)</li>
+    <li>\((x + 4)(x - 4)\)</li>
+    <li>\((x - 9)(x + 9)\)</li>
+    <li>\((y + 1)(y - 1)\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(ab + 4a + 3b + 12\)</li>
+      <li>\(pq + 6p + q + 6\)</li>
+      <li>\(mn - 5m + 2n - 10\)</li>
+      <li>\(x^2 + 5x + 6\)</li>
+      <li>\(x^2 + 9x + 20\)</li>
+      <li>\(x^2 + 8x + 7\)</li>
+      <li>\(x^2 + 9x + 18\)</li>
+      <li>\(x^2 + 10x + 16\)</li>
+      <li>\(x^2 + 14x + 40\)</li>
+      <li>\(x^2 + 3x - 10\)</li>
+      <li>\(x^2 + 4x - 21\)</li>
+      <li>\(x^2 - 5x - 36\)</li>
+      <li>\(x^2 - 5x - 6\)</li>
+      <li>\(x^2 - 7x + 10\)</li>
+      <li>\(x^2 - 7x + 12\)</li>
+      <li>\(x^2 - 9x + 8\)</li>
+      <li>\(x^2 - 12x + 20\)</li>
+      <li>\(n^2 - 3n - 40\)</li>
+      <li>\(x^2 + 12x + 36\)</li>
+      <li>\(x^2 + 4x + 4\)</li>
+      <li>\(x^2 - 6x + 9\)</li>
+      <li>\(x^2 - 14x + 49\)</li>
+      <li>\(t^2 - 8t + 16\)</li>
+      <li>\(k^2 + 24k + 144\)</li>
+      <li>\(x^2 - 16\)</li>
+      <li>\(x^2 - 81\)</li>
+      <li>\(y^2 - 1\)</li>
+    </ol>
+  </details>
+</section>
+
+<section class="block exercise">
+  <h2>Exercise B <span class="level">Apply</span></h2>
+  <ol class="exercise">
+    <li>Expand and simplify.
+      <ol class="parts">
+        <li>\((x + 2)(x + 5) + (x + 1)(x + 3)\)</li>
+        <li>\((x + 4)(x + 6) - (x + 2)(x + 3)\)</li>
+        <li>\((x + 3)^2 - (x + 1)^2\)</li>
+        <li>\(2(x + 1)(x + 5)\)</li>
+        <li>\((x - 3)(x + 3) + 9\)</li>
+      </ol>
+    </li>
+    <li>A rectangle has length \((x + 7)\) cm and width \((x + 2)\) cm.
+      <ol class="parts">
+        <li>Write an expression for its area, and expand it.</li>
+        <li>Find the area when \(x = 3\). Check your answer by working out the length and width first.</li>
+      </ol>
+    </li>
+    <li>A square has sides of \((x - 3)\) m.
+      <ol class="parts">
+        <li>Show that its area is \(x^2 - 6x + 9\) m².</li>
+        <li>Write an expression for its perimeter.</li>
+      </ol>
+    </li>
+    <li>Find the missing number in each statement.
+      <ol class="parts">
+        <li>\((x + 3)(x + \square) = x^2 + 10x + 21\)</li>
+        <li>\((x + \square)(x - 2) = x^2 + 3x - 10\)</li>
+        <li>\((x - \square)^2 = x^2 - 12x + 36\)</li>
+        <li>\((x + 4)(x + \square) = x^2 + x - 12\)</li>
+      </ol>
+    </li>
+    <li>Ana says that \((x + 5)^2 = x^2 + 25\). Substitute \(x = 1\) into both sides to show she is wrong, then write the correct expansion.</li>
+    <li>A rectangular lawn measures \((x + 6)\) m by \((x + 3)\) m. A square vegetable patch with sides of \(x\) m is dug in the lawn. Show that the area of lawn left is \(9x + 18\) m².</li>
+    <li>A picture is \(x\) cm by \((x + 10)\) cm. It sits in a frame that adds 3 cm on every side. Find an expression for the area of the frame (not including the picture).</li>
+    <li>Explain why \((x + a)(x + b)\) gives the same answer as \((x + b)(x + a)\).</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>(a) \(2x^2 + 11x + 13\) (b) \(5x + 18\) (c) \(4x + 8\) (d) \(2x^2 + 12x + 10\) (e) \(x^2\)</li>
+      <li>(a) \(x^2 + 9x + 14\) cm² (b) \(9 + 27 + 14 = 50\) cm²; length \(10\), width \(5\), \(10 \times 5 = 50\) ✓</li>
+      <li>(a) \((x - 3)(x - 3) = x^2 - 3x - 3x + 9 = x^2 - 6x + 9\) (b) \(4(x - 3) = 4x - 12\) m</li>
+      <li>(a) \(7\) (b) \(5\) (c) \(6\) (d) \(-3\), so the bracket is \((x - 3)\)</li>
+      <li>Left side: \((1 + 5)^2 = 36\). Right side: \(1 + 25 = 26\). They are different, so she is wrong. Correct: \(x^2 + 10x + 25\).</li>
+      <li>Lawn \(= (x + 6)(x + 3) = x^2 + 9x + 18\). Take away the patch: \(x^2 + 9x + 18 - x^2 = 9x + 18\).</li>
+      <li>Outer size \((x + 6)\) by \((x + 16)\): area \(x^2 + 22x + 96\). Picture: \(x^2 + 10x\). Frame: \(12x + 96\) cm².</li>
+      <li>Multiplication can be done in any order, so the four products are the same (the grid is just flipped).</li>
+    </ol>
+  </details>
+</section>
+
+<section class="block exercise">
+  <h2>Exercise C <span class="level">Challenge</span></h2>
+  <ol class="exercise">
+    <li>Use \((100 + 3)^2\) to work out \(103^2\) without a calculator.</li>
+    <li>Use the difference of two squares to work out \(51 \times 49\) and \(98 \times 102\).</li>
+    <li>Expand and simplify \((x + 1)(x + 2)(x + 3)\). (Hint: expand two of the brackets first.)</li>
+    <li>Find the values of \(a\) and \(b\) if
+      <ol class="parts">
+        <li>\((x + a)(x + b) = x^2 + 8x + 15\)</li>
+        <li>\((x + a)(x + b) = x^2 - 2x - 24\)</li>
+      </ol>
+    </li>
+    <li>Show that \((n + 1)^2 - n^2 = 2n + 1\). Use this to explain why the difference between two square numbers next to each other (like \(36\) and \(49\)) is always odd.</li>
+    <li>Number trick: think of a number. Add 3. Multiply your answer by (your number − 3). Add 9. Use algebra to prove that you always end up with your starting number squared.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>\(100^2 + 2 \times 3 \times 100 + 3^2 = 10\,000 + 600 + 9 = 10\,609\)</li>
+      <li>\(51 \times 49 = 50^2 - 1^2 = 2499\); \(98 \times 102 = 100^2 - 2^2 = 9996\)</li>
+      <li>\((x^2 + 3x + 2)(x + 3) = x^3 + 3x^2 + 3x^2 + 9x + 2x + 6 = x^3 + 6x^2 + 11x + 6\)</li>
+      <li>(a) \(3\) and \(5\) (in either order) (b) \(4\) and \(-6\) (in either order)</li>
+      <li>\(n^2 + 2n + 1 - n^2 = 2n + 1\). \(2n\) is always even, so \(2n + 1\) is always odd.</li>
+      <li>Start with \(n\): \((n + 3)(n - 3) + 9 = n^2 - 9 + 9 = n^2\).</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
   <div class="warn">
-    <span class="box-label">Common mistake</span>
-    <p>\((x + 3)^2\) is <strong>not</strong> \(x^2 + 9\). Squaring the bracket means \((x + 3)(x + 3)\), which has a middle term: \(x^2 + 6x + 9\).</p>
+    <span class="box-label">Squaring each term</span>
+    <p>\((x + 3)^2\) is <strong>not</strong> \(x^2 + 9\). Write it as \((x + 3)(x + 3)\) and you will see the middle terms: \(x^2 + 6x + 9\).</p>
   </div>
   <div class="warn">
-    <span class="box-label">Common mistake</span>
-    <p>Losing a negative sign. In \((x - 4)(x - 7)\), the last product is \((-4) \times (-7) = +28\), not \(-28\). Write each sign in the grid before you multiply.</p>
+    <span class="box-label">Only multiplying firsts and lasts</span>
+    <p>\((x + 2)(x + 5)\) is <strong>not</strong> \(x^2 + 10\). There must be four products before you simplify.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Losing a negative</span>
+    <p>In \((x - 4)(x - 7)\) the last product is \((-4) \times (-7) = +28\), not \(-28\). Write each sign in the grid before you multiply.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Subtracting a bracket</span>
+    <p>\(-(x^2 + 4x + 3)\) is \(-x^2 - 4x - 3\). The minus changes the sign of <strong>every</strong> term, not just the first one.</p>
   </div>
 </section>
 
 <section class="block">
-  <h2>Try these</h2>
-  <p>Expand and simplify.</p>
-  <ol>
-    <li>\((x + 1)(x + 4)\)</li>
-    <li>\((x + 3)(x + 7)\)</li>
-    <li>\((x + 6)(x - 2)\)</li>
-    <li>\((x - 5)(x + 1)\)</li>
-    <li>\((x - 3)(x - 8)\)</li>
-    <li>\((x + 5)^2\)</li>
-    <li>\((x - 6)^2\)</li>
-    <li><strong>Challenge:</strong> \((y + 9)(y - 9)\). What happens to the middle term? Why?</li>
+  <h2>Summary</h2>
+  <div class="summary">
+    <ul>
+      <li>Every term in the first bracket multiplies every term in the second: four products, then collect like terms.</li>
+      <li>The grid method and FOIL are two ways of making sure you get all four products.</li>
+      <li>Keep each sign with its number: \((x - 3)\) means \(x\) and \(-3\).</li>
+      <li>\((x + a)(x + b) = x^2 + (a + b)x + ab\): add for the middle, multiply for the end.</li>
+      <li>\((x + a)^2 = x^2 + 2ax + a^2\) and \((x - a)^2 = x^2 - 2ax + a^2\).</li>
+      <li>\((x + a)(x - a) = x^2 - a^2\): the difference of two squares.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <h2>Check-in</h2>
+  <p>Try these without looking back, then mark your answers.</p>
+  <ol class="exercise cols-2">
+    <li>\((x + 5)(x + 6)\)</li>
+    <li>\((x - 4)(x + 9)\)</li>
+    <li>\((x - 7)(x - 2)\)</li>
+    <li>\((x + 8)^2\)</li>
+    <li>\((x - 11)(x + 11)\)</li>
+    <li>\((a + 2)(b - 7)\)</li>
+    <li>Fill in the gap: \((x + 6)(x + \square) = x^2 + 2x - 24\)</li>
+    <li>\((x + 3)(x + 4) - (x + 2)^2\)</li>
   </ol>
   <details class="solution">
     <summary>Show answers</summary>
-    <ol>
-      <li>\(x^2 + 5x + 4\)</li>
-      <li>\(x^2 + 10x + 21\)</li>
-      <li>\(x^2 + 4x - 12\)</li>
-      <li>\(x^2 - 4x - 5\)</li>
-      <li>\(x^2 - 11x + 24\)</li>
-      <li>\(x^2 + 10x + 25\)</li>
-      <li>\(x^2 - 12x + 36\)</li>
-      <li>\(y^2 - 81\). The middle terms are \(-9y\) and \(+9y\), which cancel to zero. This is called the <strong>difference of two squares</strong>.</li>
+    <ol class="answers cols-2">
+      <li>\(x^2 + 11x + 30\)</li>
+      <li>\(x^2 + 5x - 36\)</li>
+      <li>\(x^2 - 9x + 14\)</li>
+      <li>\(x^2 + 16x + 64\)</li>
+      <li>\(x^2 - 121\)</li>
+      <li>\(ab - 7a + 2b - 14\)</li>
+      <li>\(-4\)</li>
+      <li>\(3x + 8\)</li>
     </ol>
   </details>
+</section>
+
+<section class="block where-next">
+  <h2>Where next?</h2>
+  <ul>
+    <li><a href="../factorising/index.html">Factorising</a>: expanding in reverse.</li>
+    <li><a href="../../../year-10/algebra/expanding-binomials/index.html">Expanding (ax + b)(cx + d)</a> (Year 10): brackets with a number in front of \(x\).</li>
+    <li><a href="../../../year-10/algebra/solving-quadratic-equations/index.html">Solving quadratic equations</a> (Year 10).</li>
+  </ul>
 </section>
 <!-- vmanz:content:end -->
   </article>

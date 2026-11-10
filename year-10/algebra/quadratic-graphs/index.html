@@ -14,8 +14,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css">
 <script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js"></script>
-<link rel="stylesheet" href="../../../assets/css/site.css">
-<script defer src="../../../assets/js/site.js"></script>
+<link rel="stylesheet" href="../../../assets/css/site.css?v=6ba3b998">
+<script defer src="../../../assets/js/site.js?v=5d8d7c78"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -42,22 +42,115 @@
 <section class="block intentions">
   <h2>What you'll learn</h2>
   <ul>
+    <li>I can draw a parabola from a table of values.</li>
     <li>I can name the key features of a parabola: turning point, axis of symmetry, \(x\)-intercepts and \(y\)-intercept.</li>
-    <li>I can sketch a parabola from factorised form, \(y = (x - p)(x - q)\).</li>
-    <li>I can sketch a parabola from turning-point form, \(y = a(x - h)^2 + k\).</li>
+    <li>I can describe how changing \(a\), \(h\) and \(k\) in \(y = a(x - h)^2 + k\) moves and stretches the graph.</li>
+    <li>I can sketch a parabola from turning-point form, factorised form or expanded form.</li>
     <li>I can write the equation of a parabola from its graph.</li>
+    <li>I can use quadratic graphs to solve problems in context.</li>
   </ul>
 </section>
 
 <section class="block">
-  <h2>Key ideas</h2>
+  <h2>Before you start</h2>
+  <p>You will need these skills. If you get stuck, revisit <a href="../../../year-9/algebra/factorising/index.html">Factorising</a>, <a href="../../../year-9/algebra/expanding-two-brackets/index.html">Expanding two brackets</a> or <a href="../../../year-9/algebra/linear-graphs/index.html">Linear graphs</a>.</p>
+  <ol class="exercise cols-3">
+    <li>Work out \((-3)^2\)</li>
+    <li>Substitute \(x = -3\) into \(x^2 - 2x\)</li>
+    <li>Expand \((x - 3)^2\)</li>
+    <li>Factorise \(x^2 + 5x + 6\)</li>
+    <li>Solve \((x - 4)(x + 1) = 0\)</li>
+    <li>What number is halfway between \(-2\) and \(6\)?</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(9\)</li>
+      <li>\(9 + 6 = 15\)</li>
+      <li>\(x^2 - 6x + 9\)</li>
+      <li>\((x + 2)(x + 3)\)</li>
+      <li>\(x = 4\) or \(x = -1\)</li>
+      <li>\(2\)</li>
+    </ol>
+  </details>
+</section>
+
+<section class="block">
+  <h2>Key words</h2>
+  <dl class="keywords">
+    <dt>Quadratic</dt><dd>An expression or equation where the highest power of \(x\) is \(x^2\), such as \(y = x^2 - 2x - 3\).</dd>
+    <dt>Parabola</dt><dd>The U-shaped (or upside-down U-shaped) curve that is the graph of a quadratic.</dd>
+    <dt>Turning point</dt><dd>The lowest point (minimum) or highest point (maximum) of a parabola. Also called the vertex.</dd>
+    <dt>Axis of symmetry</dt><dd>The vertical mirror line through the turning point.</dd>
+    <dt>\(x\)-intercept (root)</dt><dd>A point where the graph crosses the \(x\)-axis, where \(y = 0\).</dd>
+    <dt>\(y\)-intercept</dt><dd>The point where the graph crosses the \(y\)-axis, where \(x = 0\).</dd>
+  </dl>
+</section>
+
+<section class="block">
+  <h2>1. The shape of a parabola</h2>
+  <p>The simplest quadratic graph is \(y = x^2\). Make a table of values by squaring each \(x\) value. Remember that squaring a negative number gives a positive answer.</p>
+  <div class="table-scroll">
+    <table class="mtable value-table">
+      <caption>Table of values for \(y = x^2\)</caption>
+      <tr><th>\(x\)</th><td>−3</td><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+      <tr><th>\(y\)</th><td>9</td><td>4</td><td>1</td><td>0</td><td>1</td><td>4</td><td>9</td></tr>
+    </table>
+  </div>
+  <p>Plot the points and join them with a <strong>smooth curve</strong>, not straight lines. Here is \(y = x^2\) together with \(y = -x^2\).</p>
+  <div id="qg-basic" class="jxgbox" role="img" aria-label="Graphs of y equals x squared, a U shape with its lowest point at the origin, and y equals minus x squared, an upside-down U with its highest point at the origin."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("qg-basic", { x: [-4, 4], y: [-10, 10], step: [1, 2] }, function (b) {
+      var c = VMANZ.colours();
+      VMANZ.plot(b, function (x) { return x * x; });
+      VMANZ.plot(b, function (x) { return -x * x; }, { strokeColor: c.warn });
+      [-3, -2, -1, 0, 1, 2, 3].forEach(function (x) { VMANZ.point(b, [x, x * x], ""); });
+    });
+  });
+  </script>
+  <p class="legend"><span class="key key-accent">\(y = x^2\)</span><span class="key key-warn">\(y = -x^2\)</span></p>
   <div class="note">
     <span class="box-label">Key idea</span>
-    <p>The graph of a quadratic, such as \(y = x^2 - 2x - 3\), is a symmetrical U-shaped curve called a <strong>parabola</strong>.</p>
+    <p>Every quadratic graph is a <strong>parabola</strong>. It is symmetrical about a vertical line.</p>
+    <p>If the \(x^2\) term is positive the parabola opens upwards, ∪, and has a minimum. If the \(x^2\) term is negative it opens downwards, ∩, and has a maximum.</p>
   </div>
+</section>
 
-  <h3>Features of a parabola</h3>
-  <p>This is the graph of \(y = x^2 - 2x - 3\).</p>
+<section class="block">
+  <h2>2. Drawing a parabola from a table of values</h2>
+  <div class="example">
+    <h3>Table of values</h3>
+    <p>Complete a table of values for \(y = x^2 - 2x - 3\) for \(x\) from \(-2\) to \(4\), and draw the graph.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <p>Substitute each value carefully. For \(x = -2\): \((-2)^2 - 2(-2) - 3 = 4 + 4 - 3 = 5\).</p>
+      <div class="table-scroll">
+        <table class="mtable value-table">
+          <tr><th>\(x\)</th><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+          <tr><th>\(x^2\)</th><td>4</td><td>1</td><td>0</td><td>1</td><td>4</td><td>9</td><td>16</td></tr>
+          <tr><th>\(-2x\)</th><td>4</td><td>2</td><td>0</td><td>−2</td><td>−4</td><td>−6</td><td>−8</td></tr>
+          <tr><th>\(-3\)</th><td>−3</td><td>−3</td><td>−3</td><td>−3</td><td>−3</td><td>−3</td><td>−3</td></tr>
+          <tr><th>\(y\)</th><td>5</td><td>0</td><td>−3</td><td>−4</td><td>−3</td><td>0</td><td>5</td></tr>
+        </table>
+      </div>
+      <p>Splitting the table into one row per term makes mistakes with negatives much less likely. The graph is shown in the next section.</p>
+    </details>
+  </div>
+  <div class="note">
+    <span class="box-label">Drawing tips</span>
+    <ul>
+      <li>Use the symmetry: the \(y\) values repeat either side of the turning point. If they don't, check your arithmetic.</li>
+      <li>Draw one smooth curve through all the points. The bottom should be rounded, not pointed.</li>
+      <li>Don't join the end points to the edge of the grid with straight lines; just stop the curve.</li>
+      <li>Label the curve with its equation.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <h2>3. Features of a parabola</h2>
+  <p>This is the graph of \(y = x^2 - 2x - 3\) from the table above.</p>
   <div id="qg-features" class="jxgbox" role="img" aria-label="Graph of y equals x squared minus 2x minus 3. It crosses the x-axis at minus 1 and 3, crosses the y-axis at minus 3, and has its turning point at 1, minus 4. The axis of symmetry is the line x equals 1."></div>
   <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -68,7 +161,7 @@
       VMANZ.point(b, [3, 0], "(3, 0)");
       VMANZ.point(b, [0, -3], "(0, −3)", { label: { offset: [-58, 0] } });
       VMANZ.point(b, [1, -4], "(1, −4)", { label: { offset: [10, -12] } });
-      b.create("text", [1.15, 4.6, "x = 1"], { strokeColor: VMANZ.colours().muted, fontSize: 14, fixed: true });
+      VMANZ.text(b, [1.15, 4.6], "x = 1");
     });
   });
   </script>
@@ -78,110 +171,370 @@
       <tbody>
         <tr><td>\(x\)-intercepts (roots)</td><td>where the curve crosses the \(x\)-axis (\(y = 0\))</td><td>\(x = -1\) and \(x = 3\)</td></tr>
         <tr><td>\(y\)-intercept</td><td>where the curve crosses the \(y\)-axis (\(x = 0\))</td><td>\(y = -3\)</td></tr>
-        <tr><td>Turning point (vertex)</td><td>the lowest (or highest) point</td><td>\((1, -4)\)</td></tr>
+        <tr><td>Turning point</td><td>the lowest (or highest) point</td><td>\((1, -4)\), a minimum</td></tr>
         <tr><td>Axis of symmetry</td><td>the vertical mirror line through the turning point</td><td>\(x = 1\)</td></tr>
       </tbody>
     </table>
   </div>
-  <p>The axis of symmetry is always exactly halfway between the two \(x\)-intercepts: \(\dfrac{-1 + 3}{2} = 1\).</p>
-
-  <h3>Three ways to write the same quadratic</h3>
-  <p>Each form shows you a different feature straight away. All three of these describe the graph above.</p>
-  <div class="table-scroll">
-    <table class="mtable">
-      <thead><tr><th>Form</th><th>Example</th><th>Read off</th></tr></thead>
-      <tbody>
-        <tr><td>Expanded</td><td>\(y = x^2 - 2x - 3\)</td><td>\(y\)-intercept: the number on the end, \(-3\)</td></tr>
-        <tr><td>Factorised</td><td>\(y = (x + 1)(x - 3)\)</td><td>\(x\)-intercepts: \(x = -1\) and \(x = 3\)</td></tr>
-        <tr><td>Turning point</td><td>\(y = (x - 1)^2 - 4\)</td><td>turning point: \((1, -4)\)</td></tr>
-      </tbody>
-    </table>
+  <div class="note">
+    <span class="box-label">Key idea</span>
+    <p>The axis of symmetry is exactly halfway between the two \(x\)-intercepts: \(\dfrac{-1 + 3}{2} = 1\). The turning point is always on the axis of symmetry.</p>
   </div>
-
-  <div class="rule">
-    <span class="box-label">Turning-point form</span>
-    \[ y = a(x - h)^2 + k \quad\text{has its turning point at } (h, k) \]
-    <p style="font-size:1rem">If \(a\) is positive the parabola opens upwards (∪). If \(a\) is negative it opens downwards (∩).</p>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>A parabola crosses the \(x\)-axis at \(x = 2\) and \(x = 8\).</p>
+    <ol class="exercise">
+      <li>What is the equation of its axis of symmetry?</li>
+      <li>What is the \(x\)-coordinate of its turning point?</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers">
+        <li>\(x = 5\)</li>
+        <li>\(5\)</li>
+      </ol>
+    </details>
   </div>
-
-  <h3>Explore</h3>
-  <p>Drag the sliders to change \(a\), \(h\) and \(k\) in \(y = a(x - h)^2 + k\). Watch where the turning point goes, and what happens when \(a\) is negative or close to zero.</p>
-  <div id="qg-explore" class="jxgbox" role="img" aria-label="Interactive graph of y equals a times x minus h all squared plus k, with sliders for a, h and k."></div>
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    VMANZ.graph("qg-explore", { x: [-7, 7], y: [-7, 7], step: 2 }, function (b) {
-      var a = VMANZ.slider(b, "a", [-3, 1, 3], 0, 0.5);
-      var h = VMANZ.slider(b, "h", [-4, 0, 4], 1, 1);
-      var k = VMANZ.slider(b, "k", [-5, 0, 5], 2, 1);
-      var f = function (n) { return n < 0 ? "−" + Math.abs(n) : String(n); };
-      VMANZ.plot(b, function (x) { return a.Value() * Math.pow(x - h.Value(), 2) + k.Value(); });
-      VMANZ.point(b, [function () { return h.Value(); }, function () { return k.Value(); }],
-        function () { return "(" + f(h.Value()) + ", " + f(k.Value()) + ")"; });
-    });
-  });
-  </script>
 </section>
 
 <section class="block">
-<h2>Worked examples</h2>
+  <h2>4. Moving and stretching \(y = x^2\)</h2>
+  <p>Every parabola is the graph of \(y = x^2\) moved, stretched or flipped. Learning how the numbers in the equation do this lets you sketch a graph without a table of values.</p>
+  <h3>Adding a number: \(y = x^2 + k\)</h3>
+  <div id="qg-family-k" class="jxgbox" role="img" aria-label="Graphs of y equals x squared, y equals x squared plus 3 and y equals x squared minus 2. They are the same shape; the second is moved up 3 and the third is moved down 2."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("qg-family-k", { x: [-4, 4], y: [-4, 10], step: [1, 2] }, function (b) {
+      var c = VMANZ.colours();
+      VMANZ.plot(b, function (x) { return x * x; });
+      VMANZ.plot(b, function (x) { return x * x + 3; }, { strokeColor: c.rule });
+      VMANZ.plot(b, function (x) { return x * x - 2; }, { strokeColor: c.warn });
+    });
+  });
+  </script>
+  <p class="legend"><span class="key key-accent">\(y = x^2\)</span><span class="key key-rule">\(y = x^2 + 3\)</span><span class="key key-warn">\(y = x^2 - 2\)</span></p>
+  <p>Adding \(k\) moves the whole graph <strong>up</strong> \(k\) units (or down, if \(k\) is negative). The turning point moves from \((0, 0)\) to \((0, k)\).</p>
 
-<div class="example">
-  <h3>Sketching from factorised form</h3>
-  <p>Sketch \(y = (x - 2)(x + 4)\). Label the intercepts and the turning point.</p>
-  <details class="solution">
-    <summary>Show solution</summary>
-    <ol class="steps">
-      <li>\(x\)-intercepts: set each bracket to zero. \(x - 2 = 0\) gives \(x = 2\); \(x + 4 = 0\) gives \(x = -4\).</li>
-      <li>\(y\)-intercept: put \(x = 0\). \(y = (0 - 2)(0 + 4) = -8\).</li>
-      <li>Axis of symmetry: halfway between the roots. \(x = \dfrac{2 + (-4)}{2} = -1\).</li>
-      <li>Turning point: put \(x = -1\). \(y = (-1 - 2)(-1 + 4) = (-3)(3) = -9\), so \((-1, -9)\).</li>
-      <li>The \(x^2\) term is positive, so it opens upwards.</li>
-    </ol>
-    <div id="qg-ex1" class="jxgbox" role="img" aria-label="Graph of y equals x minus 2 times x plus 4, crossing the x-axis at minus 4 and 2, the y-axis at minus 8, with turning point minus 1, minus 9."></div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      VMANZ.graph("qg-ex1", { x: [-7, 5], y: [-11, 4], step: 2 }, function (b) {
-        VMANZ.vline(b, -1);
-        VMANZ.plot(b, function (x) { return (x - 2) * (x + 4); });
-        VMANZ.point(b, [-4, 0], "(−4, 0)", { label: { offset: [-56, 14] } });
-        VMANZ.point(b, [2, 0], "(2, 0)");
-        VMANZ.point(b, [0, -8], "(0, −8)");
-        VMANZ.point(b, [-1, -9], "(−1, −9)", { label: { offset: [10, -12] } });
+  <h3>Multiplying by a number: \(y = ax^2\)</h3>
+  <div id="qg-family-a" class="jxgbox" role="img" aria-label="Graphs of y equals x squared, y equals 2x squared which is narrower, y equals one half x squared which is wider, and y equals minus x squared which is upside down."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("qg-family-a", { x: [-4, 4], y: [-8, 8], step: [1, 2] }, function (b) {
+      var c = VMANZ.colours();
+      VMANZ.plot(b, function (x) { return x * x; });
+      VMANZ.plot(b, function (x) { return 2 * x * x; }, { strokeColor: c.rule });
+      VMANZ.plot(b, function (x) { return 0.5 * x * x; }, { strokeColor: c.warn });
+      VMANZ.plot(b, function (x) { return -x * x; }, { strokeColor: c.muted, dash: 2, strokeWidth: 2 });
+    });
+  });
+  </script>
+  <p class="legend"><span class="key key-accent">\(y = x^2\)</span><span class="key key-rule">\(y = 2x^2\)</span><span class="key key-warn">\(y = \tfrac{1}{2}x^2\)</span><span class="key key-muted">\(y = -x^2\)</span></p>
+  <p>The number \(a\) in front of \(x^2\) changes the <strong>steepness</strong>. A bigger number makes the parabola narrower; a number between 0 and 1 makes it wider. A negative \(a\) flips it upside down.</p>
+
+  <h3>Brackets: \(y = (x - h)^2\)</h3>
+  <p>Replacing \(x\) with \((x - h)\) moves the graph <strong>sideways</strong>. For example \(y = (x - 3)^2\) is \(y = x^2\) moved 3 units to the <strong>right</strong>, because \(y = 0\) when \(x = 3\). Watch the sign: \(y = (x + 3)^2\) moves 3 units to the <strong>left</strong>.</p>
+
+  <h3>Putting it together: turning-point form</h3>
+  <div class="rule">
+    <span class="box-label">Turning-point form</span>
+    \[ y = a(x - h)^2 + k \]
+    <p style="font-size:1rem">has its turning point at \((h, k)\) and axis of symmetry \(x = h\). It opens upwards if \(a > 0\) and downwards if \(a < 0\).</p>
+  </div>
+
+  <div class="investigate">
+    <span class="box-label">Explore</span>
+    <p>Drag the sliders to change \(a\), \(h\) and \(k\). The equation above the graph changes as you drag, along with its expanded form and its key features.</p>
+    <ul>
+      <li>Which slider moves the turning point left and right? Which moves it up and down?</li>
+      <li>What happens to the graph when \(a\) is negative? When \(a = 0\)?</li>
+      <li>Set \(h = 2\) and \(k = -3\). What happens to the \(x\)-intercepts as you change \(a\)? Why doesn't the turning point move?</li>
+      <li>Find settings where the graph has no \(x\)-intercepts. What do you notice about the signs of \(a\) and \(k\)?</li>
+    </ul>
+  </div>
+  <div id="qg-explore-eq" class="readout"></div>
+  <div id="qg-explore" class="jxgbox" role="img" aria-label="Interactive graph of y equals a times x minus h all squared plus k, with sliders for a, h and k. The equation and features are shown above the graph and update as the sliders move."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("qg-explore", { x: [-7, 7], y: [-7, 7], step: 2 }, function (b) {
+      var T = VMANZ.tex;
+      var a = VMANZ.slider(b, "a", [-3, 1, 3], 0, 0.5);
+      var h = VMANZ.slider(b, "h", [-4, 0, 4], 1, 1);
+      var k = VMANZ.slider(b, "k", [-5, 0, 5], 2, 1);
+      VMANZ.plot(b, function (x) { return a.Value() * Math.pow(x - h.Value(), 2) + k.Value(); });
+      VMANZ.point(b, [function () { return h.Value(); }, function () { return k.Value(); }], "");
+      VMANZ.readout(b, "qg-explore-eq", function () {
+        var A = a.Value(), H = h.Value(), K = k.Value();
+        if (A === 0) {
+          return { eq: "y = " + T.num(K), rows: [["Shape", "\\text{a horizontal line, not a parabola}"]] };
+        }
+        var sq = T.shift(H) === "x" ? "x^2" : T.shift(H) + "^2";
+        var r = -K / A, roots;
+        if (r < 0) roots = "\\text{none}";
+        else if (r === 0) roots = "x = " + T.num(H) + "\\ \\text{(touches)}";
+        else {
+          var s = Math.sqrt(r), exact = Math.abs(s - Math.round(s)) < 1e-9;
+          roots = "x " + (exact ? "=" : "\\approx") + " " + T.num(H - s) + ",\\ " + T.num(H + s);
+        }
+        return {
+          eq: "y = " + T.poly([[A, sq], [K, ""]]),
+          rows: [
+            ["Expanded", "y = " + T.poly([[A, "x^2"], [-2 * A * H, "x"], [A * H * H + K, ""]])],
+            ["Turning point", T.pair(H, K) + (A > 0 ? "\\ \\text{min}" : "\\ \\text{max}")],
+            ["<i>y</i>-intercept", "y = " + T.num(A * H * H + K)],
+            ["<i>x</i>-intercepts", roots]
+          ]
+        };
       });
     });
-    </script>
-      </details>
-    </div>
+  });
+  </script>
 
-    <div class="example">
-      <h3>Sketching from turning-point form</h3>
-      <p>Sketch \(y = -(x - 3)^2 + 4\). Label the intercepts and the turning point.</p>
-      <details class="solution">
-        <summary>Show solution</summary>
-        <ol class="steps">
-          <li>Turning point: compare with \(y = a(x - h)^2 + k\). Here \(h = 3\) and \(k = 4\), so \((3, 4)\).</li>
-          <li>\(a = -1\) is negative, so it opens <strong>downwards</strong> and \((3, 4)\) is a maximum.</li>
-          <li>\(y\)-intercept: \(y = -(0 - 3)^2 + 4 = -9 + 4 = -5\).</li>
-          <li>\(x\)-intercepts: set \(y = 0\). \((x - 3)^2 = 4\), so \(x - 3 = \pm 2\), giving \(x = 1\) and \(x = 5\).</li>
-        </ol>
-        <div id="qg-ex2" class="jxgbox" role="img" aria-label="Graph of y equals minus x minus 3 all squared plus 4. It opens downwards with maximum at 3, 4, crosses the x-axis at 1 and 5, and the y-axis at minus 5."></div>
-        <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          VMANZ.graph("qg-ex2", { x: [-2, 7], y: [-7, 6] }, function (b) {
-            VMANZ.vline(b, 3);
-            VMANZ.plot(b, function (x) { return -Math.pow(x - 3, 2) + 4; });
-            VMANZ.point(b, [1, 0], "(1, 0)", { label: { offset: [-46, 14] } });
-            VMANZ.point(b, [5, 0], "(5, 0)");
-            VMANZ.point(b, [0, -5], "(0, −5)");
-            VMANZ.point(b, [3, 4], "(3, 4)");
-          });
+  <div class="example">
+    <h3>Reading turning-point form</h3>
+    <p>Write down the turning point of each parabola, and say whether it is a maximum or a minimum.</p>
+    <ol class="parts">
+      <li>\(y = (x - 5)^2 + 1\)</li>
+      <li>\(y = (x + 2)^2 - 7\)</li>
+      <li>\(y = -3(x - 1)^2 + 4\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(h = 5\), \(k = 1\): turning point \((5, 1)\). \(a = 1 > 0\), so a minimum.</li>
+        <li>\((x + 2) = (x - (-2))\), so \(h = -2\), \(k = -7\): turning point \((-2, -7)\), a minimum.</li>
+        <li>\(h = 1\), \(k = 4\): turning point \((1, 4)\). \(a = -3 < 0\), so a maximum.</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>5. Sketching from turning-point form</h2>
+  <p>A <strong>sketch</strong> shows the shape and the key points, labelled with their coordinates. It does not need to be drawn on graph paper.</p>
+  <div class="note">
+    <span class="box-label">Method</span>
+    <ol class="steps">
+      <li>Read off the turning point \((h, k)\).</li>
+      <li>Decide if it opens up (\(a > 0\)) or down (\(a < 0\)).</li>
+      <li>Find the \(y\)-intercept by putting \(x = 0\).</li>
+      <li>Find any \(x\)-intercepts by putting \(y = 0\) and solving.</li>
+      <li>Sketch a smooth, symmetrical curve through the points and label them.</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <h3>Opening upwards</h3>
+    <p>Sketch \(y = (x + 2)^2 - 1\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Turning point: \((-2, -1)\). \(a = 1\), so it opens upwards.</li>
+        <li>\(y\)-intercept: \(y = (0 + 2)^2 - 1 = 3\).</li>
+        <li>\(x\)-intercepts: \((x + 2)^2 - 1 = 0\), so \((x + 2)^2 = 1\), \(x + 2 = \pm 1\), giving \(x = -1\) and \(x = -3\).</li>
+      </ol>
+      <div id="qg-tp1" class="jxgbox" role="img" aria-label="Graph of y equals x plus 2 all squared minus 1. Turning point minus 2, minus 1. Crosses the x-axis at minus 3 and minus 1, and the y-axis at 3."></div>
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        VMANZ.graph("qg-tp1", { x: [-6, 2], y: [-3, 6] }, function (b) {
+          VMANZ.vline(b, -2);
+          VMANZ.plot(b, function (x) { return Math.pow(x + 2, 2) - 1; });
+          VMANZ.point(b, [-3, 0], "(−3, 0)", { label: { offset: [-56, 14] } });
+          VMANZ.point(b, [-1, 0], "(−1, 0)", { label: { offset: [8, 14] } });
+          VMANZ.point(b, [0, 3], "(0, 3)");
+          VMANZ.point(b, [-2, -1], "(−2, −1)", { label: { offset: [10, -12] } });
         });
-        </script>
+      });
+      </script>
     </details>
   </div>
 
   <div class="example">
-    <h3>Finding the equation from a graph</h3>
+    <h3>Opening downwards</h3>
+    <p>Sketch \(y = -(x - 3)^2 + 4\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Turning point: \((3, 4)\). \(a = -1\) is negative, so it opens <strong>downwards</strong> and \((3, 4)\) is a maximum.</li>
+        <li>\(y\)-intercept: \(y = -(0 - 3)^2 + 4 = -9 + 4 = -5\).</li>
+        <li>\(x\)-intercepts: \((x - 3)^2 = 4\), so \(x - 3 = \pm 2\), giving \(x = 1\) and \(x = 5\).</li>
+      </ol>
+      <div id="qg-tp2" class="jxgbox" role="img" aria-label="Graph of y equals minus x minus 3 all squared plus 4. It opens downwards with maximum at 3, 4, crosses the x-axis at 1 and 5, and the y-axis at minus 5."></div>
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        VMANZ.graph("qg-tp2", { x: [-2, 7], y: [-7, 6] }, function (b) {
+          VMANZ.vline(b, 3);
+          VMANZ.plot(b, function (x) { return -Math.pow(x - 3, 2) + 4; });
+          VMANZ.point(b, [1, 0], "(1, 0)", { label: { offset: [-46, 14] } });
+          VMANZ.point(b, [5, 0], "(5, 0)");
+          VMANZ.point(b, [0, -5], "(0, −5)");
+          VMANZ.point(b, [3, 4], "(3, 4)");
+        });
+      });
+      </script>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>No \(x\)-intercepts</h3>
+    <p>Sketch \(y = (x - 1)^2 + 2\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Turning point: \((1, 2)\), a minimum.</li>
+        <li>\(y\)-intercept: \(y = (0 - 1)^2 + 2 = 3\).</li>
+        <li>The lowest point is at \(y = 2\), above the \(x\)-axis, so the graph never crosses it. There are <strong>no</strong> \(x\)-intercepts. (Trying to solve \((x - 1)^2 = -2\) fails, because no square is negative.)</li>
+        <li>Use symmetry for one more point: \((0, 3)\) is 1 unit left of the axis \(x = 1\), so \((2, 3)\) is also on the graph.</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>6. Sketching from factorised form</h2>
+  <p>In <strong>factorised form</strong> you can read the \(x\)-intercepts straight from the brackets. If \(y = (x - p)(x - q)\), then \(y = 0\) when \(x = p\) or \(x = q\).</p>
+  <div class="rule">
+    <span class="box-label">Factorised form</span>
+    \[ y = a(x - p)(x - q) \]
+    <p style="font-size:1rem">crosses the \(x\)-axis at \(x = p\) and \(x = q\). The axis of symmetry is halfway between: \(x = \dfrac{p + q}{2}\).</p>
+  </div>
+
+  <div class="investigate">
+    <span class="box-label">Explore</span>
+    <p>Drag \(p\) and \(q\) to move the \(x\)-intercepts, and \(a\) to stretch or flip the graph. Watch the equation and the turning point change.</p>
+    <ul>
+      <li>What happens when \(p = q\)?</li>
+      <li>Keep \(p\) and \(q\) fixed and change \(a\). Which features stay the same?</li>
+    </ul>
+  </div>
+  <div id="qg-fact-eq" class="readout"></div>
+  <div id="qg-fact" class="jxgbox" role="img" aria-label="Interactive graph of y equals a times x minus p times x minus q, with sliders for a, p and q. The equation and features are shown above the graph and update as the sliders move."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("qg-fact", { x: [-7, 7], y: [-10, 10], step: 2 }, function (b) {
+      var T = VMANZ.tex;
+      var a = VMANZ.slider(b, "a", [-3, 1, 3], 0, 0.5);
+      var p = VMANZ.slider(b, "p", [-5, -1, 5], 1, 1);
+      var q = VMANZ.slider(b, "q", [-5, 3, 5], 2, 1);
+      var f = function (x) { return a.Value() * (x - p.Value()) * (x - q.Value()); };
+      VMANZ.plot(b, f);
+      VMANZ.point(b, [function () { return p.Value(); }, 0], "");
+      VMANZ.point(b, [function () { return q.Value(); }, 0], "");
+      VMANZ.point(b, [function () { return (p.Value() + q.Value()) / 2; },
+                      function () { return f((p.Value() + q.Value()) / 2); }], "");
+      VMANZ.readout(b, "qg-fact-eq", function () {
+        var A = a.Value(), P = p.Value(), Q = q.Value(), m = (P + Q) / 2;
+        if (A === 0) return { eq: "y = 0", rows: [["Shape", "\\text{the } x\\text{-axis, not a parabola}"]] };
+        var lead = A === 1 ? "" : A === -1 ? "-" : T.num(A);
+        var fac;
+        if (P === Q) fac = T.shift(P) === "x" ? "x^2" : T.shift(P) + "^2";
+        else {
+          var f1 = T.shift(P), f2 = T.shift(Q);
+          fac = f1 === "x" ? "x" + f2 : f2 === "x" ? "x" + f1 : f1 + f2;
+        }
+        return {
+          eq: "y = " + lead + fac,
+          rows: [
+            ["Expanded", "y = " + T.poly([[A, "x^2"], [-A * (P + Q), "x"], [A * P * Q, ""]])],
+            ["<i>x</i>-intercepts", P === Q ? "x = " + T.num(P) + "\\ \\text{(touches)}" : "x = " + T.num(Math.min(P, Q)) + ",\\ " + T.num(Math.max(P, Q))],
+            ["Axis of symmetry", "x = " + T.num(m)],
+            ["Turning point", T.pair(m, A * (m - P) * (m - Q))],
+            ["<i>y</i>-intercept", "y = " + T.num(A * P * Q)]
+          ]
+        };
+      });
+    });
+  });
+  </script>
+
+  <div class="example">
+    <h3>Sketching from factorised form</h3>
+    <p>Sketch \(y = (x - 2)(x + 4)\). Label the intercepts and the turning point.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(x\)-intercepts: set each bracket to zero. \(x - 2 = 0\) gives \(x = 2\); \(x + 4 = 0\) gives \(x = -4\).</li>
+        <li>\(y\)-intercept: put \(x = 0\). \(y = (0 - 2)(0 + 4) = -8\).</li>
+        <li>Axis of symmetry: halfway between the roots. \(x = \dfrac{2 + (-4)}{2} = -1\).</li>
+        <li>Turning point: put \(x = -1\). \(y = (-1 - 2)(-1 + 4) = (-3)(3) = -9\), so \((-1, -9)\).</li>
+        <li>The \(x^2\) term is positive, so it opens upwards.</li>
+      </ol>
+      <div id="qg-ex1" class="jxgbox" role="img" aria-label="Graph of y equals x minus 2 times x plus 4, crossing the x-axis at minus 4 and 2, the y-axis at minus 8, with turning point minus 1, minus 9."></div>
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        VMANZ.graph("qg-ex1", { x: [-7, 5], y: [-11, 4], step: 2 }, function (b) {
+          VMANZ.vline(b, -1);
+          VMANZ.plot(b, function (x) { return (x - 2) * (x + 4); });
+          VMANZ.point(b, [-4, 0], "(−4, 0)", { label: { offset: [-56, 14] } });
+          VMANZ.point(b, [2, 0], "(2, 0)");
+          VMANZ.point(b, [0, -8], "(0, −8)");
+          VMANZ.point(b, [-1, -9], "(−1, −9)", { label: { offset: [10, -12] } });
+        });
+      });
+      </script>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>A negative \(a\)</h3>
+    <p>Sketch \(y = -2x(x - 3)\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(x\)-intercepts: \(-2x = 0\) gives \(x = 0\); \(x - 3 = 0\) gives \(x = 3\).</li>
+        <li>\(y\)-intercept: \(0\) (it passes through the origin).</li>
+        <li>Axis of symmetry: \(x = 1.5\). Turning point: \(y = -2(1.5)(1.5 - 3) = -2(1.5)(-1.5) = 4.5\), so \((1.5, 4.5)\).</li>
+        <li>\(a = -2\) is negative, so it opens downwards and \((1.5, 4.5)\) is a maximum.</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>7. Sketching from expanded form</h2>
+  <p>In <strong>expanded form</strong>, \(y = ax^2 + bx + c\), you can read the \(y\)-intercept straight away: it is \(c\). To find the rest, factorise first.</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <caption>Three ways to write \(y = x^2 - 2x - 3\)</caption>
+      <thead><tr><th>Form</th><th>Equation</th><th>Read off</th></tr></thead>
+      <tbody>
+        <tr><td>Expanded</td><td>\(y = x^2 - 2x - 3\)</td><td>\(y\)-intercept: \(-3\)</td></tr>
+        <tr><td>Factorised</td><td>\(y = (x + 1)(x - 3)\)</td><td>\(x\)-intercepts: \(-1\) and \(3\)</td></tr>
+        <tr><td>Turning point</td><td>\(y = (x - 1)^2 - 4\)</td><td>turning point: \((1, -4)\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="example">
+    <h3>Factorise first</h3>
+    <p>Sketch \(y = x^2 + 2x - 8\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(y\)-intercept: \(c = -8\).</li>
+        <li>Factorise: two numbers that multiply to \(-8\) and add to \(2\) are \(4\) and \(-2\). So \(y = (x + 4)(x - 2)\).</li>
+        <li>\(x\)-intercepts: \(x = -4\) and \(x = 2\).</li>
+        <li>Axis of symmetry: \(x = \dfrac{-4 + 2}{2} = -1\).</li>
+        <li>Turning point: \(y = (-1)^2 + 2(-1) - 8 = 1 - 2 - 8 = -9\), so \((-1, -9)\).</li>
+      </ol>
+      <p class="answer">Intercepts \((-4, 0)\), \((2, 0)\), \((0, -8)\); turning point \((-1, -9)\), a minimum.</p>
+    </details>
+  </div>
+  <div class="note">
+    <span class="box-label">Extension</span>
+    <p>For \(y = ax^2 + bx + c\), the axis of symmetry is always \(x = -\dfrac{b}{2a}\). Check: for \(y = x^2 + 2x - 8\), \(x = -\dfrac{2}{2} = -1\). ✓ This works even when the quadratic does not factorise.</p>
+  </div>
+</section>
+
+<section class="block">
+  <h2>8. Finding the equation from a graph</h2>
+  <p>Choose the form that matches the information on the graph:</p>
+  <ul>
+    <li>If you know the <strong>\(x\)-intercepts</strong>, use \(y = a(x - p)(x - q)\).</li>
+    <li>If you know the <strong>turning point</strong>, use \(y = a(x - h)^2 + k\).</li>
+  </ul>
+  <p>Then use one more point on the graph (often the \(y\)-intercept) to find \(a\).</p>
+
+  <div class="example">
+    <h3>From the intercepts</h3>
     <p>Find the equation of this parabola.</p>
     <div id="qg-ex3" class="jxgbox" role="img" aria-label="A parabola opening upwards crossing the x-axis at minus 2 and 4 and the y-axis at minus 8."></div>
     <script>
@@ -197,48 +550,303 @@
     <details class="solution">
       <summary>Show solution</summary>
       <ol class="steps">
-        <li>The \(x\)-intercepts are \(-2\) and \(4\), so the brackets are \((x + 2)\) and \((x - 4)\): \(y = a(x + 2)(x - 4)\).</li>
+        <li>The \(x\)-intercepts are \(-2\) and \(4\), so \(y = a(x + 2)(x - 4)\).</li>
         <li>Use the \(y\)-intercept to find \(a\). At \(x = 0\): \(-8 = a(2)(-4) = -8a\), so \(a = 1\).</li>
       </ol>
       <p class="answer">\(y = (x + 2)(x - 4)\), or expanded, \(y = x^2 - 2x - 8\)</p>
     </details>
   </div>
+
+  <div class="example">
+    <h3>From the turning point</h3>
+    <p>A parabola has its turning point at \((2, -3)\) and passes through \((0, 1)\). Find its equation.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Turning point \((2, -3)\): \(y = a(x - 2)^2 - 3\).</li>
+        <li>Substitute \((0, 1)\): \(1 = a(0 - 2)^2 - 3 = 4a - 3\).</li>
+        <li>\(4a = 4\), so \(a = 1\).</li>
+      </ol>
+      <p class="answer">\(y = (x - 2)^2 - 3\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>When \(a\) is not 1</h3>
+    <p>A parabola crosses the \(x\)-axis at \(1\) and \(5\), and the \(y\)-axis at \(-10\). Find its equation.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>\(y = a(x - 1)(x - 5)\).</li>
+        <li>At \(x = 0\): \(-10 = a(-1)(-5) = 5a\), so \(a = -2\).</li>
+      </ol>
+      <p class="answer">\(y = -2(x - 1)(x - 5)\). It opens downwards.</p>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>9. Quadratic graphs in context</h2>
+  <p>Anything thrown into the air follows a parabola. Quadratics also describe areas, profits and the shapes of bridges and satellite dishes.</p>
+  <div class="example">
+    <h3>A ball thrown upwards</h3>
+    <p>A ball is thrown straight up. Its height \(h\) metres after \(t\) seconds is \(h = -5t^2 + 20t\).</p>
+    <ol class="parts">
+      <li>When does the ball land?</li>
+      <li>What is its greatest height, and when does it reach it?</li>
+      <li>When is the ball 15 m above the ground?</li>
+    </ol>
+    <div id="qg-ball" class="jxgbox" role="img" aria-label="Graph of height h against time t for h equals minus 5 t squared plus 20 t. It starts at the origin, rises to a maximum of 20 metres at 2 seconds, and lands at 4 seconds."></div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      VMANZ.graph("qg-ball", { x: [-0.6, 5], y: [-3, 25], step: [1, 5] }, function (b) {
+        var c = VMANZ.colours();
+        b.create("functiongraph", [function (t) { return -5 * t * t + 20 * t; }, 0, 4],
+          { strokeColor: c.accent, strokeWidth: 3, highlight: false });
+        VMANZ.point(b, [2, 20], "(2, 20)");
+        VMANZ.point(b, [4, 0], "(4, 0)");
+        VMANZ.text(b, [4.4, 1.8], "t (s)");
+        VMANZ.text(b, [0.12, 23.8], "h (m)");
+      });
+    });
+    </script>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>Factorise: \(h = -5t(t - 4)\). \(h = 0\) when \(t = 0\) (thrown) and \(t = 4\). It lands after <strong>4 seconds</strong>.</li>
+        <li>The maximum is halfway between \(t = 0\) and \(t = 4\), at \(t = 2\). \(h = -5(4) + 20(2) = 20\). Greatest height <strong>20 m after 2 seconds</strong>.</li>
+        <li>\(-5t^2 + 20t = 15\). Divide by \(-5\): \(t^2 - 4t = -3\), so \(t^2 - 4t + 3 = 0\), \((t - 1)(t - 3) = 0\). At <strong>1 second</strong> (going up) and <strong>3 seconds</strong> (coming down).</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Maximum area</h3>
+    <p>A farmer has 20 m of fencing to make a rectangular pen. If one side is \(x\) m, show that the area is \(A = x(10 - x)\), and find the largest possible area.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>The perimeter is 20 m, so two sides add to 10 m. If one side is \(x\), the other is \(10 - x\). Area \(A = x(10 - x)\).</li>
+        <li>This is a parabola with roots \(x = 0\) and \(x = 10\), opening downwards (the \(x^2\) term is \(-x^2\)).</li>
+        <li>The maximum is halfway, at \(x = 5\): \(A = 5 \times 5 = 25\).</li>
+      </ol>
+      <p class="answer">The largest area is 25 m², when the pen is a 5 m by 5 m square.</p>
+    </details>
+  </div>
+</section>
+
+<section class="block exercise">
+  <h2>Exercise A <span class="level">Practice</span></h2>
+  <p class="exercise-intro">For each parabola, find the \(x\)-intercepts (if any), the \(y\)-intercept and the turning point, and say whether it opens up or down. Then sketch it.</p>
+  <h3>Factorised form</h3>
+  <ol class="exercise cols-2">
+    <li>\(y = (x - 2)(x - 6)\)</li>
+    <li>\(y = (x + 1)(x - 5)\)</li>
+    <li>\(y = (x + 3)(x + 7)\)</li>
+    <li>\(y = x(x - 4)\)</li>
+    <li>\(y = -(x - 1)(x - 3)\)</li>
+  </ol>
+  <h3>Turning-point form</h3>
+  <ol class="exercise cols-2" start="6">
+    <li>\(y = (x - 3)^2 + 2\)</li>
+    <li>\(y = (x + 4)^2 - 1\)</li>
+    <li>\(y = (x - 1)^2 - 16\)</li>
+    <li>\(y = -(x + 2)^2 + 9\)</li>
+    <li>\(y = 2(x - 1)^2 - 8\)</li>
+  </ol>
+  <h3>Expanded form</h3>
+  <ol class="exercise cols-2" start="11">
+    <li>\(y = x^2 - 9\)</li>
+    <li>\(y = x^2 + 6x + 8\)</li>
+    <li>\(y = x^2 - 2x - 15\)</li>
+    <li>\(y = x^2 - 8x + 16\)</li>
+  </ol>
+  <h3>Table of values</h3>
+  <ol class="exercise" start="15">
+    <li>Complete a table of values for \(y = x^2 - 4x + 3\) for \(x = 0, 1, 2, 3, 4, 5\), and draw the graph.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <div class="table-scroll">
+      <table class="mtable">
+        <thead><tr><th></th><th>\(x\)-intercepts</th><th>\(y\)-intercept</th><th>Turning point</th><th>Opens</th></tr></thead>
+        <tbody>
+          <tr><th>1</th><td>\(2,\ 6\)</td><td>\(12\)</td><td>\((4, -4)\)</td><td>up</td></tr>
+          <tr><th>2</th><td>\(-1,\ 5\)</td><td>\(-5\)</td><td>\((2, -9)\)</td><td>up</td></tr>
+          <tr><th>3</th><td>\(-7,\ -3\)</td><td>\(21\)</td><td>\((-5, -4)\)</td><td>up</td></tr>
+          <tr><th>4</th><td>\(0,\ 4\)</td><td>\(0\)</td><td>\((2, -4)\)</td><td>up</td></tr>
+          <tr><th>5</th><td>\(1,\ 3\)</td><td>\(-3\)</td><td>\((2, 1)\)</td><td>down</td></tr>
+          <tr><th>6</th><td>none</td><td>\(11\)</td><td>\((3, 2)\)</td><td>up</td></tr>
+          <tr><th>7</th><td>\(-5,\ -3\)</td><td>\(15\)</td><td>\((-4, -1)\)</td><td>up</td></tr>
+          <tr><th>8</th><td>\(-3,\ 5\)</td><td>\(-15\)</td><td>\((1, -16)\)</td><td>up</td></tr>
+          <tr><th>9</th><td>\(-5,\ 1\)</td><td>\(5\)</td><td>\((-2, 9)\)</td><td>down</td></tr>
+          <tr><th>10</th><td>\(-1,\ 3\)</td><td>\(-6\)</td><td>\((1, -8)\)</td><td>up</td></tr>
+          <tr><th>11</th><td>\(-3,\ 3\)</td><td>\(-9\)</td><td>\((0, -9)\)</td><td>up</td></tr>
+          <tr><th>12</th><td>\(-4,\ -2\)</td><td>\(8\)</td><td>\((-3, -1)\)</td><td>up</td></tr>
+          <tr><th>13</th><td>\(-3,\ 5\)</td><td>\(-15\)</td><td>\((1, -16)\)</td><td>up</td></tr>
+          <tr><th>14</th><td>\(4\) (touches)</td><td>\(16\)</td><td>\((4, 0)\)</td><td>up</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>15. \(y\) values: \(3, 0, -1, 0, 3, 8\). Turning point \((2, -1)\); \(x\)-intercepts \(1\) and \(3\).</p>
+    <p>Notice that questions 8 and 13 are the same parabola written in two different forms.</p>
+  </details>
+</section>
+
+<section class="block exercise">
+  <h2>Exercise B <span class="level">Apply</span></h2>
+  <ol class="exercise">
+    <li>Write the equation, in turning-point form with \(a = 1\), of the parabola with turning point
+      <ol class="parts">
+        <li>\((3, -5)\)</li>
+        <li>\((-2, 4)\)</li>
+        <li>\((0, 7)\)</li>
+      </ol>
+    </li>
+    <li>Write the equation, in factorised form with \(a = 1\), of the parabola with \(x\)-intercepts
+      <ol class="parts">
+        <li>\(2\) and \(7\)</li>
+        <li>\(-1\) and \(4\)</li>
+        <li>\(-6\) and \(0\)</li>
+      </ol>
+    </li>
+    <li>A parabola has turning point \((1, 3)\) and passes through \((0, 5)\). Find its equation.</li>
+    <li>A parabola crosses the \(x\)-axis at \(-3\) and \(1\), and the \(y\)-axis at \(6\). Find its equation and its turning point.</li>
+    <li>Match each equation to its description.
+      <div class="table-scroll">
+        <table class="mtable">
+          <tbody>
+            <tr><td>A: \(y = (x - 2)^2\)</td><td>(i) touches the \(x\)-axis at \(x = -2\)</td></tr>
+            <tr><td>B: \(y = (x + 2)^2\)</td><td>(ii) opens downwards with turning point \((0, 4)\)</td></tr>
+            <tr><td>C: \(y = -x^2 + 4\)</td><td>(iii) crosses the \(x\)-axis at \(\pm 2\), turning point \((0, -4)\)</td></tr>
+            <tr><td>D: \(y = x^2 - 4\)</td><td>(iv) turning point \((2, 0)\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>A stone is thrown upwards from the ground. Its height after \(t\) seconds is \(h = -5t^2 + 30t\) metres.
+      <ol class="parts">
+        <li>Factorise the expression.</li>
+        <li>When does the stone land?</li>
+        <li>What is its greatest height?</li>
+        <li>When is it 25 m high?</li>
+      </ol>
+    </li>
+    <li>The arch of a bridge is modelled by \(y = -0.1(x - 10)^2 + 10\), where \(x\) and \(y\) are in metres and \(y = 0\) is the water level.
+      <ol class="parts">
+        <li>How high is the top of the arch?</li>
+        <li>How wide is the arch at water level?</li>
+        <li>A boat is 6.4 m tall. How wide is the arch at that height?</li>
+      </ol>
+    </li>
+    <li>Explain why the graph of \(y = (x - 3)^2 + 5\) can never cross the \(x\)-axis.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>(a) \(y = (x - 3)^2 - 5\) (b) \(y = (x + 2)^2 + 4\) (c) \(y = x^2 + 7\)</li>
+      <li>(a) \(y = (x - 2)(x - 7)\) (b) \(y = (x + 1)(x - 4)\) (c) \(y = x(x + 6)\)</li>
+      <li>\(5 = a(0 - 1)^2 + 3\), so \(a = 2\): \(y = 2(x - 1)^2 + 3\)</li>
+      <li>\(6 = a(3)(-1)\), so \(a = -2\): \(y = -2(x + 3)(x - 1)\). Turning point at \(x = -1\): \(y = -2(2)(-2) = 8\), so \((-1, 8)\).</li>
+      <li>A (iv), B (i), C (ii), D (iii)</li>
+      <li>(a) \(h = -5t(t - 6)\) (b) after 6 seconds (c) at \(t = 3\): \(h = -45 + 90 = 45\) m (d) \(t^2 - 6t + 5 = 0\), so \(t = 1\) s and \(t = 5\) s</li>
+      <li>(a) 10 m (b) \((x - 10)^2 = 100\), so \(x = 0\) and \(x = 20\): 20 m wide (c) \((x - 10)^2 = 36\), so \(x = 4\) and \(x = 16\): 12 m wide</li>
+      <li>The lowest point is \((3, 5)\), which is above the \(x\)-axis. A squared number is never negative, so \(y\) is always at least 5.</li>
+    </ol>
+  </details>
+</section>
+
+<section class="block exercise">
+  <h2>Exercise C <span class="level">Challenge</span></h2>
+  <ol class="exercise">
+    <li>Explain why the turning point of \(y = (x - p)(x - q)\) always has \(x\)-coordinate \(\dfrac{p + q}{2}\).</li>
+    <li>
+      <ol class="parts">
+        <li>Expand \(y = (x - h)^2 + k\).</li>
+        <li>Use your answer to write \(y = x^2 - 6x + 11\) in turning-point form. (Hint: \(-6x = -2hx\), so \(h = 3\).)</li>
+        <li>Write \(y = x^2 + 10x + 20\) in turning-point form, and find its turning point.</li>
+      </ol>
+    </li>
+    <li>A parabola can cross the \(x\)-axis twice, touch it once, or not meet it at all. Give an example equation of each kind.</li>
+    <li>Find the equation of the parabola that passes through \((0, 0)\), \((4, 0)\) and \((2, 8)\).</li>
+    <li>A parabola is the same shape as \(y = x^2\), has its turning point on the line \(y = x\), and passes through the origin. Find two possible equations.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>The \(x\)-intercepts are \(p\) and \(q\). A parabola is symmetrical, so its turning point is on the mirror line halfway between them, at \(\dfrac{p + q}{2}\).</li>
+      <li>(a) \(y = x^2 - 2hx + h^2 + k\) (b) \(h = 3\), \(h^2 + k = 11\) so \(k = 2\): \(y = (x - 3)^2 + 2\) (c) \(h = -5\), \(25 + k = 20\) so \(k = -5\): \(y = (x + 5)^2 - 5\), turning point \((-5, -5)\)</li>
+      <li>For example: twice \(y = x^2 - 1\); once \(y = (x - 2)^2\); never \(y = x^2 + 1\).</li>
+      <li>\(y = ax(x - 4)\); \(8 = a(2)(-2)\), so \(a = -2\): \(y = -2x(x - 4)\)</li>
+      <li>\(y = (x - h)^2 + h\) through \((0, 0)\): \(h^2 + h = 0\), so \(h = 0\) or \(h = -1\). \(y = x^2\) or \(y = (x + 1)^2 - 1\).</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
   <div class="warn">
-    <span class="box-label">Common mistake</span>
-    <p>Getting the sign wrong. \(y = (x + 4)(x - 1)\) crosses the \(x\)-axis at \(x = -4\) and \(x = 1\): the signs <strong>swap</strong>. In the same way, \(y = (x - 3)^2 + 2\) has its turning point at \((3, 2)\), not \((-3, 2)\).</p>
+    <span class="box-label">Signs in the brackets</span>
+    <p>\(y = (x + 4)(x - 1)\) crosses the \(x\)-axis at \(x = -4\) and \(x = 1\): the signs <strong>swap</strong>. In the same way, \(y = (x - 3)^2 + 2\) has its turning point at \((3, 2)\), not \((-3, 2)\).</p>
   </div>
   <div class="warn">
-    <span class="box-label">Common mistake</span>
-    <p>Forgetting to check \(a\). A negative number in front of the \(x^2\) (or the bracket) flips the parabola upside down.</p>
+    <span class="box-label">Ignoring \(a\)</span>
+    <p>A negative number in front of the \(x^2\) (or in front of the brackets) flips the parabola upside down, so the turning point is a maximum.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Squaring negatives</span>
+    <p>When \(x = -3\), \(x^2 = 9\), not \(-9\). On a calculator, type \((-3)^2\) with brackets.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Pointed bottoms</span>
+    <p>A parabola is rounded at its turning point. If your sketch looks like a V, you have joined points with straight lines.</p>
   </div>
 </section>
 
 <section class="block">
-  <h2>Try these</h2>
-  <p>For questions 1–5, find the \(x\)-intercepts (if any), the \(y\)-intercept and the turning point, then sketch the graph.</p>
-  <ol>
-    <li>\(y = (x - 1)(x - 5)\)</li>
-    <li>\(y = (x + 3)(x - 1)\)</li>
-    <li>\(y = x^2 - 4\)</li>
-    <li>\(y = (x - 2)^2 + 1\)</li>
-    <li>\(y = -(x + 1)^2 + 9\)</li>
-    <li>A parabola crosses the \(x\)-axis at \(0\) and \(6\), and has its turning point at \((3, -9)\). Find its equation.</li>
+  <h2>Summary</h2>
+  <div class="summary">
+    <ul>
+      <li>The graph of a quadratic is a symmetrical curve called a parabola.</li>
+      <li>\(a > 0\): opens upwards with a minimum. \(a < 0\): opens downwards with a maximum.</li>
+      <li>Turning-point form \(y = a(x - h)^2 + k\): turning point \((h, k)\), axis \(x = h\).</li>
+      <li>Factorised form \(y = a(x - p)(x - q)\): \(x\)-intercepts \(p\) and \(q\), axis halfway between.</li>
+      <li>Expanded form \(y = ax^2 + bx + c\): \(y\)-intercept \(c\).</li>
+      <li>To find an equation from a graph, pick the matching form, then use another point to find \(a\).</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <h2>Check-in</h2>
+  <p>Try these without looking back, then mark your answers.</p>
+  <ol class="exercise">
+    <li>Write down the turning point of \(y = (x + 5)^2 - 3\).</li>
+    <li>Write down the \(x\)-intercepts of \(y = (x - 4)(x + 9)\).</li>
+    <li>Write down the \(y\)-intercept of \(y = x^2 - 7x + 10\).</li>
+    <li>Factorise \(x^2 - 7x + 10\), and hence find the turning point of \(y = x^2 - 7x + 10\).</li>
+    <li>Does the graph of \(y = -(x - 1)^2 - 2\) cross the \(x\)-axis? Explain.</li>
+    <li>A parabola has turning point \((-1, -4)\) and passes through \((1, 0)\). Find its equation.</li>
   </ol>
   <details class="solution">
     <summary>Show answers</summary>
-    <ol>
-      <li>\(x\)-intercepts \(1\) and \(5\); \(y\)-intercept \(5\); turning point \((3, -4)\).</li>
-      <li>\(x\)-intercepts \(-3\) and \(1\); \(y\)-intercept \(-3\); turning point \((-1, -4)\).</li>
-      <li>\(x\)-intercepts \(-2\) and \(2\); \(y\)-intercept \(-4\); turning point \((0, -4)\).</li>
-      <li>No \(x\)-intercepts (the lowest point is above the \(x\)-axis); \(y\)-intercept \(5\); turning point \((2, 1)\).</li>
-      <li>Opens downwards. \(x\)-intercepts \(-4\) and \(2\); \(y\)-intercept \(8\); turning point \((-1, 9)\).</li>
-      <li>\(y = a\,x(x - 6)\). At \(x = 3\): \(-9 = a(3)(-3) = -9a\), so \(a = 1\) and \(y = x(x - 6) = x^2 - 6x\).</li>
+    <ol class="answers">
+      <li>\((-5, -3)\)</li>
+      <li>\(x = 4\) and \(x = -9\)</li>
+      <li>\(10\)</li>
+      <li>\((x - 2)(x - 5)\); axis \(x = 3.5\); \(y = (1.5)(-1.5) = -2.25\); turning point \((3.5, -2.25)\)</li>
+      <li>No. It opens downwards and its highest point is \((1, -2)\), which is below the \(x\)-axis.</li>
+      <li>\(0 = a(1 + 1)^2 - 4\), so \(a = 1\): \(y = (x + 1)^2 - 4\)</li>
     </ol>
   </details>
+</section>
+
+<section class="block where-next">
+  <h2>Where next?</h2>
+  <ul>
+    <li><a href="../solving-quadratic-equations/index.html">Solving quadratic equations</a>: finding the \(x\)-intercepts exactly.</li>
+    <li><a href="../factorising-harder-quadratics/index.html">Factorising ax² + bx + c</a>: factorising when \(a \ne 1\).</li>
+    <li><a href="../equation-of-a-line/index.html">Equation of a line</a>: the straight-line graphs that parabolas are often compared with.</li>
+  </ul>
 </section>
 <!-- vmanz:content:end -->
   </article>

@@ -19,6 +19,7 @@ Delete that line once real notes are in, then rebuild.
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -34,6 +35,14 @@ JSXGRAPH = "1.10.1"
 
 START, END = "<!-- vmanz:content:start -->", "<!-- vmanz:content:end -->"
 PLACEHOLDER = "<!-- vmanz:placeholder -->"
+
+def asset_version(rel: str) -> str:
+    """Short content hash, so browsers fetch the new file whenever it changes."""
+    return hashlib.md5((ROOT / rel).read_bytes()).hexdigest()[:8]
+
+
+CSS_V = asset_version("assets/css/site.css")
+JS_V = asset_version("assets/js/site.js")
 
 # Extra hand-written pages that use the same frame (path, title).
 EXTRA_PAGES = [("guide", "Page components")]
@@ -84,8 +93,8 @@ def head(title: str, root: str, description: str, maths: bool = False, jsx: bool
             f'<script src="https://cdn.jsdelivr.net/npm/jsxgraph@{JSXGRAPH}/distrib/jsxgraphcore.js"></script>',
         ]
     parts += [
-        f'<link rel="stylesheet" href="{root}assets/css/site.css">',
-        f'<script defer src="{root}assets/js/site.js"></script>',
+        f'<link rel="stylesheet" href="{root}assets/css/site.css?v={CSS_V}">',
+        f'<script defer src="{root}assets/js/site.js?v={JS_V}"></script>',
         "</head>",
     ]
     return "\n".join(parts)
