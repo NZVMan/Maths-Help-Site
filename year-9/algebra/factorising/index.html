@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css">
-<script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js"></script>
 <link rel="stylesheet" href="../../../assets/css/site.css?v=90f19483">
 <script defer src="../../../assets/js/site.js?v=4b4894bb"></script>
 </head>
@@ -39,82 +37,771 @@
   </header>
   <article class="notes">
 <!-- vmanz:content:start -->
-<!-- vmanz:placeholder -->
-<!-- Delete the placeholder line above once the chapter is written, then run: python3 tools/build.py
-     This page is a textbook chapter (about 8 printed pages). Follow the structure below and
-     copy from the finished chapters, e.g. year-9/algebra/expanding-two-brackets/.
-     Building blocks: .note .rule .warn .check .investigate .example+details.solution
-     dl.keywords  ol.exercise.cols-N  ol.answers  ol.parts  table.mtable  figure.diagram  .jxgbox  .readout
-     Maths: inline \( ... \)   display \[ ... \]   (never single $) -->
 <section class="block intentions">
   <h2>What you'll learn</h2>
-  <!-- 4–6 "I can …" statements -->
   <ul>
-    <li class="todo">Learning goals for Factorising are coming soon.</li>
+    <li>I can explain that factorising is the reverse of expanding.</li>
+    <li>I can factorise an expression by taking out the highest common factor, including letters.</li>
+    <li>I can factorise quadratics such as \(x^2 + 7x + 12\) by finding two numbers that multiply and add.</li>
+    <li>I can factorise quadratics with negative terms.</li>
+    <li>I can recognise and factorise the difference of two squares and perfect squares.</li>
+    <li>I can factorise fully, and use factorising to solve problems.</li>
   </ul>
 </section>
 
 <section class="block">
   <h2>Before you start</h2>
-  <!-- 4–6 warm-up questions on prior skills, with answers, and links to the pages they come from -->
-  <p class="todo">Warm-up questions coming soon.</p>
+  <p>You will need these skills. If you get stuck, revisit <a href="../expanding-single-brackets/index.html">Expanding single brackets</a>, <a href="../expanding-two-brackets/index.html">Expanding two brackets</a> or <a href="../../number/directed-number/index.html">Directed number</a>.</p>
+  <ol class="exercise cols-2">
+    <li>List all the factors of 24</li>
+    <li>Find the highest common factor of 18 and 30</li>
+    <li>Expand \(4(x - 3)\)</li>
+    <li>Expand \((x + 2)(x + 7)\)</li>
+    <li>Find two numbers that multiply to 12 and add to 7</li>
+    <li>Find two numbers that multiply to \(-10\) and add to 3</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-2">
+      <li>1, 2, 3, 4, 6, 8, 12, 24</li>
+      <li>6</li>
+      <li>\(4x - 12\)</li>
+      <li>\(x^2 + 9x + 14\)</li>
+      <li>3 and 4</li>
+      <li>5 and \(-2\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Key words</h2>
-  <!-- dl.keywords with 4–8 terms -->
-  <p class="todo">Key words coming soon.</p>
+  <dl class="keywords">
+    <dt>Factor</dt><dd>Something that divides exactly into a number or term. 3 and \(x\) are both factors of \(3x\).</dd>
+    <dt>Factorise</dt><dd>Write an expression as a product: something multiplied by something. It is the reverse of expanding.</dd>
+    <dt>Common factor</dt><dd>A factor shared by every term in an expression.</dd>
+    <dt>Highest common factor (HCF)</dt><dd>The biggest factor shared by every term. For \(12x\) and \(18x^2\) it is \(6x\).</dd>
+    <dt>Factorise fully</dt><dd>Keep factorising until nothing more can be taken out.</dd>
+    <dt>Quadratic expression</dt><dd>An expression where the highest power is \(x^2\), such as \(x^2 + 7x + 12\).</dd>
+    <dt>Difference of two squares</dt><dd>One square take away another, such as \(x^2 - 25\).</dd>
+  </dl>
 </section>
 
 <section class="block">
-  <h2>1. First idea</h2>
-  <!-- 4–9 numbered sections. Each: explanation, .note/.rule, diagram or graph,
-       1–3 worked examples (.example), and a .check with 2–3 quick questions. -->
-  <p class="todo">Notes and worked examples coming soon.</p>
+  <h2>1. What factorising means</h2>
+  <p>When you <strong>expand</strong>, you multiply out brackets. When you <strong>factorise</strong>, you go the other way: you put the brackets back in.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 360 130" role="img" aria-label="3 times x plus 4 becomes 3x plus 12 when you expand. 3x plus 12 becomes 3 times x plus 4 when you factorise.">
+      <rect class="dg-soft" x="20" y="40" width="120" height="50" rx="6"/>
+      <rect class="dg-fill" x="220" y="40" width="120" height="50" rx="6"/>
+      <text class="dg-label" x="80" y="72" text-anchor="middle" style="font-size:20px">3(<tspan class="dg-var">x</tspan> + 4)</text>
+      <text class="dg-label" x="280" y="72" text-anchor="middle" style="font-size:20px">3<tspan class="dg-var">x</tspan> + 12</text>
+      <line class="dg-line" x1="146" y1="52" x2="212" y2="52"/>
+      <polyline class="dg-line" points="204,46 212,52 204,58"/>
+      <line class="dg-accent" x1="214" y1="78" x2="148" y2="78"/>
+      <polyline class="dg-accent" points="156,72 148,78 156,84"/>
+      <text class="dg-label" x="180" y="36" text-anchor="middle">expand</text>
+      <text class="dg-label accent" x="180" y="106" text-anchor="middle">factorise</text>
+    </svg>
+  </figure>
+  <p>A factorised expression is a <strong>product</strong>: one thing multiplied by another. Factorised forms are useful because they show the building blocks of an expression, in the same way that \(12 = 3 \times 4\) shows the building blocks of 12. You will use factorising to simplify expressions, solve equations and sketch graphs.</p>
+  <div class="note">
+    <span class="box-label">Key idea</span>
+    <p>You can always check a factorisation by <strong>expanding it again</strong>. If you get back to where you started, it is right.</p>
+  </div>
+</section>
+
+<section class="block">
+  <h2>2. Taking out a common number</h2>
+  <p>Look at \(6x + 15\). Both terms are in the 3 times table: \(6x = 3 \times 2x\) and \(15 = 3 \times 5\). So 3 is a <strong>common factor</strong>, and you can write it outside a bracket.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 130" role="img" aria-label="A rectangle with height 3 split into two parts. The first part has width 2x and area 6x. The second has width 5 and area 15. The total width is 2x plus 5.">
+      <rect class="dg-fill" x="60" y="40" width="190" height="60"/>
+      <rect class="dg-soft" x="250" y="40" width="70" height="60"/>
+      <text class="dg-label" x="155" y="28" text-anchor="middle">2<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="285" y="28" text-anchor="middle">5</text>
+      <text class="dg-label" x="40" y="76" text-anchor="middle">3</text>
+      <text class="dg-label" x="155" y="76" text-anchor="middle">6<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="285" y="76" text-anchor="middle">15</text>
+      <text class="dg-label accent" x="190" y="122" text-anchor="middle">width 2<tspan class="dg-var">x</tspan> + 5</text>
+    </svg>
+    <figcaption>An area of \(6x + 15\) with height 3 has width \(2x + 5\), so \(6x + 15 = 3(2x + 5)\).</figcaption>
+  </figure>
+  <div class="note">
+    <span class="box-label">Method</span>
+    <ol class="steps">
+      <li>Find the <strong>highest</strong> common factor (HCF) of all the terms.</li>
+      <li>Write it in front of a bracket.</li>
+      <li>Divide each term by the HCF to find what goes inside the bracket.</li>
+      <li>Check by expanding.</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <h3>A number factor</h3>
+    <p>Factorise \(20 - 8y\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>The HCF of 20 and 8 is 4.</li>
+        <li>\(20 \div 4 = 5\) and \(8y \div 4 = 2y\).</li>
+        <li>Check: \(4 \times 5 - 4 \times 2y = 20 - 8y\). ✓</li>
+      </ol>
+      <p class="answer">\(20 - 8y = 4(5 - 2y)\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Factorising fully</h3>
+    <p>Factorise \(12x + 18\) fully.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>2 is a common factor: \(12x + 18 = 2(6x + 9)\). But 6 and 9 still share a factor of 3, so this is <strong>not</strong> fully factorised.</li>
+        <li>The <strong>highest</strong> common factor of 12 and 18 is 6: \(12x \div 6 = 2x\), \(18 \div 6 = 3\).</li>
+      </ol>
+      <p class="answer">\(12x + 18 = 6(2x + 3)\)</p>
+      <p>Check the bracket: if the terms inside still share a factor, you have not finished.</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(5x + 20\)</li>
+      <li>\(14a - 21\)</li>
+      <li>\(9 + 12t\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(5(x + 4)\)</li>
+        <li>\(7(2a - 3)\)</li>
+        <li>\(3(3 + 4t)\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>3. Common factors with letters</h2>
+  <p>Letters can be common factors too. In \(x^2 + 5x\), both terms contain \(x\): \(x^2 = x \times x\) and \(5x = 5 \times x\). So</p>
+  \[ x^2 + 5x = x(x + 5) \]
+  <p>To find the HCF of terms with letters, find the HCF of the numbers, then include every letter that appears in <strong>all</strong> the terms, to the lowest power it appears.</p>
+
+  <div class="example">
+    <h3>Numbers and letters</h3>
+    <p>Factorise \(12ab - 8a\) fully.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>HCF of the numbers 12 and 8: 4.</li>
+        <li>Letters in both terms: \(a\) (only the first term has \(b\)). So the HCF is \(4a\).</li>
+        <li>Divide: \(12ab \div 4a = 3b\) and \(8a \div 4a = 2\).</li>
+      </ol>
+      <p class="answer">\(12ab - 8a = 4a(3b - 2)\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Squared terms</h3>
+    <p>Factorise \(6x^2 + 9x\) fully.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>HCF of 6 and 9: 3. Both terms contain at least one \(x\). HCF: \(3x\).</li>
+        <li>\(6x^2 \div 3x = 2x\) and \(9x \div 3x = 3\).</li>
+        <li>Check: \(3x \times 2x + 3x \times 3 = 6x^2 + 9x\). ✓</li>
+      </ol>
+      <p class="answer">\(6x^2 + 9x = 3x(2x + 3)\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Three terms, and a term that is all factor</h3>
+    <p>Factorise (a) \(5p^2 - 10p + 15pq\) &nbsp; (b) \(7x + 7\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>HCF of 5, 10 and 15 is 5; every term has \(p\). HCF \(= 5p\). Dividing each term: \(p\), \(-2\), \(+3q\). So \(5p^2 - 10p + 15pq = 5p(p - 2 + 3q)\).</li>
+        <li>HCF \(= 7\). \(7x \div 7 = x\) and \(7 \div 7 = 1\). So \(7x + 7 = 7(x + 1)\). Don't leave out the 1: \(7 \times 1 = 7\).</li>
+      </ol>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-2">
+      <li>\(y^2 - 7y\)</li>
+      <li>\(8m^2 + 12m\)</li>
+      <li>\(10xy + 15x\)</li>
+      <li>\(6a + 6\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-2">
+        <li>\(y(y - 7)\)</li>
+        <li>\(4m(2m + 3)\)</li>
+        <li>\(5x(2y + 3)\)</li>
+        <li>\(6(a + 1)\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>4. Factorising quadratics</h2>
+  <p>A quadratic such as \(x^2 + 8x + 15\) has no common factor, but it can often be written as two brackets. Remember from <a href="../expanding-two-brackets/index.html">Expanding two brackets</a>:</p>
+  \[ (x + a)(x + b) = x^2 + (a + b)x + ab \]
+  <p>So to go backwards, you need two numbers that <strong>add</strong> to the number in front of \(x\), and <strong>multiply</strong> to the number on the end.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 270" role="img" aria-label="The four pieces x squared, 5x, 3x and 15 fit together into a rectangle with sides x plus 3 and x plus 5.">
+      <rect class="dg-fill" x="60" y="40" width="170" height="130"/>
+      <rect class="dg-soft" x="230" y="40" width="90" height="130"/>
+      <rect class="dg-soft" x="60" y="170" width="170" height="70"/>
+      <rect class="dg-soft" x="230" y="170" width="90" height="70"/>
+      <text class="dg-label dg-var accent" x="145" y="28" text-anchor="middle">x</text>
+      <text class="dg-label accent" x="275" y="28" text-anchor="middle">+5</text>
+      <text class="dg-label dg-var accent" x="40" y="110" text-anchor="middle">x</text>
+      <text class="dg-label accent" x="40" y="210" text-anchor="middle">+3</text>
+      <text class="dg-label dg-var" x="145" y="111" text-anchor="middle">x²</text>
+      <text class="dg-label" x="275" y="111" text-anchor="middle">5<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="145" y="211" text-anchor="middle">3<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="275" y="211" text-anchor="middle">15</text>
+    </svg>
+    <figcaption>\(x^2 + 8x + 15\): the middle \(8x\) splits into \(5x + 3x\), and \(3 \times 5 = 15\). The sides are \(x + 3\) and \(x + 5\).</figcaption>
+  </figure>
+  <div class="rule">
+    <span class="box-label">Rule</span>
+    <p style="font-size:1.05rem">To factorise \(x^2 + bx + c\), find two numbers that multiply to \(c\) and add to \(b\). If the numbers are \(m\) and \(n\):</p>
+    \[ x^2 + bx + c = (x + m)(x + n) \]
+  </div>
+  <p>The easiest way to find the numbers is to list the <strong>factor pairs</strong> of \(c\), then check which pair adds to \(b\).</p>
+
+  <div class="example">
+    <h3>Listing factor pairs</h3>
+    <p>Factorise \(x^2 + 7x + 12\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <div class="table-scroll">
+        <table class="mtable">
+          <thead><tr><th>Multiply to 12</th><th>Add to</th></tr></thead>
+          <tbody>
+            <tr><td>\(1 \times 12\)</td><td>13</td></tr>
+            <tr><td>\(2 \times 6\)</td><td>8</td></tr>
+            <tr><td>\(3 \times 4\)</td><td><strong>7</strong> ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="answer">\(x^2 + 7x + 12 = (x + 3)(x + 4)\)</p>
+      <p>Check: \((x + 3)(x + 4) = x^2 + 4x + 3x + 12 = x^2 + 7x + 12\). ✓</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>A bigger number</h3>
+    <p>Factorise \(x^2 + 10x + 16\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Factor pairs of 16: \(1 \times 16\) (adds to 17), \(2 \times 8\) (adds to 10 ✓), \(4 \times 4\) (adds to 8).</li>
+      </ol>
+      <p class="answer">\(x^2 + 10x + 16 = (x + 2)(x + 8)\)</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(x^2 + 6x + 8\)</li>
+      <li>\(x^2 + 9x + 20\)</li>
+      <li>\(x^2 + 11x + 10\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\((x + 2)(x + 4)\)</li>
+        <li>\((x + 4)(x + 5)\)</li>
+        <li>\((x + 1)(x + 10)\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>5. Quadratics with negative terms</h2>
+  <p>The same method works when some terms are negative, but now the factor pairs can include negative numbers. The signs in the quadratic tell you what to look for.</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <caption>Sign patterns for \(x^2 + bx + c\)</caption>
+      <thead><tr><th>Last term \(c\)</th><th>Middle term \(b\)</th><th>The two numbers are…</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>positive</td><td>positive</td><td>both positive</td><td>\(x^2 + 7x + 10 = (x + 2)(x + 5)\)</td></tr>
+        <tr><td>positive</td><td>negative</td><td>both negative</td><td>\(x^2 - 7x + 10 = (x - 2)(x - 5)\)</td></tr>
+        <tr><td>negative</td><td>either</td><td>one positive, one negative; the bigger one has the same sign as \(b\)</td><td>\(x^2 + 3x - 10 = (x + 5)(x - 2)\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <h3>Both negative</h3>
+    <p>Factorise \(x^2 - 9x + 14\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Multiply to \(+14\), add to \(-9\). The product is positive and the sum is negative, so both numbers are negative.</li>
+        <li>Negative pairs of 14: \(-1 \times -14\) (adds to \(-15\)), \(-2 \times -7\) (adds to \(-9\) ✓).</li>
+      </ol>
+      <p class="answer">\(x^2 - 9x + 14 = (x - 2)(x - 7)\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>A negative last term</h3>
+    <p>Factorise \(x^2 + 2x - 15\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <div class="table-scroll">
+        <table class="mtable">
+          <thead><tr><th>Multiply to −15</th><th>Add to</th></tr></thead>
+          <tbody>
+            <tr><td>\(1 \times (-15)\)</td><td>\(-14\)</td></tr>
+            <tr><td>\((-1) \times 15\)</td><td>\(14\)</td></tr>
+            <tr><td>\(3 \times (-5)\)</td><td>\(-2\)</td></tr>
+            <tr><td>\((-3) \times 5\)</td><td><strong>2</strong> ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="answer">\(x^2 + 2x - 15 = (x - 3)(x + 5)\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Negative middle and last terms</h3>
+    <p>Factorise \(x^2 - 4x - 21\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Multiply to \(-21\), so one number is positive and one is negative.</li>
+        <li>Add to \(-4\), so the bigger number is negative: \(-7\) and \(3\). Check: \(-7 \times 3 = -21\) ✓, \(-7 + 3 = -4\) ✓.</li>
+      </ol>
+      <p class="answer">\(x^2 - 4x - 21 = (x - 7)(x + 3)\)</p>
+    </details>
+  </div>
+
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(x^2 - 9x + 18\)</li>
+      <li>\(x^2 + 3x - 10\)</li>
+      <li>\(x^2 - x - 12\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\((x - 3)(x - 6)\)</li>
+        <li>\((x + 5)(x - 2)\)</li>
+        <li>\((x - 4)(x + 3)\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>6. The difference of two squares</h2>
+  <p>\(x^2 - 49\) has no middle term. Think of it as \(x^2 + 0x - 49\): you need two numbers that multiply to \(-49\) and add to \(0\). They are \(7\) and \(-7\).</p>
+  \[ x^2 - 49 = (x + 7)(x - 7) \]
+  <div class="rule">
+    <span class="box-label">Difference of two squares</span>
+    \[ x^2 - a^2 = (x + a)(x - a) \]
+  </div>
+  <p>Look for two terms that are both perfect squares, with a <strong>minus</strong> sign between them.</p>
+  <div class="example">
+    <h3>Spotting squares</h3>
+    <p>Factorise (a) \(y^2 - 1\) &nbsp; (b) \(100 - x^2\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(1 = 1^2\), so \(y^2 - 1 = (y + 1)(y - 1)\).</li>
+        <li>\(100 = 10^2\), so \(100 - x^2 = (10 + x)(10 - x)\).</li>
+      </ol>
+    </details>
+  </div>
+  <div class="warn">
+    <span class="box-label">Sum of two squares</span>
+    <p>\(x^2 + 16\) does <strong>not</strong> factorise. No two numbers multiply to \(+16\) and add to \(0\).</p>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(x^2 - 16\)</li>
+      <li>\(x^2 - 1\)</li>
+      <li>\(81 - y^2\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\((x + 4)(x - 4)\)</li>
+        <li>\((x + 1)(x - 1)\)</li>
+        <li>\((9 + y)(9 - y)\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>7. Perfect squares</h2>
+  <p>Some quadratics factorise into the <strong>same</strong> bracket twice. You learnt that \((x + a)^2 = x^2 + 2ax + a^2\). So if the last term is a square number, and the middle number is double its square root, it is a perfect square.</p>
+  <div class="example">
+    <h3>Perfect squares</h3>
+    <p>Factorise (a) \(x^2 + 6x + 9\) &nbsp; (b) \(x^2 - 10x + 25\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(9 = 3^2\) and \(6 = 2 \times 3\). The numbers are 3 and 3: \(x^2 + 6x + 9 = (x + 3)^2\).</li>
+        <li>\(25 = 5^2\) and \(-10 = 2 \times (-5)\). The numbers are \(-5\) and \(-5\): \(x^2 - 10x + 25 = (x - 5)^2\).</li>
+      </ol>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise cols-3">
+      <li>\(x^2 + 14x + 49\)</li>
+      <li>\(x^2 - 2x + 1\)</li>
+      <li>\(x^2 + 12x + 36\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\((x + 7)^2\)</li>
+        <li>\((x - 1)^2\)</li>
+        <li>\((x + 6)^2\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>8. Factorising fully</h2>
+  <p>Sometimes you need to use more than one method. Always take out a common factor <strong>first</strong>; what is left is often easier to factorise.</p>
+  <div class="note">
+    <span class="box-label">Factorising checklist</span>
+    <ol class="steps">
+      <li>Is there a common factor? If so, take it out.</li>
+      <li>Count the terms left in the bracket.
+        <ul>
+          <li>Two terms with a minus between two squares? Difference of two squares.</li>
+          <li>Three terms like \(x^2 + bx + c\)? Find two numbers that multiply to \(c\) and add to \(b\).</li>
+        </ul>
+      </li>
+      <li>Check each bracket: can it be factorised again?</li>
+      <li>Expand your answer to check it.</li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <h3>Common factor, then a quadratic</h3>
+    <p>Factorise \(2x^2 + 10x + 12\) fully.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Common factor 2: \(2(x^2 + 5x + 6)\).</li>
+        <li>Two numbers that multiply to 6 and add to 5: 2 and 3. So \(x^2 + 5x + 6 = (x + 2)(x + 3)\).</li>
+      </ol>
+      <p class="answer">\(2x^2 + 10x + 12 = 2(x + 2)(x + 3)\)</p>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Common factor, then a difference of two squares</h3>
+    <p>Factorise \(3x^2 - 27\) fully.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Common factor 3: \(3(x^2 - 9)\).</li>
+        <li>\(x^2 - 9\) is a difference of two squares: \((x + 3)(x - 3)\).</li>
+      </ol>
+      <p class="answer">\(3x^2 - 27 = 3(x + 3)(x - 3)\)</p>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>9. Using factorising</h2>
+  <p>Factorising is not just an algebra exercise. It can make arithmetic quicker and help you find unknown lengths.</p>
+
+  <div class="example">
+    <h3>Quick arithmetic</h3>
+    <p>Work out, without a calculator: (a) \(23 \times 47 + 23 \times 53\) &nbsp; (b) \(53^2 - 47^2\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>23 is a common factor: \(23(47 + 53) = 23 \times 100 = 2300\).</li>
+        <li>Difference of two squares: \((53 + 47)(53 - 47) = 100 \times 6 = 600\).</li>
+      </ol>
+    </details>
+  </div>
+
+  <div class="example">
+    <h3>Finding a missing side</h3>
+    <p>A rectangle has an area of \(x^2 + 9x + 20\) cm². Its length is \((x + 5)\) cm. Find its width, and find both lengths when \(x = 6\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Factorise the area: two numbers that multiply to 20 and add to 9 are 4 and 5. So \(x^2 + 9x + 20 = (x + 4)(x + 5)\).</li>
+        <li>One side is \(x + 5\), so the other is \(x + 4\).</li>
+        <li>When \(x = 6\): length 11 cm and width 10 cm.</li>
+        <li>Check: area \(= 11 \times 10 = 110\), and \(6^2 + 9 \times 6 + 20 = 36 + 54 + 20 = 110\). ✓</li>
+      </ol>
+      <p class="answer">Width \((x + 4)\) cm; when \(x = 6\) the rectangle is 11 cm by 10 cm.</p>
+    </details>
+  </div>
 </section>
 
 <section class="block exercise">
   <h2>Exercise A <span class="level">Practice</span></h2>
-  <!-- 20–30 fluency questions in ol.exercise.cols-N, grouped by type with h3s, answers in one details -->
-  <p class="todo">Practice questions coming soon.</p>
+  <p class="exercise-intro">Factorise fully. Check each answer by expanding.</p>
+  <h3>Common number factors</h3>
+  <ol class="exercise cols-3">
+    <li>\(4x + 12\)</li>
+    <li>\(10y - 25\)</li>
+    <li>\(18 + 24a\)</li>
+    <li>\(7p - 7\)</li>
+    <li>\(15m + 9n\)</li>
+    <li>\(16 - 40t\)</li>
+  </ol>
+  <h3>Common factors with letters</h3>
+  <ol class="exercise cols-3" start="7">
+    <li>\(x^2 + 3x\)</li>
+    <li>\(y^2 - 8y\)</li>
+    <li>\(5a^2 + 15a\)</li>
+    <li>\(12x^2 - 18x\)</li>
+    <li>\(14pq + 21p\)</li>
+    <li>\(9ab - 6a^2\)</li>
+    <li>\(2x^2 + 6x + 4xy\)</li>
+  </ol>
+  <h3>Quadratics with positive terms</h3>
+  <ol class="exercise cols-3" start="14">
+    <li>\(x^2 + 5x + 6\)</li>
+    <li>\(x^2 + 8x + 12\)</li>
+    <li>\(x^2 + 7x + 10\)</li>
+    <li>\(x^2 + 9x + 14\)</li>
+    <li>\(x^2 + 13x + 36\)</li>
+    <li>\(x^2 + 12x + 20\)</li>
+  </ol>
+  <h3>Quadratics with negative terms</h3>
+  <ol class="exercise cols-3" start="20">
+    <li>\(x^2 - 6x + 8\)</li>
+    <li>\(x^2 - 11x + 24\)</li>
+    <li>\(x^2 + 4x - 12\)</li>
+    <li>\(x^2 - 3x - 18\)</li>
+    <li>\(x^2 + x - 20\)</li>
+    <li>\(x^2 - 2x - 35\)</li>
+  </ol>
+  <h3>Squares</h3>
+  <ol class="exercise cols-3" start="26">
+    <li>\(x^2 - 25\)</li>
+    <li>\(x^2 - 100\)</li>
+    <li>\(64 - y^2\)</li>
+    <li>\(x^2 + 8x + 16\)</li>
+    <li>\(x^2 - 18x + 81\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(4(x + 3)\)</li>
+      <li>\(5(2y - 5)\)</li>
+      <li>\(6(3 + 4a)\)</li>
+      <li>\(7(p - 1)\)</li>
+      <li>\(3(5m + 3n)\)</li>
+      <li>\(8(2 - 5t)\)</li>
+      <li>\(x(x + 3)\)</li>
+      <li>\(y(y - 8)\)</li>
+      <li>\(5a(a + 3)\)</li>
+      <li>\(6x(2x - 3)\)</li>
+      <li>\(7p(2q + 3)\)</li>
+      <li>\(3a(3b - 2a)\)</li>
+      <li>\(2x(x + 3 + 2y)\)</li>
+      <li>\((x + 2)(x + 3)\)</li>
+      <li>\((x + 2)(x + 6)\)</li>
+      <li>\((x + 2)(x + 5)\)</li>
+      <li>\((x + 2)(x + 7)\)</li>
+      <li>\((x + 4)(x + 9)\)</li>
+      <li>\((x + 2)(x + 10)\)</li>
+      <li>\((x - 2)(x - 4)\)</li>
+      <li>\((x - 3)(x - 8)\)</li>
+      <li>\((x + 6)(x - 2)\)</li>
+      <li>\((x - 6)(x + 3)\)</li>
+      <li>\((x + 5)(x - 4)\)</li>
+      <li>\((x - 7)(x + 5)\)</li>
+      <li>\((x + 5)(x - 5)\)</li>
+      <li>\((x + 10)(x - 10)\)</li>
+      <li>\((8 + y)(8 - y)\)</li>
+      <li>\((x + 4)^2\)</li>
+      <li>\((x - 9)^2\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise B <span class="level">Apply</span></h2>
-  <!-- 8–10 problem-solving and in-context questions, answers in one details -->
-  <p class="todo">Problem-solving questions coming soon.</p>
+  <ol class="exercise">
+    <li>Factorise fully.
+      <ol class="parts">
+        <li>\(3x^2 + 12x\)</li>
+        <li>\(2x^2 + 14x + 24\)</li>
+        <li>\(5x^2 - 45\)</li>
+        <li>\(4x^2 - 8x - 32\)</li>
+        <li>\(x^3 + 5x^2 + 6x\)</li>
+      </ol>
+    </li>
+    <li>Ben factorised \(12x + 16\) as \(2(6x + 8)\). Explain why his answer is not fully factorised, and write the correct answer.</li>
+    <li>A rectangle has an area of \(x^2 + 11x + 28\) m². One side is \((x + 4)\) m.
+      <ol class="parts">
+        <li>Find the length of the other side.</li>
+        <li>Write an expression for the perimeter of the rectangle.</li>
+      </ol>
+    </li>
+    <li>A square has an area of \(x^2 + 10x + 25\) cm².
+      <ol class="parts">
+        <li>Find the length of one side.</li>
+        <li>Find the side length and the area when \(x = 3\), and check the area using the original expression.</li>
+      </ol>
+    </li>
+    <li>Use factorising to work these out without a calculator.
+      <ol class="parts">
+        <li>\(37 \times 64 + 37 \times 36\)</li>
+        <li>\(15 \times 7 + 15 \times 13\)</li>
+        <li>\(101^2 - 99^2\)</li>
+        <li>\(1000^2 - 999^2\)</li>
+      </ol>
+    </li>
+    <li>Find the missing numbers.
+      <ol class="parts">
+        <li>\(x^2 + \square x + 18 = (x + 3)(x + \square)\)</li>
+        <li>\(x^2 - 5x + \square = (x - 2)(x - \square)\)</li>
+        <li>\(x^2 + \square x - 24 = (x + 8)(x - \square)\)</li>
+      </ol>
+    </li>
+    <li>Which of these can <strong>not</strong> be factorised into two brackets with whole numbers? Explain.<br>
+      \(x^2 + 5x + 7\) &nbsp;&nbsp; \(x^2 + 9\) &nbsp;&nbsp; \(x^2 - 9\) &nbsp;&nbsp; \(x^2 + 6x + 9\)</li>
+    <li>Show that the sum of any three whole numbers in a row is always a multiple of 3. (Hint: call the numbers \(n\), \(n + 1\) and \(n + 2\).)</li>
+    <li>Find all the whole-number values of \(b\) for which \(x^2 + bx + 12\) can be factorised.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>(a) \(3x(x + 4)\) (b) \(2(x + 3)(x + 4)\) (c) \(5(x + 3)(x - 3)\) (d) \(4(x - 4)(x + 2)\) (e) \(x(x + 2)(x + 3)\)</li>
+      <li>6 and 8 still have a common factor of 2. The highest common factor of 12 and 16 is 4: \(4(3x + 4)\).</li>
+      <li>(a) \((x + 7)\) m (b) \(2(x + 4) + 2(x + 7) = 4x + 22\) m</li>
+      <li>(a) \((x + 5)\) cm (b) side 8 cm, area 64 cm²; \(9 + 30 + 25 = 64\) ✓</li>
+      <li>(a) \(37 \times 100 = 3700\) (b) \(15 \times 20 = 300\) (c) \(200 \times 2 = 400\) (d) \(1999 \times 1 = 1999\)</li>
+      <li>(a) \(9\) and \(6\) (b) \(6\) and \(3\) (c) \(5\) and \(3\)</li>
+      <li>\(x^2 + 5x + 7\): no pair of whole numbers multiplies to 7 and adds to 5. \(x^2 + 9\): a sum of two squares does not factorise. (\(x^2 - 9 = (x + 3)(x - 3)\) and \(x^2 + 6x + 9 = (x + 3)^2\) both do.)</li>
+      <li>\(n + (n + 1) + (n + 2) = 3n + 3 = 3(n + 1)\), which is 3 times a whole number.</li>
+      <li>Factor pairs of 12: \(1, 12\); \(2, 6\); \(3, 4\) and their negatives. \(b = 13, 8, 7, -7, -8, -13\).</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise C <span class="level">Challenge</span></h2>
-  <!-- 4–6 extension questions, answers in one details -->
-  <p class="todo">Challenge questions coming soon.</p>
+  <ol class="exercise">
+    <li>Factorise (a) \(4x^2 - 9\) &nbsp; (b) \(25y^2 - 1\). (Hint: \(4x^2 = (2x)^2\).)</li>
+    <li>Factorise \(x^4 - 16\) fully.</li>
+    <li>Simplify by factorising first.
+      <ol class="parts">
+        <li>\(\dfrac{x^2 + 5x + 6}{x + 2}\)</li>
+        <li>\(\dfrac{x^2 - 9}{x^2 + 3x}\)</li>
+      </ol>
+    </li>
+    <li>Prove that the difference between the squares of two odd numbers in a row (like \(7^2 - 5^2\)) is always a multiple of 8. (Hint: call them \(2n + 1\) and \(2n + 3\).)</li>
+    <li>Explain why \(n^2 + n\) is always even for any whole number \(n\).</li>
+    <li>Is \(2^{20} - 1\) a prime number? Use the difference of two squares to decide.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>(a) \((2x + 3)(2x - 3)\) (b) \((5y + 1)(5y - 1)\)</li>
+      <li>\((x^2 + 4)(x^2 - 4) = (x^2 + 4)(x + 2)(x - 2)\)</li>
+      <li>(a) \(\dfrac{(x + 2)(x + 3)}{x + 2} = x + 3\) (b) \(\dfrac{(x + 3)(x - 3)}{x(x + 3)} = \dfrac{x - 3}{x}\)</li>
+      <li>\((2n + 3)^2 - (2n + 1)^2 = (4n + 4)(2) = 8(n + 1)\), a multiple of 8.</li>
+      <li>\(n^2 + n = n(n + 1)\). One of two whole numbers in a row is always even, so the product is even.</li>
+      <li>No. \(2^{20} - 1 = (2^{10} + 1)(2^{10} - 1) = 1025 \times 1023\).</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
-  <!-- 3–4 .warn boxes, each with a short label -->
-  <p class="todo">Coming soon.</p>
+  <div class="warn">
+    <span class="box-label">Not factorising fully</span>
+    <p>\(12x + 16 = 2(6x + 8)\) is true, but not finished: \(6x + 8\) still has a common factor. Use the <strong>highest</strong> common factor: \(4(3x + 4)\).</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Losing the 1</span>
+    <p>\(7p - 7\) is \(7(p - 1)\), not \(7p\) or \(7(p)\). When a whole term is taken out, a 1 is left behind.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Signs the wrong way round</span>
+    <p>\(x^2 - x - 12\) is \((x - 4)(x + 3)\), not \((x + 4)(x - 3)\), which expands to \(x^2 + x - 12\). Always check the sum, including its sign.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Factorising a sum of squares</span>
+    <p>\(x^2 + 16\) cannot be factorised. Only a <strong>difference</strong> of two squares can.</p>
+  </div>
 </section>
 
 <section class="block">
   <h2>Summary</h2>
-  <!-- .summary box with 5–7 bullet points -->
-  <p class="todo">Coming soon.</p>
+  <div class="summary">
+    <ul>
+      <li>Factorising is the reverse of expanding. Check every answer by expanding.</li>
+      <li>Take out the highest common factor first, including any letters shared by every term.</li>
+      <li>\(x^2 + bx + c = (x + m)(x + n)\), where \(m\) and \(n\) multiply to \(c\) and add to \(b\).</li>
+      <li>The signs of \(b\) and \(c\) tell you the signs of \(m\) and \(n\).</li>
+      <li>\(x^2 - a^2 = (x + a)(x - a)\): the difference of two squares.</li>
+      <li>\(x^2 + 2ax + a^2 = (x + a)^2\): a perfect square.</li>
+      <li>"Factorise fully" means keep going until no bracket can be factorised again.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="block">
   <h2>Check-in</h2>
-  <!-- 6–8 end-of-chapter questions covering every section, answers in one details -->
-  <p class="todo">Coming soon.</p>
+  <p>Factorise fully, without looking back, then mark your answers.</p>
+  <ol class="exercise cols-2">
+    <li>\(6x - 9\)</li>
+    <li>\(x^2 + 4x\)</li>
+    <li>\(10ab + 15b\)</li>
+    <li>\(x^2 + 9x + 18\)</li>
+    <li>\(x^2 - 2x - 24\)</li>
+    <li>\(x^2 - 36\)</li>
+    <li>\(3x^2 - 12x - 15\)</li>
+    <li>Use factorising to work out \(85^2 - 15^2\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-2">
+      <li>\(3(2x - 3)\)</li>
+      <li>\(x(x + 4)\)</li>
+      <li>\(5b(2a + 3)\)</li>
+      <li>\((x + 3)(x + 6)\)</li>
+      <li>\((x - 6)(x + 4)\)</li>
+      <li>\((x + 6)(x - 6)\)</li>
+      <li>\(3(x - 5)(x + 1)\)</li>
+      <li>\((85 + 15)(85 - 15) = 100 \times 70 = 7000\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block where-next">
   <h2>Where next?</h2>
-  <!-- 2–3 links to related subtopics (this year and the next) -->
-  <p class="todo">Coming soon.</p>
+  <ul>
+    <li><a href="../../../year-10/algebra/factorising-harder-quadratics/index.html">Factorising ax² + bx + c</a> (Year 10): when there is a number in front of \(x^2\).</li>
+    <li><a href="../../../year-10/algebra/solving-quadratic-equations/index.html">Solving quadratic equations</a> (Year 10): factorising to find where a quadratic equals zero.</li>
+    <li><a href="../../../year-10/algebra/quadratic-graphs/index.html">Quadratic graphs</a> (Year 10): factorised form shows where a parabola crosses the \(x\)-axis.</li>
+  </ul>
 </section>
-
 <!-- vmanz:content:end -->
   </article>
   <nav class="pager" aria-label="Previous and next"><a class="pager-prev" href="../../algebra/expanding-two-brackets/index.html"><span class="pager-dir">Previous</span><span>Expanding two brackets</span></a><a class="pager-next" href="../../algebra/linear-equations/index.html"><span class="pager-dir">Next</span><span>Linear equations</span></a></nav>

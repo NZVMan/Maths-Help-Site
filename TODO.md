@@ -55,8 +55,8 @@ Suggested order follows a typical teaching year. **Visual** = what the page need
 ### Algebra
 - [ ] Collecting like terms
 - [ ] Expanding single brackets (visual: grid-method table)
-- [ ] Expanding two brackets (pilot)
-- [ ] Factorising
+- [x] Expanding two brackets (pilot)
+- [x] Factorising (visual: area model, expand/factorise diagram)
 - [ ] Substitution into formulae
 - [ ] Linear equations (visual: balance diagram SVG)
 - [ ] Rearranging formulae
@@ -71,7 +71,7 @@ Suggested order follows a typical teaching year. **Visual** = what the page need
 - [ ] Area (visual: SVG rectangle/triangle/parallelogram/trapezium)
 - [ ] Compound area (visual: SVG L-shapes, split and subtract)
 - [ ] Unit conversion (visual: conversion ladder SVG)
-- [ ] Pythagoras' theorem (pilot)
+- [x] Pythagoras' theorem (pilot)
 - [ ] Speed, distance and time (visual: formula triangle SVG)
 
 ### Geometry
@@ -108,7 +108,7 @@ Suggested order follows a typical teaching year. **Visual** = what the page need
 - [ ] Simultaneous equations (visual: JSXGraph)
 - [ ] Solving quadratic equations (visual: JSXGraph roots)
 - [ ] Equation of a line (visual: JSXGraph)
-- [ ] Quadratic graphs (pilot)
+- [x] Quadratic graphs (pilot)
 
 ### Measurement
 - [ ] Circles (visual: SVG circle parts, sectors)
