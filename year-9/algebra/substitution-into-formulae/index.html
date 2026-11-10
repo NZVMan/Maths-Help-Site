@@ -14,7 +14,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css">
 <script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js"></script>
-<link rel="stylesheet" href="../../../assets/css/site.css?v=90f19483">
+<link rel="stylesheet" href="../../../assets/css/site.css?v=76bc3ead">
 <script defer src="../../../assets/js/site.js?v=4b4894bb"></script>
 </head>
 <body>
@@ -39,82 +39,798 @@
   </header>
   <article class="notes">
 <!-- vmanz:content:start -->
-<!-- vmanz:placeholder -->
-<!-- Delete the placeholder line above once the chapter is written, then run: python3 tools/build.py
-     This page is a textbook chapter (about 8 printed pages). Follow the structure below and
-     copy from the finished chapters, e.g. year-9/algebra/expanding-two-brackets/.
-     Building blocks: .note .rule .warn .check .investigate .example+details.solution
-     dl.keywords  ol.exercise.cols-N  ol.answers  ol.parts  table.mtable  figure.diagram  .jxgbox  .readout
-     Maths: inline \( ... \)   display \[ ... \]   (never single $) -->
 <section class="block intentions">
   <h2>What you'll learn</h2>
-  <!-- 4–6 "I can …" statements -->
   <ul>
-    <li class="todo">Learning goals for Substitution into formulae are coming soon.</li>
+    <li>I can explain what substitution means and spot the hidden multiplication signs in algebra.</li>
+    <li>I can substitute numbers into an expression and use the order of operations.</li>
+    <li>I can substitute negative numbers, using brackets.</li>
+    <li>I can substitute into expressions with powers and square roots, such as \(3x^2\) and \(\sqrt{a^2 + b^2}\).</li>
+    <li>I can use everyday formulae and give answers with the right units.</li>
+    <li>I can find an unknown that is not the subject of a formula.</li>
   </ul>
 </section>
 
 <section class="block">
   <h2>Before you start</h2>
-  <!-- 4–6 warm-up questions on prior skills, with answers, and links to the pages they come from -->
-  <p class="todo">Warm-up questions coming soon.</p>
+  <p>You will need these skills. If you get stuck, revisit <a href="../../number/directed-number/index.html">Directed number</a> or <a href="../../number/indices/index.html">Indices</a>.</p>
+  <ol class="exercise cols-3">
+    <li>\(3 + 4 \times 5\)</li>
+    <li>\((3 + 4) \times 5\)</li>
+    <li>\(-6 + 2\)</li>
+    <li>\((-3) \times (-4)\)</li>
+    <li>\(5^2 - 2^3\)</li>
+    <li>\(\dfrac{18 + 6}{4}\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(23\)</li>
+      <li>\(35\)</li>
+      <li>\(-4\)</li>
+      <li>\(12\)</li>
+      <li>\(17\)</li>
+      <li>\(6\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Key words</h2>
-  <!-- dl.keywords with 4–8 terms -->
-  <p class="todo">Key words coming soon.</p>
+  <dl class="keywords">
+    <dt>Variable</dt><dd>A letter that stands for a number that can change, such as \(x\) or \(t\).</dd>
+    <dt>Expression</dt><dd>A collection of terms with no equals sign, such as \(3a + 5\).</dd>
+    <dt>Formula</dt><dd>A rule, written with letters, that links two or more quantities, such as \(A = lw\). The plural is <em>formulae</em>.</dd>
+    <dt>Subject</dt><dd>The letter on its own on one side of a formula. In \(A = lw\), the subject is \(A\).</dd>
+    <dt>Substitute</dt><dd>Replace each letter with a number.</dd>
+    <dt>Evaluate</dt><dd>Work out the value of an expression.</dd>
+    <dt>Order of operations</dt><dd>The order calculations are done in: brackets, exponents (powers and roots), division and multiplication, then addition and subtraction. Often remembered as BEDMAS.</dd>
+  </dl>
 </section>
 
 <section class="block">
-  <h2>1. First idea</h2>
-  <!-- 4–9 numbered sections. Each: explanation, .note/.rule, diagram or graph,
-       1–3 worked examples (.example), and a .check with 2–3 quick questions. -->
-  <p class="todo">Notes and worked examples coming soon.</p>
+  <h2>1. What substitution means</h2>
+  <p>In algebra a letter stands for a number. When you know the number, you can <strong>substitute</strong> it: take out the letter and put the number in its place. Then you can <strong>evaluate</strong> the expression, which means work out its value.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 190" role="img" aria-label="The expression 3a plus 5. An arrow labelled a equals 4 shows the a being replaced by 4, giving 3 times 4 plus 5, which equals 12 plus 5, which equals 17.">
+      <text class="dg-label" x="145" y="48" text-anchor="middle" style="font-size:28px">3</text>
+      <text class="dg-label dg-var" x="160" y="48" text-anchor="middle" style="font-size:28px">a</text>
+      <text class="dg-label" x="192" y="48" text-anchor="middle" style="font-size:28px">+</text>
+      <text class="dg-label" x="222" y="48" text-anchor="middle" style="font-size:28px">5</text>
+      <path class="dg-accent" d="M160,58 L160,90"/>
+      <path class="dg-accent" d="M152,82 L160,92 L168,82"/>
+      <text class="dg-label" x="172" y="80">a = 4</text>
+      <text class="dg-label" x="105" y="126" text-anchor="middle" style="font-size:28px">3</text>
+      <text class="dg-label" x="132" y="126" text-anchor="middle" style="font-size:28px">×</text>
+      <rect class="dg-soft" x="144" y="98" width="32" height="38" rx="4"/>
+      <text class="dg-label" x="160" y="126" text-anchor="middle" style="font-size:28px">4</text>
+      <text class="dg-label" x="192" y="126" text-anchor="middle" style="font-size:28px">+</text>
+      <text class="dg-label" x="222" y="126" text-anchor="middle" style="font-size:28px">5</text>
+      <text class="dg-label" x="170" y="174" text-anchor="middle" style="font-size:24px">= 12 + 5 = 17</text>
+    </svg>
+    <figcaption>Substituting \(a = 4\) into \(3a + 5\). The letter is taken out and the number goes in its place.</figcaption>
+  </figure>
+  <p>Algebra hides some multiplication signs. Before you substitute, put them back in. The table shows what each expression means and its value when \(a = 4\) and \(b = 3\).</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Written as</th><th>Means</th><th>When \(a = 4\), \(b = 3\)</th></tr></thead>
+      <tbody>
+        <tr><td>\(3a\)</td><td>\(3 \times a\)</td><td>\(3 \times 4 = 12\)</td></tr>
+        <tr><td>\(ab\)</td><td>\(a \times b\)</td><td>\(4 \times 3 = 12\)</td></tr>
+        <tr><td>\(2ab\)</td><td>\(2 \times a \times b\)</td><td>\(2 \times 4 \times 3 = 24\)</td></tr>
+        <tr><td>\(a^2\)</td><td>\(a \times a\)</td><td>\(4 \times 4 = 16\)</td></tr>
+        <tr><td>\(\dfrac{a}{2}\)</td><td>\(a \div 2\)</td><td>\(4 \div 2 = 2\)</td></tr>
+        <tr><td>\(2(a + b)\)</td><td>\(2 \times (a + b)\)</td><td>\(2 \times 7 = 14\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <span class="box-label">Key idea</span>
+    <p>When \(a = 4\), \(3a\) means \(3 \times 4 = 12\). It is not 34. Write the \(\times\) sign in before you substitute.</p>
+  </div>
+  <div class="example">
+    <h3>One letter</h3>
+    <p>Find the value of each expression when \(x = 6\).</p>
+    <p>(a) \(x + 9\) &nbsp; (b) \(5x\) &nbsp; (c) \(\dfrac{x}{3}\) &nbsp; (d) \(20 - 2x\)</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(6 + 9 = 15\)</li>
+        <li>\(5 \times 6 = 30\)</li>
+        <li>\(6 \div 3 = 2\)</li>
+        <li>\(20 - 2 \times 6 = 20 - 12 = 8\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Two letters</h3>
+    <p>Find the value of each expression when \(p = 3\) and \(q = 7\).</p>
+    <p>(a) \(pq\) &nbsp; (b) \(4p + q\) &nbsp; (c) \(2pq\)</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(3 \times 7 = 21\)</li>
+        <li>\(4 \times 3 + 7 = 12 + 7 = 19\)</li>
+        <li>\(2 \times 3 \times 7 = 42\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>Find the value of each expression when \(m = 5\) and \(n = 2\).</p>
+    <ol class="exercise cols-3" data-values="m=5, n=2">
+      <li>\(6m\)</li>
+      <li>\(mn + 1\)</li>
+      <li>\(3m - 4n\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(30\)</li>
+        <li>\(11\)</li>
+        <li>\(7\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>2. Using the order of operations</h2>
+  <p>Once the numbers are in, the calculation follows the usual order of operations. Substituting doesn't change the order.</p>
+  <div class="rule">
+    <span class="box-label">Order of operations (BEDMAS)</span>
+    <ol>
+      <li><strong>B</strong>rackets first.</li>
+      <li><strong>E</strong>xponents: powers and roots.</li>
+      <li><strong>D</strong>ivision and <strong>M</strong>ultiplication, working from left to right.</li>
+      <li><strong>A</strong>ddition and <strong>S</strong>ubtraction, working from left to right.</li>
+    </ol>
+    <p style="font-size:1rem">A fraction line acts like brackets: work out the whole top and the whole bottom first, then divide.</p>
+  </div>
+  <div class="example">
+    <h3>Brackets make a difference</h3>
+    <p>Find the value of each expression when \(a = 4\), \(b = 5\) and \(c = 2\).</p>
+    <p>(a) \(a + bc\) &nbsp; (b) \((a + b)c\) &nbsp; (c) \(\dfrac{a + b + 3}{c}\) &nbsp; (d) \(ab - 2c\)</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>Multiply first: \(4 + 5 \times 2 = 4 + 10 = 14\)</li>
+        <li>Bracket first: \((4 + 5) \times 2 = 9 \times 2 = 18\)</li>
+        <li>Work out the top first: \(\dfrac{4 + 5 + 3}{2} = \dfrac{12}{2} = 6\)</li>
+        <li>\(4 \times 5 - 2 \times 2 = 20 - 4 = 16\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>The mean</h3>
+    <p>The mean of three numbers \(a\), \(b\) and \(c\) is \(\dfrac{a + b + c}{3}\). Find the mean of 7, 12 and 14.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Substitute: \(\dfrac{7 + 12 + 14}{3}\).</li>
+        <li>The fraction line acts like brackets, so add first: \(\dfrac{33}{3}\).</li>
+      </ol>
+      <p class="answer">Mean \(= 11\)</p>
+      <p>On a calculator, type <kbd>(7 + 12 + 14) ÷ 3</kbd>. Without the brackets the calculator works out \(7 + 12 + \frac{14}{3} \approx 23.7\), which is wrong.</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>Find the value of each expression when \(x = 3\), \(y = 8\) and \(z = 2\).</p>
+    <ol class="exercise cols-3" data-values="x=3, y=8, z=2">
+      <li>\(y - xz\)</li>
+      <li>\((y - x)z\)</li>
+      <li>\(\dfrac{y + z}{x + 2}\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(2\)</li>
+        <li>\(10\)</li>
+        <li>\(2\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>3. Substituting negative numbers</h2>
+  <p>When you substitute a negative number, put it in brackets. The brackets keep the negative sign with its number, so you don't mix it up with a subtraction sign. Then use the rules for <a href="../../number/directed-number/index.html">directed number</a>.</p>
+  \[ x = -3: \quad 2x + 10 = 2 \times (-3) + 10 = -6 + 10 = 4 \]
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Rule</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Subtracting a negative is the same as adding</td><td>\(5 - (-2) = 5 + 2 = 7\)</td></tr>
+        <tr><td>Positive \(\times\) negative is negative</td><td>\(4 \times (-2) = -8\)</td></tr>
+        <tr><td>Negative \(\times\) negative is positive</td><td>\((-4) \times (-3) = 12\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="example">
+    <h3>One negative value</h3>
+    <p>Find the value of each expression when \(a = -2\) and \(b = 5\).</p>
+    <p>(a) \(4a\) &nbsp; (b) \(a + b\) &nbsp; (c) \(b - a\) &nbsp; (d) \(ab - 3\)</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(4 \times (-2) = -8\)</li>
+        <li>\((-2) + 5 = 3\)</li>
+        <li>\(5 - (-2) = 5 + 2 = 7\)</li>
+        <li>\((-2) \times 5 - 3 = -10 - 3 = -13\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Two negative values</h3>
+    <p>Find the value of each expression when \(x = -4\) and \(y = -3\).</p>
+    <p>(a) \(xy\) &nbsp; (b) \(x - y\) &nbsp; (c) \(2x + 3y\)</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\((-4) \times (-3) = 12\)</li>
+        <li>\((-4) - (-3) = -4 + 3 = -1\)</li>
+        <li>\(2 \times (-4) + 3 \times (-3) = -8 + (-9) = -17\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>Find the value of each expression when \(m = -5\) and \(n = 2\).</p>
+    <ol class="exercise cols-3" data-values="m=-5, n=2">
+      <li>\(3m\)</li>
+      <li>\(n - m\)</li>
+      <li>\(mn + 4\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(-15\)</li>
+        <li>\(7\)</li>
+        <li>\(-6\)</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>4. Powers and square roots</h2>
+  <p>A power only applies to the thing directly underneath it. In \(3x^2\), only the \(x\) is squared, so \(3x^2 = 3 \times x^2\). To square the whole of \(3x\), it needs brackets: \((3x)^2 = 3x \times 3x = 9x^2\).</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 340 180" role="img" aria-label="Left: three separate squares of side x, each with area x squared. Right: one large square of side 3x, split into nine small squares each of area x squared.">
+      <rect class="dg-fill" x="10" y="80" width="40" height="40"/>
+      <rect class="dg-fill" x="60" y="80" width="40" height="40"/>
+      <rect class="dg-fill" x="110" y="80" width="40" height="40"/>
+      <text class="dg-label dg-var" x="30" y="72" text-anchor="middle">x</text>
+      <text class="dg-label" x="30" y="105" text-anchor="middle" style="font-size:14px"><tspan class="dg-var">x</tspan>²</text>
+      <text class="dg-label" x="80" y="105" text-anchor="middle" style="font-size:14px"><tspan class="dg-var">x</tspan>²</text>
+      <text class="dg-label" x="130" y="105" text-anchor="middle" style="font-size:14px"><tspan class="dg-var">x</tspan>²</text>
+      <text class="dg-label" x="80" y="150" text-anchor="middle">3<tspan class="dg-var">x</tspan>²</text>
+      <rect class="dg-fill" x="200" y="30" width="120" height="120"/>
+      <path class="dg-thin" d="M240,30 V150 M280,30 V150 M200,70 H320 M200,110 H320"/>
+      <text class="dg-label" x="260" y="22" text-anchor="middle">3<tspan class="dg-var">x</tspan></text>
+      <text class="dg-label" x="260" y="174" text-anchor="middle">(3<tspan class="dg-var">x</tspan>)² = 9<tspan class="dg-var">x</tspan>²</text>
+    </svg>
+    <figcaption>\(3x^2\) is three squares of side \(x\). \((3x)^2\) is one square of side \(3x\), which holds nine of them.</figcaption>
+  </figure>
+  <p>The table shows the difference when \(x = 4\) and when \(x = -3\). Put a negative number in brackets before you square it: \((-3)^2 = (-3) \times (-3) = 9\).</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Expression</th><th>Means</th><th>\(x = 4\)</th><th>\(x = -3\)</th></tr></thead>
+      <tbody>
+        <tr><td>\(x^2\)</td><td>\(x \times x\)</td><td>\(16\)</td><td>\(9\)</td></tr>
+        <tr><td>\(3x^2\)</td><td>\(3 \times x \times x\)</td><td>\(48\)</td><td>\(27\)</td></tr>
+        <tr><td>\((3x)^2\)</td><td>\(3x \times 3x\)</td><td>\(144\)</td><td>\(81\)</td></tr>
+        <tr><td>\(-x^2\)</td><td>\(-(x \times x)\)</td><td>\(-16\)</td><td>\(-9\)</td></tr>
+        <tr><td>\(x^3\)</td><td>\(x \times x \times x\)</td><td>\(64\)</td><td>\(-27\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <span class="box-label">Calculator tip</span>
+    <p>To square \(-3\), type <kbd>(−3)²</kbd> with the brackets. Without them, most calculators work out \(-(3^2) = -9\).</p>
+  </div>
+  <div class="example">
+    <h3>Powers</h3>
+    <p>Find the value of each expression when \(x = 5\).</p>
+    <p>(a) \(x^2 + 2\) &nbsp; (b) \(2x^2\) &nbsp; (c) \((2x)^2\) &nbsp; (d) \(x^3 - x\)</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(5^2 + 2 = 25 + 2 = 27\)</li>
+        <li>Square first, then multiply: \(2 \times 5^2 = 2 \times 25 = 50\)</li>
+        <li>Bracket first: \((2 \times 5)^2 = 10^2 = 100\)</li>
+        <li>\(5^3 - 5 = 125 - 5 = 120\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Powers of a negative number</h3>
+    <p>Find the value of each expression when \(x = -2\).</p>
+    <p>(a) \(x^2\) &nbsp; (b) \(5x^2\) &nbsp; (c) \(x^3\) &nbsp; (d) \(10 - x^2\)</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\((-2)^2 = (-2) \times (-2) = 4\)</li>
+        <li>\(5 \times (-2)^2 = 5 \times 4 = 20\)</li>
+        <li>\((-2)^3 = (-2) \times (-2) \times (-2) = -8\)</li>
+        <li>\(10 - (-2)^2 = 10 - 4 = 6\)</li>
+      </ol>
+    </details>
+  </div>
+  <p>A square root sign acts like a bracket too: work out everything underneath it first, then take the root.</p>
+  <div class="example">
+    <h3>A square root</h3>
+    <p>In a right-angled triangle, the longest side is \(c = \sqrt{a^2 + b^2}\), where \(a\) and \(b\) are the two shorter sides. Find \(c\) when \(a = 8\) cm and \(b = 15\) cm.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Substitute: \(c = \sqrt{8^2 + 15^2}\).</li>
+        <li>Work out underneath the root first: \(c = \sqrt{64 + 225} = \sqrt{289}\).</li>
+      </ol>
+      <p class="answer">\(c = 17\) cm</p>
+      <p>This is <a href="../../measurement/pythagoras-theorem/index.html">Pythagoras' theorem</a>.</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <p>Find the value of each expression when \(x = 4\) and \(y = -1\).</p>
+    <ol class="exercise cols-3" data-values="x=4, y=-1">
+      <li>\(x^2 + y^2\)</li>
+      <li>\(3y^2\)</li>
+      <li>\(\sqrt{x + 5}\)</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers cols-3">
+        <li>\(17\)</li>
+        <li>\(3\)</li>
+        <li>\(3\)</li>
+      </ol>
+    </details>
+  </div>
+  <div class="investigate">
+    <span class="box-label">Investigate</span>
+    <p>The expression \(n^2 - n + 41\) was studied by the mathematician Leonhard Euler in 1772.</p>
+    <ul>
+      <li>Substitute \(n = 1, 2, 3, 4, 5\) and \(6\). Is each answer a prime number?</li>
+      <li>Do you think the answer is always prime? Try a few larger values of \(n\).</li>
+      <li>Now try \(n = 41\). What do you notice?</li>
+    </ul>
+    <details class="solution">
+      <summary>Show answer</summary>
+      <p>The values are 41, 43, 47, 53, 61 and 71, which are all prime. In fact every value from \(n = 1\) to \(n = 40\) is prime. But when \(n = 41\), \(41^2 - 41 + 41 = 41^2 = 1681\), which is \(41 \times 41\) and not prime. Trying lots of examples can suggest a pattern, but it doesn't prove the pattern always holds.</p>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>5. Using formulae</h2>
+  <p>A <strong>formula</strong> is a rule that links quantities. Most formulae have a <strong>subject</strong>: the letter on its own on the left. To use a formula, substitute the values you know on the right, then work out the subject.</p>
+  <div class="table-scroll">
+    <table class="mtable">
+      <thead><tr><th>Formula</th><th>Subject</th><th>What the letters stand for</th></tr></thead>
+      <tbody>
+        <tr><td>\(P = 2l + 2w\)</td><td>\(P\)</td><td>perimeter of a rectangle with length \(l\) and width \(w\)</td></tr>
+        <tr><td>\(A = \tfrac{1}{2}bh\)</td><td>\(A\)</td><td>area of a triangle with base \(b\) and height \(h\)</td></tr>
+        <tr><td>\(s = \dfrac{d}{t}\)</td><td>\(s\)</td><td>average speed for distance \(d\) travelled in time \(t\)</td></tr>
+        <tr><td>\(F = 1.8C + 32\)</td><td>\(F\)</td><td>temperature in °F for a temperature of \(C\) °C</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <span class="box-label">Units</span>
+    <p>An answer to a real-life formula needs units: cm, m², $, km/h and so on. Check that the values you substitute are in matching units first. For example, don't mix metres and centimetres.</p>
+  </div>
+  <div class="example">
+    <h3>A taxi fare</h3>
+    <p>A taxi company works out its fares with the formula \(C = 3.50 + 2.80k\), where \(C\) is the cost in dollars and \(k\) is the distance in kilometres.</p>
+    <p>(a) Find the cost of a 12 km trip. &nbsp; (b) Complete a table of values for trips of 0, 5, 10, 15 and 20 km.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(C = 3.50 + 2.80 \times 12 = 3.50 + 33.60 = 37.10\). The fare is $37.10.</li>
+        <li>Substitute each distance in turn:
+          <div class="table-scroll">
+            <table class="mtable value-table">
+              <tr><th>\(k\) (km)</th><td>0</td><td>5</td><td>10</td><td>15</td><td>20</td></tr>
+              <tr><th>\(C\) ($)</th><td>3.50</td><td>17.50</td><td>31.50</td><td>45.50</td><td>59.50</td></tr>
+            </table>
+          </div>
+          Each extra 5 km adds \(5 \times 2.80 = 14\) dollars. The $3.50 is the fixed charge for getting in.
+        </li>
+      </ol>
+    </details>
+  </div>
+  <div class="example">
+    <h3>Celsius to Fahrenheit</h3>
+    <p>The USA measures temperature in degrees Fahrenheit (°F). The formula \(F = 1.8C + 32\) changes a Celsius temperature \(C\) into Fahrenheit. Change (a) 25 °C &nbsp; (b) −10 °C into Fahrenheit.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="parts">
+        <li>\(F = 1.8 \times 25 + 32 = 45 + 32 = 77\). So 25 °C is 77 °F.</li>
+        <li>\(F = 1.8 \times (-10) + 32 = -18 + 32 = 14\). So −10 °C is 14 °F.</li>
+      </ol>
+    </details>
+  </div>
+  <div class="investigate">
+    <span class="box-label">Explore</span>
+    <p>Drag the slider to change the Celsius temperature \(C\). The working above the graph substitutes it into the formula as you drag, and the point moves along the line.</p>
+    <ul>
+      <li>Water freezes at 0 °C and boils at 100 °C. What are these in Fahrenheit?</li>
+      <li>Normal body temperature is about 37 °C. Is that hotter or colder than 100 °F?</li>
+      <li>Find the one temperature that is the same number in both scales.</li>
+    </ul>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <p>0 °C is 32 °F, and 100 °C is 212 °F. Body temperature is \(1.8 \times 37 + 32 = 98.6\) °F, so it is a little colder than 100 °F. At \(C = -40\), \(F = 1.8 \times (-40) + 32 = -72 + 32 = -40\), so −40 °C is the same as −40 °F.</p>
+    </details>
+  </div>
+  <div id="sub-temp-eq" class="readout"></div>
+  <div id="sub-temp" class="jxgbox" role="img" aria-label="Interactive graph of F equals 1.8 C plus 32, with a slider for the Celsius temperature C. A point on the line marks the temperature, and the substitution working is shown above the graph and updates as the slider moves."></div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VMANZ.graph("sub-temp", { x: [-50, 125], y: [-60, 240], step: [20, 40] }, function (b) {
+      var T = VMANZ.tex, c = VMANZ.colours();
+      var C = VMANZ.slider(b, "C", [-40, 25, 100], 0, 5);
+      var f = function (x) { return 1.8 * x + 32; };
+      VMANZ.plot(b, f);
+      var px = function () { return C.Value(); }, py = function () { return f(C.Value()); };
+      VMANZ.segment(b, [px, 0], [px, py], { strokeColor: c.muted, dash: 2, strokeWidth: 1.5 });
+      VMANZ.segment(b, [0, py], [px, py], { strokeColor: c.muted, dash: 2, strokeWidth: 1.5 });
+      VMANZ.point(b, [px, py], "");
+      VMANZ.text(b, [114, 22], "C");
+      VMANZ.text(b, [4, 230], "F");
+      VMANZ.readout(b, "sub-temp-eq", function () {
+        var x = C.Value(), m = Math.round(18 * x) / 10, put = x < 0 ? "(" + T.num(x) + ")" : T.num(x);
+        return {
+          eq: "F = 1.8 \\times " + put + " + 32",
+          rows: [
+            ["Multiply first", "F = " + T.num(m) + " + 32"],
+            ["Then add 32", "F = " + T.num(m + 32)],
+            ["So", T.num(x) + "^{\\circ}\\text{C} = " + T.num(m + 32) + "^{\\circ}\\text{F}"]
+          ]
+        };
+      });
+    });
+  });
+  </script>
+  <div class="example">
+    <h3>Area of a trapezium</h3>
+    <p>The area of a trapezium is \(A = \tfrac{1}{2}(a + b)h\), where \(a\) and \(b\) are the parallel sides and \(h\) is the height. A garden bed is a trapezium with parallel sides 7 m and 11 m, 4 m apart. Find its area.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Substitute \(a = 7\), \(b = 11\) and \(h = 4\): \(A = \tfrac{1}{2} \times (7 + 11) \times 4\).</li>
+        <li>Bracket first: \(A = \tfrac{1}{2} \times 18 \times 4 = 9 \times 4\).</li>
+      </ol>
+      <p class="answer">\(A = 36\) m²</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise">
+      <li>Use \(P = 2l + 2w\) to find the perimeter of a rectangle 9 cm long and 4.5 cm wide.</li>
+      <li>Use \(s = \dfrac{d}{t}\) to find the average speed of a cyclist who rides 45 km in 3 hours.</li>
+      <li>Use \(F = 1.8C + 32\) to change 30 °C into Fahrenheit.</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers">
+        <li>\(P = 18 + 9 = 27\) cm</li>
+        <li>\(s = 45 \div 3 = 15\) km/h</li>
+        <li>\(F = 54 + 32 = 86\) °F</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <h2>6. Finding a value that isn't the subject</h2>
+  <p>Sometimes you know the subject and need one of the other letters. Substitute every value you know. This leaves an equation with one unknown, which you can solve with inverse operations. See <a href="../linear-equations/index.html">Linear equations</a> for more on solving.</p>
+  <div class="example">
+    <h3>A missing width</h3>
+    <p>A rectangle has perimeter 30 cm and length 9 cm. Use \(P = 2l + 2w\) to find its width.</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Substitute \(P = 30\) and \(l = 9\): \(30 = 2 \times 9 + 2w\), so \(30 = 18 + 2w\).</li>
+        <li>Subtract 18 from both sides: \(12 = 2w\).</li>
+        <li>Divide both sides by 2: \(w = 6\).</li>
+      </ol>
+      <p class="answer">The width is 6 cm.</p>
+      <p>Check: \(2 \times 9 + 2 \times 6 = 18 + 12 = 30\). ✓</p>
+    </details>
+  </div>
+  <div class="example">
+    <h3>A missing acceleration</h3>
+    <p>The formula \(v = u + at\) gives the speed \(v\) of a car that starts at speed \(u\) and speeds up by \(a\) metres per second every second for \(t\) seconds. Find \(a\) when \(v = 25\), \(u = 5\) and \(t = 4\).</p>
+    <details class="solution">
+      <summary>Show solution</summary>
+      <ol class="steps">
+        <li>Substitute: \(25 = 5 + a \times 4\), so \(25 = 5 + 4a\).</li>
+        <li>Subtract 5 from both sides: \(20 = 4a\).</li>
+        <li>Divide both sides by 4: \(a = 5\).</li>
+      </ol>
+      <p class="answer">\(a = 5\) m/s per second</p>
+    </details>
+  </div>
+  <div class="check">
+    <span class="box-label">Quick check</span>
+    <ol class="exercise">
+      <li>\(A = lw\). Find \(w\) when \(A = 48\) and \(l = 8\).</li>
+      <li>\(F = 1.8C + 32\). Find \(C\) when \(F = 50\).</li>
+      <li>\(C = 3.50 + 2.80k\). Find \(k\) when \(C = 31.50\).</li>
+    </ol>
+    <details class="solution">
+      <summary>Show answers</summary>
+      <ol class="answers">
+        <li>\(48 = 8w\), so \(w = 6\)</li>
+        <li>\(50 = 1.8C + 32\), so \(18 = 1.8C\) and \(C = 10\)</li>
+        <li>\(31.50 = 3.50 + 2.80k\), so \(28 = 2.8k\) and \(k = 10\)</li>
+      </ol>
+    </details>
+  </div>
 </section>
 
 <section class="block exercise">
   <h2>Exercise A <span class="level">Practice</span></h2>
-  <!-- 20–30 fluency questions in ol.exercise.cols-N, grouped by type with h3s, answers in one details -->
-  <p class="todo">Practice questions coming soon.</p>
+  <h3>Substituting whole numbers</h3>
+  <p class="exercise-intro">Find the value of each expression when \(a = 4\), \(b = 7\) and \(c = 2\).</p>
+  <ol class="exercise cols-3" data-values="a=4, b=7, c=2">
+    <li>\(a + b\)</li>
+    <li>\(3c\)</li>
+    <li>\(ab\)</li>
+    <li>\(2a + c\)</li>
+    <li>\(5a - 2b\)</li>
+    <li>\(abc\)</li>
+  </ol>
+  <h3>Order of operations</h3>
+  <p class="exercise-intro">Find the value of each expression when \(x = 6\), \(y = 3\) and \(z = 10\).</p>
+  <ol class="exercise cols-3" start="7" data-values="x=6, y=3, z=10">
+    <li>\(x + yz\)</li>
+    <li>\((x + y)z\)</li>
+    <li>\(\dfrac{x + z}{4}\)</li>
+    <li>\(z - \dfrac{x}{y}\)</li>
+    <li>\(\dfrac{xy}{z - 1}\)</li>
+  </ol>
+  <h3>Negative numbers</h3>
+  <p class="exercise-intro">Find the value of each expression when \(m = -3\) and \(n = 5\).</p>
+  <ol class="exercise cols-3" start="12" data-values="m=-3, n=5">
+    <li>\(4m\)</li>
+    <li>\(m + n\)</li>
+    <li>\(n - m\)</li>
+    <li>\(mn\)</li>
+    <li>\(2m - n\)</li>
+    <li>\(10 - 3m\)</li>
+  </ol>
+  <h3>Powers and roots</h3>
+  <p class="exercise-intro">Find the value of each expression when \(p = -2\) and \(q = 3\).</p>
+  <ol class="exercise cols-3" start="18" data-values="p=-2, q=3">
+    <li>\(q^2\)</li>
+    <li>\(p^2\)</li>
+    <li>\(5q^2\)</li>
+    <li>\((2q)^2\)</li>
+    <li>\(p^3\)</li>
+    <li>\(\sqrt{q^2 + 7}\)</li>
+  </ol>
+  <h3>Formulae</h3>
+  <p class="exercise-intro">Use each formula to find the value of the subject. Round to 1 decimal place where needed.</p>
+  <ol class="exercise cols-2" start="24">
+    <li>\(P = 2l + 2w\), with \(l = 12\) and \(w = 5\)</li>
+    <li>\(v = u + at\), with \(u = 3\), \(a = 2\) and \(t = 6\)</li>
+    <li>\(A = \tfrac{1}{2}bh\), with \(b = 9\) and \(h = 4\)</li>
+    <li>\(s = \dfrac{d}{t}\), with \(d = 150\) and \(t = 2.5\)</li>
+    <li>\(y = mx + c\), with \(m = -3\), \(x = 4\) and \(c = 7\)</li>
+    <li>\(F = 1.8C + 32\), with \(C = 15\)</li>
+    <li>\(A = \pi r^2\), with \(r = 10\)</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-3">
+      <li>\(11\)</li>
+      <li>\(6\)</li>
+      <li>\(28\)</li>
+      <li>\(10\)</li>
+      <li>\(6\)</li>
+      <li>\(56\)</li>
+      <li>\(36\)</li>
+      <li>\(90\)</li>
+      <li>\(4\)</li>
+      <li>\(8\)</li>
+      <li>\(2\)</li>
+      <li>\(-12\)</li>
+      <li>\(2\)</li>
+      <li>\(8\)</li>
+      <li>\(-15\)</li>
+      <li>\(-11\)</li>
+      <li>\(19\)</li>
+      <li>\(9\)</li>
+      <li>\(4\)</li>
+      <li>\(45\)</li>
+      <li>\(36\)</li>
+      <li>\(-8\)</li>
+      <li>\(4\)</li>
+      <li>\(P = 34\)</li>
+      <li>\(v = 15\)</li>
+      <li>\(A = 18\)</li>
+      <li>\(s = 60\)</li>
+      <li>\(y = -5\)</li>
+      <li>\(F = 59\)</li>
+      <li>\(A = 314.2\) (1 d.p.)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise B <span class="level">Apply</span></h2>
-  <!-- 8–10 problem-solving and in-context questions, answers in one details -->
-  <p class="todo">Problem-solving questions coming soon.</p>
+  <ol class="exercise">
+    <li>A plumber works out the cost of a job with the formula \(C = 85 + 60h\), where \(C\) is in dollars and \(h\) is the number of hours.
+      <ol class="parts">
+        <li>Find the cost of a 3-hour job.</li>
+        <li>Find the cost of a job that takes an hour and a half.</li>
+      </ol>
+    </li>
+    <li>Ben is asked to find the value of \(4x^2\) when \(x = 3\). He writes \(4x^2 = 12^2 = 144\). Explain his mistake and give the correct answer.</li>
+    <li>Kayaks are hired out at a cost of \(C = 20 + 12h\) dollars for \(h\) hours.
+      <ol class="parts">
+        <li>Copy and complete the table.
+          <div class="table-scroll">
+            <table class="mtable value-table">
+              <tr><th>\(h\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+              <tr><th>\(C\) ($)</th><td></td><td></td><td></td><td></td><td></td></tr>
+            </table>
+          </div>
+        </li>
+        <li>Sina paid $92. For how many hours did she hire the kayak?</li>
+      </ol>
+    </li>
+    <li>The distance \(d\) metres that a stone falls in \(t\) seconds after it is dropped is \(d = 4.9t^2\). How far does the stone fall in
+      <ol class="parts">
+        <li>3 seconds?</li>
+        <li>half a second?</li>
+      </ol>
+    </li>
+    <li>Mia's test scores are 64, 78, 85 and 73. She types <kbd>64 + 78 + 85 + 73 ÷ 4</kbd> into her calculator to find the mean and gets 245.25.
+      <ol class="parts">
+        <li>Explain why her answer can't be right.</li>
+        <li>Find the correct mean.</li>
+      </ol>
+    </li>
+    <li>The maximum temperature in Hamilton one day was 22 °C. Use \(F = 1.8C + 32\) to change this to Fahrenheit. Water freezes at 32 °F. Is −5 °C above or below freezing in Fahrenheit? Show your working.</li>
+    <li>A garden bed is a trapezium with parallel sides 3.2 m and 4.8 m that are 1.5 m apart. Use \(A = \tfrac{1}{2}(a + b)h\) to find its area. A bag of mulch covers 2 m². How many bags are needed?</li>
+    <li>A car travels 210 km in 2.5 hours. Use \(s = \dfrac{d}{t}\) to find its average speed.</li>
+    <li>A ladder leans against a wall. Its foot is 2.4 m from the wall and its top is 7 m up the wall. Use \(c = \sqrt{a^2 + b^2}\) to find the length of the ladder.</li>
+    <li>A rough guide to a person's maximum heart rate, in beats per minute, is \(H = 220 - a\), where \(a\) is their age in years. A good training heart rate is 70% of the maximum. Find the training heart rate for a 14-year-old, to the nearest beat.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>(a) \(85 + 60 \times 3 = 265\), so $265. &nbsp; (b) \(85 + 60 \times 1.5 = 175\), so $175.</li>
+      <li>Ben multiplied before squaring, which works out \((4x)^2\). Only the \(x\) is squared: \(4 \times 3^2 = 4 \times 9 = 36\).</li>
+      <li>(a) 32, 44, 56, 68, 80. &nbsp; (b) \(92 = 20 + 12h\), so \(72 = 12h\) and \(h = 6\) hours.</li>
+      <li>(a) \(4.9 \times 3^2 = 4.9 \times 9 = 44.1\) m. &nbsp; (b) \(4.9 \times 0.5^2 = 4.9 \times 0.25 = 1.225\) m, about 1.2 m.</li>
+      <li>(a) The mean must lie between the lowest and highest scores, 64 and 85. The calculator only divided 73 by 4. &nbsp; (b) \(\dfrac{64 + 78 + 85 + 73}{4} = \dfrac{300}{4} = 75\).</li>
+      <li>\(1.8 \times 22 + 32 = 71.6\) °F. \(1.8 \times (-5) + 32 = -9 + 32 = 23\) °F, which is below 32 °F, so it is below freezing.</li>
+      <li>\(A = \tfrac{1}{2} \times (3.2 + 4.8) \times 1.5 = \tfrac{1}{2} \times 8 \times 1.5 = 6\) m². \(6 \div 2 = 3\) bags.</li>
+      <li>\(s = 210 \div 2.5 = 84\) km/h.</li>
+      <li>\(c = \sqrt{2.4^2 + 7^2} = \sqrt{5.76 + 49} = \sqrt{54.76} = 7.4\) m.</li>
+      <li>\(H = 220 - 14 = 206\). \(0.7 \times 206 = 144.2\), so about 144 beats per minute.</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block exercise">
   <h2>Exercise C <span class="level">Challenge</span></h2>
-  <!-- 4–6 extension questions, answers in one details -->
-  <p class="todo">Challenge questions coming soon.</p>
+  <ol class="exercise">
+    <li>When \(a = -2\), \(b = 3\) and \(c = -1\), put these expressions in order from smallest to largest.
+      \[ a^2 \qquad ab \qquad abc \qquad a + b + c \qquad a - b - c \]
+    </li>
+    <li>
+      <ol class="parts">
+        <li>Find a value of \(x\) for which \(x^2\) is smaller than \(x\).</li>
+        <li>Find a value of \(x\) for which \(x^3\) is smaller than \(x^2\).</li>
+      </ol>
+    </li>
+    <li>A row of \(n\) squares made from matchsticks uses \(M = 3n + 1\) matches.
+      <ol class="parts">
+        <li>How many matches are needed for 20 squares?</li>
+        <li>Can a row be made with exactly 100 matches? With exactly 200? Explain.</li>
+      </ol>
+    </li>
+    <li>Substitute \(n = 2, 3, 4, 5\) and \(6\) into \(n^2 - n\). What do you notice about every answer? Explain why this always happens. (Hint: \(n^2 - n = n(n - 1)\).)</li>
+    <li>Use \(F = 1.8C + 32\).
+      <ol class="parts">
+        <li>Show that −40 °C is the same as −40 °F.</li>
+        <li>Find the Celsius temperature at which the Fahrenheit number is exactly double the Celsius number.</li>
+      </ol>
+    </li>
+    <li>A rough rule for a car's stopping distance \(d\) metres at a speed of \(v\) km/h is \(d = 0.2v + 0.005v^2\). Find the stopping distance at 50 km/h and at 100 km/h. When the speed doubles, does the stopping distance double? Explain.</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers">
+      <li>\(ab = -6\), \(a - b - c = -4\), \(a + b + c = 0\), \(a^2 = 4\), \(abc = 6\).</li>
+      <li>(a) Any number between 0 and 1, e.g. \(x = 0.5\) gives \(x^2 = 0.25\). &nbsp; (b) Any number less than 1 except 0, e.g. \(x = 0.5\) gives \(0.125 < 0.25\), or \(x = -1\) gives \(-1 < 1\).</li>
+      <li>(a) \(3 \times 20 + 1 = 61\). &nbsp; (b) \(3n + 1 = 100\) gives \(n = 33\), so yes, 33 squares. \(3n + 1 = 200\) gives \(3n = 199\), which is not a multiple of 3, so no.</li>
+      <li>2, 6, 12, 20, 30: every answer is even. \(n(n - 1)\) is two whole numbers next to each other multiplied together. One of them must be even, so the product is even.</li>
+      <li>(a) \(1.8 \times (-40) + 32 = -72 + 32 = -40\). &nbsp; (b) \(2C = 1.8C + 32\), so \(0.2C = 32\) and \(C = 160\): 160 °C is 320 °F.</li>
+      <li>At 50 km/h: \(10 + 12.5 = 22.5\) m. At 100 km/h: \(20 + 50 = 70\) m. No: doubling the speed more than triples the distance, because the \(v^2\) part is multiplied by 4.</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block">
   <h2>Common mistakes</h2>
-  <!-- 3–4 .warn boxes, each with a short label -->
-  <p class="todo">Coming soon.</p>
+  <div class="warn">
+    <span class="box-label">Forgetting the hidden ×</span>
+    <p>When \(a = 4\), \(3a = 3 \times 4 = 12\), not 34. And \(ab\) means \(a \times b\).</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">No brackets round a negative</span>
+    <p>When \(x = -3\), \(x^2 = (-3)^2 = 9\), not \(-9\). Always put a negative number in brackets when you substitute it.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Squaring too much</span>
+    <p>When \(x = 4\), \(3x^2 = 3 \times 16 = 48\). Only the \(x\) is squared. \((3x)^2 = 12^2 = 144\) is a different expression.</p>
+  </div>
+  <div class="warn">
+    <span class="box-label">Ignoring the fraction line</span>
+    <p>\(\dfrac{a + b}{2}\) means add first, then divide. On a calculator, type the brackets yourself: <kbd>(a + b) ÷ 2</kbd>.</p>
+  </div>
 </section>
 
 <section class="block">
   <h2>Summary</h2>
-  <!-- .summary box with 5–7 bullet points -->
-  <p class="todo">Coming soon.</p>
+  <div class="summary">
+    <ul>
+      <li>To substitute, replace each letter with its number, then evaluate.</li>
+      <li>Put back the hidden multiplication signs: \(3a = 3 \times a\) and \(ab = a \times b\).</li>
+      <li>Follow the order of operations (BEDMAS). A fraction line and a square root sign act like brackets.</li>
+      <li>Put negative numbers in brackets: \((-3)^2 = 9\).</li>
+      <li>In \(3x^2\) only the \(x\) is squared. \((3x)^2\) squares everything in the bracket.</li>
+      <li>A formula links quantities. Substitute the values you know, then give the answer with units.</li>
+      <li>To find a letter that isn't the subject, substitute, then solve the equation that's left.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="block">
   <h2>Check-in</h2>
-  <!-- 6–8 end-of-chapter questions covering every section, answers in one details -->
-  <p class="todo">Coming soon.</p>
+  <p>Try these without looking back, then mark your answers.</p>
+  <ol class="exercise cols-2">
+    <li>\(5a - b\) when \(a = 3\) and \(b = 4\)</li>
+    <li>\(xy + z\) when \(x = 2\), \(y = 6\) and \(z = -5\)</li>
+    <li>\(4 - 3k\) when \(k = -2\)</li>
+    <li>\(2x^2\) when \(x = -3\)</li>
+    <li>\(\dfrac{a + b}{2}\) when \(a = 9\) and \(b = 15\)</li>
+    <li>\(\sqrt{a^2 + b^2}\) when \(a = 9\) and \(b = 12\)</li>
+    <li>A taxi fare is \(C = 3.50 + 2.80k\) dollars for \(k\) km. Find the fare for 8 km.</li>
+    <li>\(P = 2l + 2w\). Find \(l\) when \(P = 40\) and \(w = 7\).</li>
+  </ol>
+  <details class="solution">
+    <summary>Show answers</summary>
+    <ol class="answers cols-2">
+      <li>\(11\)</li>
+      <li>\(7\)</li>
+      <li>\(10\)</li>
+      <li>\(18\)</li>
+      <li>\(12\)</li>
+      <li>\(15\)</li>
+      <li>\(3.50 + 22.40 = 25.90\), so $25.90</li>
+      <li>\(40 = 2l + 14\), so \(26 = 2l\) and \(l = 13\)</li>
+    </ol>
+  </details>
 </section>
 
 <section class="block where-next">
   <h2>Where next?</h2>
-  <!-- 2–3 links to related subtopics (this year and the next) -->
-  <p class="todo">Coming soon.</p>
+  <ul>
+    <li><a href="../rearranging-formulae/index.html">Rearranging formulae</a>: making a different letter the subject.</li>
+    <li><a href="../linear-equations/index.html">Linear equations</a>: solving the equations that substitution can leave you with.</li>
+    <li><a href="../linear-graphs/index.html">Linear graphs</a>: substituting \(x\)-values into \(y = mx + c\) to draw a straight line.</li>
+  </ul>
 </section>
-
 <!-- vmanz:content:end -->
   </article>
   <nav class="pager" aria-label="Previous and next"><a class="pager-prev" href="../../algebra/linear-equations/index.html"><span class="pager-dir">Previous</span><span>Linear equations</span></a><a class="pager-next" href="../../algebra/rearranging-formulae/index.html"><span class="pager-dir">Next</span><span>Rearranging formulae</span></a></nav>

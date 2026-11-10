@@ -32,7 +32,7 @@ everything outside them (header, breadcrumbs, previous/next, footer):
 1. Write notes in the subtopic's `index.html`.
 2. Delete the `<!-- vmanz:placeholder -->` line when the page is ready for students.
 3. Run `python3 tools/build.py` (updates "Coming soon" badges, progress bars and `PROGRESS.md`).
-   Then run `python3 tools/check_answers.py`: it substitutes numbers into every exercise question and its answer where both are a single expression (expanding, factorising, simplifying) and lists any that don't match. Worded answers still need checking by hand.
+   Then run `python3 tools/check_answers.py`: it substitutes numbers into every exercise question and its answer where both are a single expression (expanding, factorising, simplifying) and lists any that don't match. For "find the value" questions, give the list the values, e.g. `<ol class="exercise" data-values="a=4, b=-2">`, or write single questions as `\(3x^2\) when \(x = -2\)`; the checker then puts those numbers in (rounded decimal answers are allowed). Worded answers still need checking by hand.
 4. Preview: `python3 -m http.server 8765`, then open http://localhost:8765
 5. Commit and push. GitHub Pages updates the live site in about a minute.
 

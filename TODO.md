@@ -57,7 +57,7 @@ Suggested order follows a typical teaching year. **Visual** = what the page need
 - [x] Expanding single brackets (visual: area models, arrow diagram)
 - [x] Expanding two brackets (pilot)
 - [x] Factorising (visual: area model, expand/factorise diagram)
-- [ ] Substitution into formulae
+- [x] Substitution into formulae (visual: substitution diagram, 3x² vs (3x)² squares, °C→°F explorer)
 - [ ] Linear equations (visual: balance diagram SVG)
 - [ ] Rearranging formulae
 - [ ] Linear inequalities (visual: SVG number lines)

@@ -190,7 +190,7 @@ details.solution[open] > summary { margin-bottom: 0.5rem; }
 .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
 
 /* tables: <table class="mtable"> ; add "value-table" for a horizontal x / y table */
-.table-scroll { overflow-x: auto; margin: 1.25rem 0; }
+.table-scroll { overflow-x: auto; margin: 1.25rem 0; position: relative; } /* relative: keeps KaTeX hidden MathML inside the scroll box */
 table.mtable { border-collapse: collapse; background: var(--surface); min-width: 50%; }
 .mtable caption { text-align: left; font-weight: 700; padding-bottom: 0.4rem; }
 .mtable th, .mtable td { border: 1px solid var(--line); padding: 0.45rem 0.8rem; text-align: center; }
@@ -319,3 +319,6 @@ ol.parts > li { margin-bottom: 0.2rem; }
   body { background: #fff; color: #000; }
   details.solution > :not(summary) { display: block; }
 }
+
+/* keep short maths in a table cell on one line (the table scrolls if needed) */
+.mtable .katex { white-space: nowrap; }

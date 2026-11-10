@@ -11,6 +11,12 @@ as "\\((x + 2)(x + 3)\\)" and "\\(x^2 + 5x + 6\\)", random numbers are put in
 for every letter and the two sides are compared. Worded questions and answers,
 equations and multi-part questions are skipped, so check those by hand.
 
+Substitution questions are checked with the given numbers instead:
+  * a question list with data-values, e.g. <ol class="exercise" data-values="a=5, b=-2">,
+    where each question is an expression such as "\\(3a - b\\)" and each answer a number;
+  * a single question such as "\\(3x^2\\) when \\(x = -2\\)" (or "if"), answer "\\(12\\)".
+A decimal answer may be rounded: "\\(31.4\\)" passes for 31.415...
+
 This catches slips in expanding, factorising and simplifying answers. It
 cannot tell whether an answer is in the form the question asked for (for
 example "factorise fully").
@@ -38,7 +44,7 @@ class Lists(HTMLParser):
         cls = dict(attrs).get("class", "") or ""
         if tag == "ol":
             kind = "q" if "exercise" in cls.split() else "a" if "answers" in cls.split() else None
-            self.stack.append([kind, [], None, 0])
+            self.stack.append([kind, [], dict(attrs).get("data-values"), 0])
         elif tag == "li" and self.stack:
             top = self.stack[-1]
             top[3] += 1
@@ -49,9 +55,9 @@ class Lists(HTMLParser):
 
     def handle_endtag(self, tag):
         if tag == "ol" and self.stack:
-            kind, items, _, _ = self.stack.pop()
+            kind, items, values, _ = self.stack.pop()
             if kind:
-                self.out.append((kind, [i.strip() for i in items]))
+                self.out.append((kind, [i.strip() for i in items], values))
             if self.stack:          # nested list: mark the parent item as multi-part
                 p = self.stack[-1]
                 if p[1]:
@@ -66,10 +72,12 @@ class Lists(HTMLParser):
 
 def to_python(tex: str) -> str | None:
     s = tex.replace("\\dfrac", "\\frac").replace("\\tfrac", "\\frac")
+    s = re.sub(r"^\\approx", "", s.strip())
     for _ in range(5):
+        s = re.sub(r"\\sqrt\{([^{}]*)\}", r"((\1)**0.5)", s)
         s = re.sub(r"\\frac\{([^{}]*)\}\{([^{}]*)\}", r"((\1)/(\2))", s)
     for a, b in [("\\times", "*"), ("\\div", "/"), ("\\cdot", "*"), ("−", "-"), ("\\left", ""),
-                 ("\\right", ""), ("\\,", ""), ("{", "("), ("}", ")"), ("^", "**"), (" ", "")]:
+                 ("\\right", ""), ("\\,", ""), ("\\pi", "(3.141592653589793)"), ("{", "("), ("}", ")"), ("^", "**"), (" ", "")]:
         s = s.replace(a, b)
     if "\\" in s or not re.fullmatch(r"[0-9a-z+\-*/().]+", s):
         return None
@@ -83,6 +91,42 @@ def expression(text: str) -> str | None:
     if not m or "\\(" in m.group(1) or "=" in m.group(1) or "[parts]" in text:
         return None
     return to_python(m.group(1))
+
+
+def assignments(text: str) -> dict | None:
+    """"a = 5, b = -2" (or several \\( \\) pieces joined by "and") -> {"a": 5.0, "b": -2.0}."""
+    env = {}
+    for piece in re.split(r",|\\\)\s*(?:and|,)?\s*\\\(|\band\b", text):
+        piece = piece.strip().strip("\\()").strip()
+        if not piece:
+            continue
+        m = re.fullmatch(r"([a-zA-Z])\s*=\s*(.+)", piece)
+        val = m and to_python(m.group(2))
+        if not val:
+            return None
+        env[m.group(1)] = eval(val, {}, {})
+    return env or None
+
+
+def question(text: str, values: str | None):
+    """Returns (python expression, numbers to put in, or None for random)."""
+    if values:
+        env = assignments(values)
+        return expression(text), env
+    m = re.fullmatch(r"\\\((.*?)\\\)\s*,?\s*(?:when|if)\s+(\\\(.*\\\))\s*\.?", text.strip(), re.S)
+    if m and "[parts]" not in text:
+        env = assignments(m.group(2))
+        if env:
+            return to_python(m.group(1)), env
+        return None, None
+    return expression(text), None
+
+
+def same_number(p: str, q: str, env: dict, answer_tex: str) -> bool:
+    x, y = eval(p, {}, dict(env)), eval(q, {}, {})
+    m = re.search(r"\.(\d+)\s*$", answer_tex.strip().rstrip("\\)").strip())
+    tol = 0.5 * 10 ** -len(m.group(1)) + 1e-9 if m else 1e-9 * max(1, abs(x))
+    return abs(x - y) <= tol
 
 
 def equal(p: str, q: str) -> bool:
@@ -103,16 +147,20 @@ def check(path: Path) -> tuple[int, int]:
     parser.feed(text)
     checked = bad = 0
     questions: list[str] = []
-    for kind, items in parser.out:
+    for kind, items, values in parser.out:
         if kind == "q":
-            questions += items
+            questions += [(q, values) for q in items]
             continue
-        for n, (q, a) in enumerate(zip(questions, items), 1):
-            pq, pa = expression(q), expression(a)
+        for n, ((q, values), a) in enumerate(zip(questions, items), 1):
+            try:
+                pq, env = question(q, values)
+            except Exception:
+                continue
+            pa = expression(a)
             if pq is None or pa is None:
                 continue
             try:
-                ok = equal(pq, pa)
+                ok = same_number(pq, pa, env, a) if env else equal(pq, pa)
             except Exception:
                 continue
             checked += 1
